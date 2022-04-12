@@ -1,0 +1,310 @@
+$navbarColor: rgba(33, 38, 42, 0.8);
+$navbarHeight: 70px;
+$navbarHeightMobile: 60px;
+$sidebarColor: rgb(33, 38, 42);
+$sidebarColorMobile: rgba(21, 21, 21, 0.93);
+$sidebarLinkHoverColor: rgb(55, 57, 59);
+$primaryColor: rgb(29, 147, 76);
+$activeColColor: rgba(204, 231, 243, 0.5);
+$activeColColorHeader: rgba(154, 179, 191, 0.5);
+$j_DivisionDivColor: rgb(0, 85, 255);
+$f_DivisionDivColor: rgb(255, 47, 89);
+$seasonWeeklyWin: rgba(0, 85, 255, 0.33);
+$seasonWeeklyloss: rgba(255, 47, 89, 0.33);
+$lightTextDarkBG: rgb(230, 230, 230);
+$scollTrackColor: rgba(230, 230, 230, 0);
+$scrollThumbColor: rgb(230, 230, 230);
+// team colors
+// fig
+$shellFig: rgb(255, 218, 9);
+$maskFig: rgb(40, 123, 63);
+$strokeFig: rgb(0, 0, 0);
+// chad
+$shellChad: rgb(155, 44, 66);
+$maskChad: rgb(255, 218, 9);
+$strokeChad: rgb(0, 0, 0);
+// denr
+$shellDenR: rgb(171, 171, 171);
+$maskDenR: rgb(38, 78, 144);
+$strokeDenR: rgb(0, 0, 0);
+// rose
+$shellRose: rgb(233, 38, 77);
+$maskRose: white;
+$strokeRose: black;
+// timmy
+$shellTimmy: rgb(40, 133, 96);
+$maskTimmy: rgb(198, 198, 198);
+$strokeTimmy: rgb(0, 0, 0);
+// frankie
+$shellFrankie: rgb(233, 119, 129);
+$maskFrankie: rgb(255, 255, 255);
+$strokeFrankie: rgb(0, 0, 0);
+// nordy
+$shellNordy: rgb(27, 60, 113);
+$maskNordy: rgb(255, 255, 255);
+$strokeNordy: rgb(0, 0, 0);
+// billy
+$shellBilly: rgb(181, 153, 78);
+$maskBilly: rgb(198, 198, 198);
+$strokeBilly: rgb(0, 0, 0);
+// the boo
+$shellBoo: rgb(93, 56, 148);
+$maskBoo: rgb(255, 218, 9);
+$strokeBoo: rgb(0, 0, 0);
+// big boy
+$shellBig: rgb(146, 182, 255);
+$maskBig: rgb(255, 255, 255);
+$strokeBig: rgb(0, 0, 0);
+// AJ
+$shellAJ: rgb(255, 255, 255);
+$maskAJ: rgb(198, 198, 198);
+$strokeAJ: rgb(0, 0, 0);
+// Taylor
+$shellTaylor: rgb(255, 102, 0);
+$maskTaylor: rgb(198, 198, 198);
+$strokeTaylor: rgb(0, 0, 0);
+// Guest
+$shellGuest: rgb(28, 80, 184);
+$maskGuest: rgb(255, 218, 9);
+$strokeGuest: rgb(0, 0, 0);
+
+$width: 768px;
+
+@mixin mobile {
+  @media (min-height: 421px) {
+    @media (max-width: #{$width}) {
+      @content;
+    }
+  }
+}
+
+@mixin notMobile {
+  @media (min-height: 421px) {
+    @media (min-width: #{$width}) {
+      @content;
+    }
+  }
+}
+
+@mixin smallDesktop {
+  @media (min-height: 1px) {
+    @media (max-width: 1300px) and (min-width: 820px) {
+      @content;
+    }
+  }
+}
+
+@mixin mobileHorizontal {
+  @media (max-height: 420px) {
+    @media (min-width: 600px) and (max-width: 820px) {
+      @content;
+    }
+  }
+}
+
+@mixin mobileKeyboard {
+  @media (max-height: 500px) {
+    @media (max-width: 500px) {
+      @content;
+    }
+  }
+}
+
+// LOADER
+.loader-full-screen {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  @include mobile {
+    // height: calc(100vh - $navbarHeight - $footerHeight);
+  }
+}
+.loader-half-screen {
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  @include mobile {
+    // height: calc(100vh - $navbarHeight - $footerHeight);
+  }
+}
+
+// MEDALS
+$goldMedal: rgb(236, 182, 44);
+$goldMedalBorder: rgb(164, 128, 38);
+$goldMedalText: rgb(123, 97, 29);
+$silverMedal: silver;
+$silverMedalBorder: rgb(106, 106, 106);
+$silverMedalText: rgb(83, 83, 83);
+$bronzeMedal: rgb(193, 104, 53);
+$bronzeMedalBorder: rgb(115, 65, 35);
+$bronzeMedalText: rgb(86, 49, 27);
+
+//small
+.medal-small {
+  position: absolute;
+  height: 12px;
+  width: 12px;
+  right: -10px;
+  top: -5px;
+  border-radius: 50%;
+  font-size: 9px;
+
+  &.teampage {
+    height: 20px;
+    width: 20px;
+    right: -24px;
+    top: -10px;
+    font-size: 13px;
+  }
+
+  // gold
+  &.medal0 {
+    background-color: $goldMedal;
+  }
+  &.medal0::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    content: "1";
+    color: black !important;
+  }
+  // silver
+  &.medal1 {
+    background-color: $silverMedal;
+  }
+  &.medal1::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    content: "2";
+    color: black !important;
+  }
+  // bronze
+  &.medal2 {
+    background-color: $bronzeMedal;
+  }
+  &.medal2::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    content: "3";
+    color: black !important;
+  }
+}
+
+.medal-medium {
+  min-width: 32px;
+  max-width: 32px;
+  min-height: 32px;
+  max-height: 32px;
+  line-height: 32px;
+  border-radius: 50%;
+
+  @include mobile {
+    min-width: 24px;
+    max-width: 24px;
+    min-height: 24px;
+    max-height: 24px;
+    line-height: 24px;
+  }
+
+  // gold
+  &.medal0 {
+    background-color: $goldMedal;
+    color: $goldMedalText !important;
+    border: 2px solid $goldMedalBorder;
+  }
+  // silver
+  &.medal1 {
+    background-color: $silverMedal;
+    color: $silverMedalText !important;
+    border: 2px solid $silverMedalBorder;
+  }
+  // bronze
+  &.medal2 {
+    background-color: $bronzeMedal;
+    color: $bronzeMedalText !important;
+    border: 2px solid $bronzeMedalBorder;
+  }
+}
+
+.mirror-helmet {
+  transform: scaleX(-1);
+  transition: all ease 0.25s;
+  margin-bottom: -4px;
+}
+
+.mirror-helmet-inactive {
+  transform: scaleX(-1);
+  transition: all ease 0.25s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.active-helmet {
+  transition: all ease 0.25s;
+  margin-bottom: -4px;
+}
+
+// scrollbar
+::-webkit-scrollbar {
+  width: 24px;
+  height: 22px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: $scollTrackColor;
+  background: $scollTrackColor;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $scrollThumbColor;
+  border: solid 8px transparent;
+  border-radius: 30px;
+  background-clip: content-box;
+}
+
+// playoff weeks
+.DC-background {
+  background-color: $goldMedal;
+  padding: 0px 4px;
+}
+.DC-text {
+  color: $goldMedalText;
+
+  &.subtext {
+    font-weight: 500;
+  }
+}
+.SF-background {
+  padding: 0px 4px;
+  background-color: $silverMedal;
+}
+.SF-text {
+  color: $silverMedalText;
+
+  &.subtext {
+    font-weight: 500;
+  }
+}
+.WC-background {
+  background-color: $bronzeMedal;
+  padding: 0px 4px;
+}
+.WC-text {
+  color: $bronzeMedalText;
+
+  &.subtext {
+    font-weight: 500;
+  }
+}

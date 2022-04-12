@@ -1,0 +1,118 @@
+@import "../../global.scss";
+
+.rules-page {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+  width: 100%;
+
+  .page-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    max-width: 100%;
+    min-width: 100%;
+    height: fit-content;
+    padding: 15px 0px;
+    position: sticky;
+    top: 0px;
+    backdrop-filter: blur(12px);
+    z-index: 10;
+    transition: all ease 0.35s;
+    margin-bottom: 25px;
+
+    .rules-page-header {
+      font-size: 30px;
+      font-weight: 700;
+      text-align: left;
+      position: relative;
+      width: fit-content;
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+
+      .section-header-subtext {
+        font-weight: 300;
+        font-size: 20px;
+        margin-left: 10px;
+      }
+    }
+  }
+
+  .rules-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 80px;
+    width: 80%;
+    max-width: 600px;
+
+    .rules-section {
+      letter-spacing: 0.1px;
+      .rules-section-header-container {
+        width: 100%;
+        text-align: left;
+
+        .rules-section-header {
+          font-size: 30px;
+          font-weight: 700;
+          text-align: left;
+          position: relative;
+          width: fit-content;
+          display: flex;
+          align-items: baseline;
+          justify-content: center;
+
+          .section-header-subtext {
+            font-weight: 300;
+            font-size: 20px;
+            margin-left: 10px;
+          }
+        }
+      }
+
+      .rules-section-item {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        padding: 10px 0px 10px 20px;
+
+        .rules-section-item-title {
+          font-size: 23px;
+          font-weight: 600;
+          display: flex;
+
+          .rules-ball-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+          }
+        }
+
+        .rules-section-item-detail {
+          padding: 10px 0px 0px 20px;
+          display: flex;
+
+          .item-arrow {
+            margin-right: 7px;
+          }
+
+          &.sub-detail {
+            padding: 10px 0px 0px 50px;
+          }
+
+          a {
+            text-decoration: none;
+            color: inherit;
+          }
+        }
+      }
+    }
+  }
+}

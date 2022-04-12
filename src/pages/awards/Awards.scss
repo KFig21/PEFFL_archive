@@ -1,0 +1,9 @@
+@import "../../global.scss";
+
+.awards-col {
+  min-width: 60px;
+
+  @include mobile {
+    min-width: 30px;
+  }
+}

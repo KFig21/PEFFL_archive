@@ -1,0 +1,102 @@
+@import "global.scss";
+
+.app {
+  text-align: center;
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  font-family: Poppins, sans-serif;
+
+  ::-webkit-scrollbar-track {
+    margin-top: 75px;
+  }
+
+  .mobile-menu-button {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 1000;
+    display: none;
+    min-width: 75px;
+    max-width: 75px;
+    min-height: 75px;
+    max-height: 75px;
+    align-items: center;
+    justify-content: center;
+
+    .mobile-menu-icon {
+      min-width: 40px;
+      max-width: 40px;
+      min-height: 40px;
+      max-height: 40px;
+    }
+
+    @include mobileHorizontal {
+    }
+
+    @include smallDesktop {
+    }
+
+    @include mobile {
+      display: flex;
+    }
+
+    @include mobileKeyboard {
+    }
+  }
+  .expand-menu-button {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 1000;
+    display: flex;
+    min-width: 76px;
+    max-width: 76px;
+    min-height: 65px;
+    max-height: 65px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    .expand-menu-icon {
+      min-width: 40px;
+      max-width: 40px;
+      min-height: 40px;
+      max-height: 40px;
+    }
+
+    @include mobileHorizontal {
+    }
+
+    @include smallDesktop {
+      display: none;
+    }
+
+    @include mobile {
+      display: none;
+    }
+
+    @include mobileKeyboard {
+    }
+  }
+
+  .main {
+    flex: 9;
+    position: relative;
+    max-height: 100vh;
+    overflow-y: scroll;
+    overflow: overlay;
+
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    scroll-snap-align: start;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+    .content {
+      width: 100%;
+      // overflow-x: hidden;
+    }
+  }
+}

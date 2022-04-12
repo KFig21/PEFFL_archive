@@ -1,0 +1,311 @@
+@import "../../global.scss";
+
+.standings-page {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  min-height: 100vh;
+
+  .page-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    max-width: 100%;
+    min-width: 100%;
+    height: fit-content;
+    padding: 15px 0px;
+    position: sticky;
+    top: 0px;
+    backdrop-filter: blur(12px);
+    z-index: 10;
+    transition: all ease 0.35s;
+    margin-bottom: 15px;
+
+    .standings-header {
+      font-size: 30px;
+      font-weight: 700;
+      text-align: left;
+      position: relative;
+      width: fit-content;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 45px;
+
+      &.mobile {
+        display: none;
+      }
+
+      @include mobile {
+        &.mobile {
+          display: flex;
+        }
+        &.desktop {
+          display: none;
+        }
+      }
+
+      button {
+        position: absolute;
+        right: -72px;
+        top: 0px;
+        transform: translateY(35%);
+        min-width: 60px;
+        font-size: 15px;
+        font-weight: 600;
+        border: none;
+        border-radius: 5px;
+        padding: 4px 10px;
+        cursor: pointer;
+        transition: all ease 0.25s;
+
+        &:active {
+          transform: scale(0.9) translateY(35%);
+        }
+      }
+    }
+  }
+
+  .standings-buttons-container {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 0px;
+    position: fixed;
+    // width: 100%;
+    backdrop-filter: blur(12px);
+    border-radius: 10px 10px 0px 0px;
+    z-index: 5;
+    padding: 0px 10px;
+
+    &.mobile {
+      display: none;
+    }
+
+    @include mobile {
+      &.desktop {
+        display: none;
+      }
+      &.mobile {
+        display: flex;
+      }
+    }
+
+    .standings-button {
+      border-radius: 20px;
+      padding: 5px 12px;
+      margin: 5px 10px;
+      border: 2px solid;
+      text-decoration: none;
+      transition: all ease 0.12s;
+      font-weight: 500;
+      cursor: pointer;
+    }
+  }
+
+  .standing-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include mobile {
+      align-items: flex-start;
+      justify-content: flex-start;
+      max-width: 90%;
+      overflow-x: scroll;
+    }
+
+    table {
+      border-collapse: collapse;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      overflow: hidden;
+
+      @include mobile {
+        align-items: flex-start;
+        justify-content: flex-start;
+      }
+
+      thead {
+        .table-header {
+          border-bottom: solid 2px gray;
+          cursor: pointer;
+          background-color: rgb(226, 226, 226);
+          .column-header {
+            padding: 6px 0px;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            .sort-icon {
+              position: absolute;
+              right: 0px;
+            }
+
+            &.active {
+              background-color: $activeColColorHeader;
+            }
+          }
+          .WL-header {
+            min-width: 20px;
+          }
+          .dash-header {
+            max-width: 15px;
+          }
+          .app-header,
+          .trophy-header {
+            .sort-icon {
+              position: absolute;
+              right: -4px;
+            }
+          }
+          th {
+          }
+        }
+      }
+      .standings-team-row {
+        font-family: Arial, Helvetica, sans-serif;
+        border-top: 1px solid lightgray;
+
+        a {
+          text-decoration: none;
+        }
+        .standings-team {
+          padding: 3px 20px;
+          display: flex;
+          align-items: center;
+          @include mobile {
+            padding: 3px 10px;
+          }
+          .standings-rank {
+            font-size: 22px;
+            font-weight: 700;
+            color: rgb(125, 125, 125);
+            min-width: 50px;
+            border-radius: 50%;
+            position: relative;
+
+            @include mobile {
+              min-width: 40px;
+              font-size: 18px;
+            }
+          }
+          .team-name-with-subtext {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            overflow-x: visible;
+
+            .standings-team-name {
+              font-family: poppins, sans-serif;
+              font-size: 19px;
+              font-weight: 700;
+              text-align: left;
+              margin-left: 10px;
+              padding-bottom: 10px;
+
+              @include mobile {
+                font-size: 18px;
+                white-space: nowrap;
+              }
+            }
+
+            .standings-team-subtext {
+              position: absolute;
+              font-size: 10px;
+              white-space: nowrap;
+              left: 12px;
+              bottom: 0px;
+            }
+          }
+          .standings-j_Division,
+          .standings-f_Division {
+            margin-left: 10px;
+            min-height: 16px;
+            min-width: 16px;
+            max-height: 16px;
+            max-width: 16px;
+            font-size: 9px;
+            border-radius: 50%;
+            color: white;
+            position: relative;
+            margin-bottom: 11px;
+          }
+          .standings-j_Division {
+            background-color: $j_DivisionDivColor;
+            opacity: 0.7;
+          }
+          .standings-j_Division::before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            content: "J";
+          }
+          .standings-f_Division {
+            background-color: $f_DivisionDivColor;
+            opacity: 0.7;
+          }
+          .standings-f_Division::before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            content: "F";
+          }
+        }
+        .standings-rank {
+          font-size: 22px;
+          font-weight: 700;
+          color: rgb(125, 125, 125);
+          min-width: 50px;
+          border-radius: 50%;
+          position: relative;
+        }
+        .record-col {
+          font-size: 20px;
+        }
+        .dash-col {
+          min-width: 15px;
+        }
+        .gb-col {
+          padding: 0px 8px;
+          color: rgb(154, 154, 154);
+          border-right: solid gray 1px;
+          min-width: 30px;
+        }
+        .points-col {
+          min-width: 80px;
+
+          &.active {
+            background-color: $activeColColor;
+            // font-weight: 600;
+          }
+          .standings-points {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            .standings-ppg {
+              width: fit-content;
+              font-size: 18px;
+              position: relative;
+            }
+            .standings-total-points {
+              font-size: 13px;
+              color: rgb(154, 154, 154);
+              font-style: italic;
+            }
+          }
+        }
+        .titles-col {
+          min-width: 45px;
+        }
+        td {
+        }
+      }
+    }
+  }
+}

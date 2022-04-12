@@ -1,0 +1,23 @@
+@import "../../global.scss";
+
+.team-name-with-subtext {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow-x: visible;
+  .standings-team-name {
+    font-family: poppins, sans-serif;
+    font-size: 25px;
+    font-weight: 700;
+    text-align: left;
+    margin-left: 10px;
+  }
+
+  .standings-team-gp {
+    position: absolute;
+    font-size: 10px;
+    white-space: nowrap;
+    left: 12px;
+    bottom: -8px;
+  }
+}

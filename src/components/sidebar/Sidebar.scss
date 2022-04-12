@@ -1,0 +1,316 @@
+@import "../../global.scss";
+
+.sidebar-container {
+  flex: 2;
+  z-index: 12;
+  min-height: 100vh;
+  max-height: 100vh;
+  position: relative;
+  transition: all ease 0.5s;
+
+  @include mobile {
+    position: fixed;
+    padding-left: unset;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    align-items: flex-start;
+    transition: none;
+
+    &.active {
+      left: 0px;
+    }
+  }
+
+  @include smallDesktop {
+    flex: unset;
+  }
+
+  .sidebar {
+    z-index: 12;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    transition: all ease 0.5s;
+
+    @include smallDesktop {
+      padding-right: 8px;
+    }
+
+    @include mobileHorizontal {
+      flex: unset;
+      min-width: 74px;
+      padding-right: 10px;
+    }
+
+    @include mobile {
+      position: fixed;
+      flex: 2.5;
+      padding-left: unset;
+      top: 0;
+      left: -100%;
+      width: 84%;
+      align-items: flex-start;
+      backdrop-filter: blur(3px);
+
+      &.active {
+        left: 0px;
+      }
+    }
+
+    @include mobileKeyboard {
+      position: fixed;
+      flex: 2.5;
+      padding-left: unset;
+      top: 0;
+      left: -100%;
+      width: 84%;
+      align-items: flex-start;
+      background-color: $sidebarColorMobile;
+      backdrop-filter: blur(3px);
+
+      &.active {
+        left: 0px;
+      }
+    }
+
+    .sidebar-list-container {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all ease 0.5s;
+
+      @include smallDesktop {
+        width: unset;
+        display: unset;
+        align-items: unset;
+        justify-content: unset;
+      }
+
+      .sidebar-list {
+        margin: 0;
+        padding: 10px 0px 0 0;
+        list-style: none;
+        font-size: 30px;
+        font-weight: 300;
+        min-width: 210px;
+        overflow: visible;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        transition: all ease 0.5s;
+
+        @include mobile {
+          padding: 5px 0px 0 0;
+        }
+
+        @include mobileKeyboard {
+          padding: 5px 0px 0 0;
+        }
+
+        @include mobileHorizontal {
+          padding: 5px 0px 0 0;
+          margin-top: 60px;
+          min-width: unset;
+        }
+
+        @include smallDesktop {
+          padding: 10px 0px 0 0;
+          min-width: unset;
+        }
+
+        a {
+          color: white;
+          text-decoration: none;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .sidebar-link {
+          &:hover {
+            background-color: $sidebarLinkHoverColor;
+            border-radius: 100px;
+          }
+
+          @include mobile {
+            font-size: 22px;
+            padding: 7px 30px;
+
+            &:hover {
+              background-color: unset;
+              border-radius: 100px;
+            }
+          }
+
+          @include mobileKeyboard {
+            font-size: 22px;
+            padding: 7px 30px;
+
+            &:hover {
+              background-color: unset;
+              border-radius: 100px;
+            }
+          }
+
+          @include mobileHorizontal {
+            margin-left: 10px;
+          }
+
+          @include smallDesktop {
+            margin-left: 10px;
+            padding: 8px 14px;
+          }
+
+          .sidebar-link-text {
+            width: 118px;
+            transition: all ease 0.5s;
+            text-align: left;
+            overflow-x: hidden;
+            margin-left: 10px;
+
+            @include mobileHorizontal {
+              display: none;
+            }
+            @include smallDesktop {
+              display: none;
+            }
+
+            &.with-helmet {
+              margin-left: 15px;
+            }
+          }
+
+          .sidebar-icon {
+            &.lan {
+              transform: rotate(90deg);
+            }
+
+            @include mobile {
+              height: 30px;
+              width: 30px;
+            }
+            @include mobileKeyboard {
+              height: 30px;
+              width: 30px;
+            }
+
+            @include mobileHorizontal {
+              margin-right: 0px;
+            }
+
+            @include smallDesktop {
+              margin-right: 0px;
+              height: 30px;
+              width: 30px;
+            }
+          }
+
+          &.active-nav-link {
+            @include mobileHorizontal {
+              margin-left: 0px;
+
+              .sidebar-icon,
+              .sidebar-team {
+                margin-left: 10px;
+              }
+            }
+
+            @include smallDesktop {
+              margin-left: 0px;
+              padding: 8px 14px 8px 10px;
+
+              .sidebar-icon,
+              .sidebar-team {
+                margin-left: 10px;
+              }
+            }
+
+            @include mobile {
+              padding: 10px 30px 10px 26px;
+
+              .notification-badge-container {
+                left: 19px;
+              }
+            }
+
+            @include mobileKeyboard {
+              padding: 10px 30px 10px 26px;
+
+              .notification-badge-container {
+                left: 19px;
+              }
+            }
+
+            &:hover {
+              // background-image: $glassGradient;
+              border-radius: 0px;
+              border-top-right-radius: 100px;
+              border-bottom-right-radius: 100px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .sidebar-mobile-background {
+    display: none;
+
+    @include mobile {
+      display: flex;
+    }
+  }
+
+  // COLLAPSE
+  @include notMobile {
+    &.collapse {
+      flex: 0;
+
+      .sidebar {
+        flex: unset;
+        padding-right: 8px;
+
+        .sidebar-list-container {
+          width: unset;
+          display: unset;
+          align-items: unset;
+          justify-content: unset;
+
+          .sidebar-list {
+            padding: 10px 0px 0 0;
+            min-width: 0px;
+
+            .sidebar-link {
+              margin-left: 10px;
+              padding: 8px 14px;
+
+              .sidebar-link-text {
+                width: 0px;
+                margin-left: 0px;
+              }
+
+              .sidebar-icon {
+                height: 30px;
+                width: 30px;
+              }
+
+              &.active-nav-link {
+                margin-left: 0px;
+                padding: 8px 14px 8px 10px;
+
+                .sidebar-icon,
+                .sidebar-team {
+                  margin-left: 10px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

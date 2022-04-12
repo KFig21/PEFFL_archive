@@ -1,0 +1,117 @@
+@import "../../global.scss";
+
+.home-page {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  min-height: 100vh;
+
+  .page-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    max-width: 100%;
+    min-width: 100%;
+    height: fit-content;
+    padding: 15px 0px;
+    position: sticky;
+    top: 0px;
+    backdrop-filter: blur(12px);
+    z-index: 10;
+    transition: all ease 0.35s;
+    margin-bottom: 15px;
+
+    .standings-header {
+      font-size: 30px;
+      font-weight: 700;
+      text-align: left;
+      position: relative;
+      width: fit-content;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 45px;
+    }
+  }
+
+  .home-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 80px;
+    width: 80%;
+    max-width: 600px;
+
+    .home-section {
+      letter-spacing: 0.1px;
+      .home-section-header-container {
+        width: 100%;
+        text-align: left;
+
+        .home-section-header {
+          font-size: 30px;
+          font-weight: 700;
+          text-align: left;
+          position: relative;
+          width: fit-content;
+          display: flex;
+          align-items: baseline;
+          justify-content: center;
+
+          .section-header-subtext {
+            font-weight: 300;
+            font-size: 20px;
+            margin-left: 10px;
+          }
+        }
+      }
+
+      .home-section-item {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        padding: 10px 0px 10px 20px;
+
+        .home-section-item-title {
+          font-size: 23px;
+          font-weight: 600;
+          display: flex;
+
+          .home-ball-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+          }
+        }
+
+        .home-section-item-detail {
+          padding: 10px 0px 0px 20px;
+          display: flex;
+
+          .item-arrow {
+            margin-right: 7px;
+          }
+
+          &.sub-detail {
+            padding: 10px 0px 0px 50px;
+          }
+
+          a {
+            text-decoration: none;
+            color: inherit;
+          }
+        }
+
+        img {
+          max-width: 500px;
+          width: 90%;
+          padding: 20px 20px 10px 20px;
+        }
+      }
+    }
+  }
+}
