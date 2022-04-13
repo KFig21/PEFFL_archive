@@ -21,7 +21,7 @@ const store = createStore(
 store.subscribe(
   throttle(() => {
     saveState({
-      token: store.getState().token,
+      token_peffl: store.getState().token_peffl,
     });
   }, 1000)
 );

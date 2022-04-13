@@ -18,11 +18,11 @@ export const register = (user) => {
   return (dispatch) => {
     axios
       .post(`${url}/auth/register`, user)
-      .then((token) => {
-        localStorage.setItem("token", token.data);
+      .then((token_peffl) => {
+        localStorage.setItem("token_peffl", token_peffl.data);
         dispatch({
           type: REGISTER,
-          token: token.data,
+          token_peffl: token_peffl.data,
         });
       })
       .catch((error) => {
@@ -35,11 +35,11 @@ export const login = (cred, setErrorHandler, setFetching) => {
   return (dispatch) => {
     axios
       .post(`${url}/auth/login`, cred)
-      .then((token) => {
-        localStorage.setItem("token", token.data);
+      .then((token_peffl) => {
+        localStorage.setItem("token_peffl", token_peffl.data);
         dispatch({
           type: LOGIN,
-          token: token.data,
+          token_peffl: token_peffl.data,
         });
         setFetching(false);
       })
@@ -66,11 +66,11 @@ export const logout = () => {
 
 export const loadUser = () => {
   return (dispatch, getState) => {
-    const token = getState().user.token;
-    if (token) {
+    const token_peffl = getState().user.token_peffl;
+    if (token_peffl) {
       dispatch({
         type: CURRENT_USER,
-        token,
+        token_peffl,
       });
     } else {
       return null;
@@ -82,11 +82,11 @@ export const updateTheme = (data) => {
   return (dispatch) => {
     axios
       .put(`${url}/auth/theme`, data)
-      .then((token) => {
-        localStorage.setItem("token", token.data);
+      .then((token_peffl) => {
+        localStorage.setItem("token_peffl", token_peffl.data);
         dispatch({
           type: THEME_UPDATE,
-          token: token.data,
+          token_peffl: token_peffl.data,
         });
       })
       .catch((error) => {
@@ -104,11 +104,11 @@ export const updateAccent = (data) => {
   return (dispatch) => {
     axios
       .put(`${url}/auth/accent`, data)
-      .then((token) => {
-        localStorage.setItem("token", token.data);
+      .then((token_peffl) => {
+        localStorage.setItem("token_peffl", token_peffl.data);
         dispatch({
           type: THEME_UPDATE,
-          token: token.data,
+          token_peffl: token_peffl.data,
         });
       })
       .catch((error) => {
@@ -126,11 +126,11 @@ export const updateHelmetStyle = (data) => {
   return (dispatch) => {
     axios
       .put(`${url}/auth/helmetStyle`, data)
-      .then((token) => {
-        localStorage.setItem("token", token.data);
+      .then((token_peffl) => {
+        localStorage.setItem("token_peffl", token_peffl.data);
         dispatch({
           type: HELMET_UPDATE,
-          token: token.data,
+          token_peffl: token_peffl.data,
         });
       })
       .catch((error) => {
@@ -148,11 +148,11 @@ export const updateHelmetView = (data) => {
   return (dispatch) => {
     axios
       .put(`${url}/auth/helmetView`, data)
-      .then((token) => {
-        localStorage.setItem("token", token.data);
+      .then((token_peffl) => {
+        localStorage.setItem("token_peffl", token_peffl.data);
         dispatch({
           type: THEME_UPDATE,
-          token: token.data,
+          token_peffl: token_peffl.data,
         });
       })
       .catch((error) => {
@@ -170,11 +170,11 @@ export const updateHighlightUser = (data) => {
   return (dispatch) => {
     axios
       .put(`${url}/auth/highlightUser`, data)
-      .then((token) => {
-        localStorage.setItem("token", token.data);
+      .then((token_peffl) => {
+        localStorage.setItem("token_peffl", token_peffl.data);
         dispatch({
           type: THEME_UPDATE,
-          token: token.data,
+          token_peffl: token_peffl.data,
         });
       })
       .catch((error) => {
@@ -192,11 +192,11 @@ export const updateExpandSidebar = (data) => {
   return (dispatch) => {
     axios
       .put(`${url}/auth/expandSidebar`, data)
-      .then((token) => {
-        localStorage.setItem("token", token.data);
+      .then((token_peffl) => {
+        localStorage.setItem("token_peffl", token_peffl.data);
         dispatch({
           type: THEME_UPDATE,
-          token: token.data,
+          token_peffl: token_peffl.data,
         });
       })
       .catch((error) => {

@@ -20,7 +20,7 @@ const initialState = {
   helmetView: null,
   highlightUser: null,
   expandSidebar: null,
-  token: localStorage.getItem("token"),
+  token_peffl: localStorage.getItem("token_peffl"),
 };
 
 const authReducer = (state = initialState, action) => {
@@ -32,9 +32,9 @@ const authReducer = (state = initialState, action) => {
     case THEME_UPDATE_FAIL:
     case HELMET_UPDATE:
     case HELMET_UPDATE_FAIL:
-      const user = jwtDecode(action.token);
+      const user = jwtDecode(action.token_peffl);
       return {
-        token: action.token,
+        token_peffl: action.token_peffl,
         username: user.username,
         email: user.email,
         theme: user.theme,
@@ -55,10 +55,10 @@ const authReducer = (state = initialState, action) => {
         helmetView: null,
         highlightUser: null,
         expandSidebar: null,
-        token: null,
+        token_peffl: null,
       };
     case LOGOUT:
-      localStorage.removeItem("token");
+      localStorage.removeItem("token_peffl");
       return {
         username: null,
         email: null,
@@ -68,7 +68,7 @@ const authReducer = (state = initialState, action) => {
         helmetView: null,
         highlightUser: null,
         expandSidebar: null,
-        token: null,
+        token_peffl: null,
       };
     default:
       return state;
