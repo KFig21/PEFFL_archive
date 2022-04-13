@@ -161,6 +161,10 @@ $bronzeMedalText: rgb(86, 49, 27);
     right: -24px;
     top: -10px;
     font-size: 13px;
+
+    @include mobile {
+      top: -7px;
+    }
   }
 
   // gold
