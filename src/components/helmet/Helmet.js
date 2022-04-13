@@ -33,7 +33,9 @@ export default function Helmet({ team, size, helmetStyle, helmetView }) {
   };
 
   useEffect(() => {
-    getStyle();
+    if (team.toLowerCase() !== "loading") {
+      getStyle();
+    }
   }, [teams, team]);
 
   return (

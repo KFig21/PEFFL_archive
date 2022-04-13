@@ -136,7 +136,7 @@ function App() {
       const newTheme = allThemes.filter(
         (theme) => theme.name.toLowerCase() === newThemeString.toLowerCase()
       );
-      if (newTheme === {} || newTheme === null || newTheme === undefined) {
+      if (newTheme.length === 0) {
         setTheme(darkThemeGreen);
       } else {
         setTheme(...newTheme);
