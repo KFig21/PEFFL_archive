@@ -160,6 +160,10 @@
             max-width: 80px;
             max-height: 135px;
             margin-bottom: 10px;
+
+            @include mobile {
+              max-height: 100px;
+            }
           }
         }
       }

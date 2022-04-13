@@ -57,7 +57,10 @@ export default function PlayoffStats({ team, j_Division }) {
           />
           <div className="mobile-right">
             <SC.textOnBgColor>
-              <span className="stat-title">DENR CUPS</span>
+              <span className="stat-title">
+                DENR CUPS{" "}
+                <span className="mobile">({teamTrophies.lc.length})</span>
+              </span>
             </SC.textOnBgColor>
             <SC.textOnBgColor>
               <div className="stat-value">
@@ -88,7 +91,10 @@ export default function PlayoffStats({ team, j_Division }) {
           />
           <div className="mobile-right">
             <SC.textOnBgColor>
-              <span className="stat-title">RUNNER UPS</span>
+              <span className="stat-title">
+                RUNNER UPS{" "}
+                <span className="mobile">({teamTrophies.ru.length})</span>
+              </span>
             </SC.textOnBgColor>
             <SC.textOnBgColor>
               <div className="stat-value">
@@ -119,7 +125,10 @@ export default function PlayoffStats({ team, j_Division }) {
           />
           <div className="mobile-right">
             <SC.textOnBgColor>
-              <span className="stat-title">RS CHAMP</span>
+              <span className="stat-title">
+                RS CHAMP{" "}
+                <span className="mobile">({teamTrophies.rsc.length})</span>
+              </span>
             </SC.textOnBgColor>
             <SC.textOnBgColor>
               <div className="stat-value">
@@ -154,7 +163,10 @@ export default function PlayoffStats({ team, j_Division }) {
           />
           <div className="mobile-right">
             <SC.textOnBgColor>
-              <span className="stat-title">MOST POINTS</span>
+              <span className="stat-title">
+                MOST POINTS{" "}
+                <span className="mobile">({teamTrophies.p.length})</span>
+              </span>
             </SC.textOnBgColor>
             <SC.textOnBgColor>
               <div className="stat-value">
@@ -193,7 +205,10 @@ export default function PlayoffStats({ team, j_Division }) {
           />
           <div className="mobile-right">
             <SC.textOnBgColor>
-              <span className="stat-title">DIV TITLES</span>
+              <span className="stat-title">
+                DIV TITLES{" "}
+                <span className="mobile">({teamTrophies.dc.length})</span>
+              </span>
             </SC.textOnBgColor>
             <SC.textOnBgColor>
               <div className="stat-value">

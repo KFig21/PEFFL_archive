@@ -377,12 +377,6 @@ const SC = {
       z-index: 100;
       left: -2000px;
     }
-
-    @media (max-height: ${mobileKeyboardHeightMax}) {
-      @media (max-width: ${mobileWidthMax}) {
-        display: none;
-      }
-    }
   `,
   ModalBackground: styled.div`
     background-color: ${(props) => props.theme.colors.modalBgColor};
@@ -432,54 +426,9 @@ const SC = {
       bottom: -2000px;
     }
 
-    .close-icon {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      color: ${(props) => props.theme.colors.textOnContainerColor};
-      z-index: 4;
-      cursor: pointer;
-      background-color: crimson;
-      border-radius: 50px;
-      opacity: 0.4;
-      transition: all ease 0.15s;
-
-      &:hover {
-        opacity: 1;
-      }
-
-      min-width: 30px;
-      max-width: 30px;
-      max-height: 30px;
-      min-height: 30px;
-    }
-
-    .arrow-icon {
-      position: absolute;
-      color: ${(props) => props.theme.colors.textOnBgColor};
-      z-index: 4;
-      cursor: pointer;
-      opacity: 0.4;
-      transition: all ease 0.15s;
-      top: 50%;
-      transform: translateY(-50%);
-
-      &:hover {
-        opacity: 1;
-      }
-
-      min-width: 50px;
-      max-width: 50px;
-      max-height: 50px;
-      min-height: 50px;
-
-      &.back {
-        left: -70px;
-      }
-
-      &.fwd {
-        right: -70px;
-      }
+    .modal-input-container {
+      max-width: 90%;
+      overflow: hidden;
     }
 
     @media (min-height: ${mobileHeightMin}) {
@@ -488,56 +437,14 @@ const SC = {
         min-width: 75vw;
         min-height: unset;
         max-height: 80vh;
-
-        .close-icon {
-          position: absolute;
-          top: 8px;
-          right: 8px;
-          color: ${(props) => props.theme.colors.textOnContainerColor};
-          z-index: 4;
-          cursor: pointer;
-          background-color: crimson;
-          border-radius: 50px;
-          opacity: 0.4;
-          transition: all ease 0.15s;
-
-          &:hover {
-            opacity: 1;
-          }
-
-          min-width: 20px;
-          max-width: 20px;
-          max-height: 20px;
-          min-height: 20px;
-        }
-
-        .arrow-icon {
-          position: absolute;
-          color: ${(props) => props.theme.colors.textOnBgColor};
-          z-index: 4;
-          cursor: pointer;
-          opacity: 0.4;
-          transition: all ease 0.15s;
-          top: 50%;
-          transform: translateY(-50%);
-
-          &:hover {
-            opacity: 1;
-          }
-
-          min-width: 36px;
-          max-width: 36px;
-          max-height: 36px;
-          min-height: 36px;
-
-          &.back {
-            left: -45px;
-          }
-
-          &.fwd {
-            right: -45px;
-          }
-        }
+      }
+    }
+    @media (max-height: ${mobileKeyboardHeightMax}) {
+      @media (max-width: ${mobileWidthMax}) {
+        max-width: 75vw;
+        min-width: 75vw;
+        min-height: unset;
+        max-height: 80vh;
       }
     }
   `,
@@ -553,6 +460,8 @@ const SC = {
     margin: 0px 10px 16px 10px;
     font-size: 18px;
     font-family: poppins, sans-serif;
+    max-width: 225px;
+    width: 100%;
 
     &:focus {
       background-color: ${(props) =>
