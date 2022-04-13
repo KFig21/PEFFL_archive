@@ -136,10 +136,14 @@ function App() {
       const newTheme = allThemes.filter(
         (theme) => theme.name.toLowerCase() === newThemeString.toLowerCase()
       );
-      setTheme(...newTheme);
-      setHelmetStyle(user.helmetStyle);
-      setHelmetView(user.helmetView);
-      setExpandSidebar(user.expandSidebar);
+      if (newTheme === {} || newTheme === null || newTheme === undefined) {
+        setTheme(darkThemeGreen);
+      } else {
+        setTheme(...newTheme);
+        setHelmetStyle(user.helmetStyle);
+        setHelmetView(user.helmetView);
+        setExpandSidebar(user.expandSidebar);
+      }
     } else {
       setTheme(theme);
     }

@@ -484,7 +484,6 @@ const SC = {
 
     @media (min-height: ${mobileHeightMin}) {
       @media (max-width: ${mobileWidthMax}) {
-        background-color: transparent;
         max-width: 75vw;
         min-width: 75vw;
         min-height: unset;
