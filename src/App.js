@@ -307,7 +307,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Router basename="/PEFFL_archive">
+      <Router basename="/">
         <div className="app">
           <SC.primaryColorFont className="mobile-menu-button">
             <MenuOutlinedIcon
