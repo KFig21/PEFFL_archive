@@ -141,7 +141,7 @@ function App() {
       const newThemeString = `${userTheme}Theme${userAccent}`;
       const newTheme = allThemes.filter(
         (theme) => theme.name.toLowerCase() === newThemeString.toLowerCase()
-      );
+      ); 
       setTheme(...newTheme);
       setHelmetStyle(user.helmetStyle);
       setHelmetView(user.helmetView);

@@ -29,7 +29,6 @@ export default function Settings({
 
   useEffect(() => {
     setCurrentPage("settings");
-    console.log(theme.name);
   }, []);
 
   const handleLogout = () => {

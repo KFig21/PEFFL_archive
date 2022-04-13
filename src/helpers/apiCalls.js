@@ -1,7 +1,7 @@
 import axios from "axios";
 
-// export const url = "http://localhost:3000/peffl"; // local
-export const url = "https://peffl-api.herokuapp.com/peffl"; // api
+export const url = "http://localhost:3000/peffl"; // local
+// export const url = "https://peffl-api.herokuapp.com/peffl"; // api
 
 // ---------- MAIN ----------
 export const getStandings = async (column, order, table) => {

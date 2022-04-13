@@ -15,7 +15,7 @@ export default function Helmet({ team, size, helmetStyle, helmetView }) {
 
   const getStyle = async () => {
     currTeam = await teams.filter((team_) => team_.teamName === team)[0];
-    currTeamStyle = currTeam.helmetStyle;
+    currTeamStyle = await currTeam.helmetStyle;
 
     if (user.username === null) {
       if (helmetView === "uniform") {
