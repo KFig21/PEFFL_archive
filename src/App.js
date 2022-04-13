@@ -14,7 +14,6 @@ import { HashRouter as Router, Route, Routes } from "react-router-dom";
 import "./app.scss";
 import {
   getAwardsRank,
-  getAwardsTable,
   getWeeksMostPFmedals,
   getWeeksMostPAmedals,
   getWeeksLeastPFmedals,
@@ -24,13 +23,10 @@ import {
 } from "./helpers/apiCalls";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 // Pages and Components
-import Nav from "./components/Nav/Nav";
 import Sidebar from "./components/sidebar/Sidebar";
-import axios from "axios";
 import Teams from "./pages/teams/Teams";
 import Home from "./pages/home/Home";
 import Standings from "./pages/standings/Standings";
-import Playoffs from "./pages/playoffs/Playoffs";
 import Records from "./pages/records/Records";
 import Awards from "./pages/awards/Awards";
 import Rules from "./pages/rules/Rules";
@@ -113,9 +109,7 @@ function App() {
   // LOGIN
   const [showLoginModal, setShowLoginModal] = useState(false);
   const dispatch = useDispatch();
-  const state = useSelector((state) => state);
   const user = useSelector((state) => state.user);
-  const teams = useSelector((state) => state.teams);
   // MISC
   const [showMobileSidebar, setShowMobileSidebar] = useState(false);
   const [expandSidebar, setExpandSidebar] = useState(true);
@@ -141,11 +135,13 @@ function App() {
       const newThemeString = `${userTheme}Theme${userAccent}`;
       const newTheme = allThemes.filter(
         (theme) => theme.name.toLowerCase() === newThemeString.toLowerCase()
-      ); 
+      );
       setTheme(...newTheme);
       setHelmetStyle(user.helmetStyle);
       setHelmetView(user.helmetView);
       setExpandSidebar(user.expandSidebar);
+    } else {
+      setTheme(theme);
     }
   };
 
