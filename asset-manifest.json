@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/PEFFL_archive/peffl/static/css/main.3a74826a.css",
-    "main.js": "/PEFFL_archive/peffl/static/js/main.39f664bf.js",
-    "static/media/2022_keeperList.png": "/PEFFL_archive/peffl/static/media/2022_keeperList.7e92acf09a0f2fe2d57e.png",
-    "static/media/denrCup.png": "/PEFFL_archive/peffl/static/media/denrCup.d5cce07220bf03d93476.png",
-    "static/media/ruTrophy.png": "/PEFFL_archive/peffl/static/media/ruTrophy.9643875b61385f85cafa.png",
-    "static/media/mostPointsAward.png": "/PEFFL_archive/peffl/static/media/mostPointsAward.1723d02c1d0fe52a9321.png",
-    "static/media/denrCupEmpty.png": "/PEFFL_archive/peffl/static/media/denrCupEmpty.5da10c7df6529aaba6a2.png",
-    "static/media/ruTrophyEmpty.png": "/PEFFL_archive/peffl/static/media/ruTrophyEmpty.ae0417363ba19b7001dd.png",
-    "static/media/mostPointsAwardEmpty.png": "/PEFFL_archive/peffl/static/media/mostPointsAwardEmpty.475864d09dda0f7984a9.png",
-    "static/media/rscTrophy.png": "/PEFFL_archive/peffl/static/media/rscTrophy.931f00eb8aa65c01ff80.png",
-    "static/media/rscTrophyEmpty.png": "/PEFFL_archive/peffl/static/media/rscTrophyEmpty.f1515f12e2f9f7b980a8.png",
-    "static/media/fdivBanner.png": "/PEFFL_archive/peffl/static/media/fdivBanner.e55c5bf049a99f882bb7.png",
-    "static/media/jdivBanner.png": "/PEFFL_archive/peffl/static/media/jdivBanner.00846ada6a4427549aa1.png",
-    "static/media/fdivBannerEmpty.png": "/PEFFL_archive/peffl/static/media/fdivBannerEmpty.e29329a0b1a15f4b062a.png",
-    "static/media/jdivBannerEmpty.png": "/PEFFL_archive/peffl/static/media/jdivBannerEmpty.3e319bd912626278e368.png",
-    "index.html": "/PEFFL_archive/peffl/index.html",
-    "main.3a74826a.css.map": "/PEFFL_archive/peffl/static/css/main.3a74826a.css.map",
-    "main.39f664bf.js.map": "/PEFFL_archive/peffl/static/js/main.39f664bf.js.map"
+    "main.css": "/PEFFL_archive/static/css/main.3a74826a.css",
+    "main.js": "/PEFFL_archive/static/js/main.ed0be619.js",
+    "static/media/2022_keeperList.png": "/PEFFL_archive/static/media/2022_keeperList.7e92acf09a0f2fe2d57e.png",
+    "static/media/denrCup.png": "/PEFFL_archive/static/media/denrCup.d5cce07220bf03d93476.png",
+    "static/media/ruTrophy.png": "/PEFFL_archive/static/media/ruTrophy.9643875b61385f85cafa.png",
+    "static/media/mostPointsAward.png": "/PEFFL_archive/static/media/mostPointsAward.1723d02c1d0fe52a9321.png",
+    "static/media/denrCupEmpty.png": "/PEFFL_archive/static/media/denrCupEmpty.5da10c7df6529aaba6a2.png",
+    "static/media/ruTrophyEmpty.png": "/PEFFL_archive/static/media/ruTrophyEmpty.ae0417363ba19b7001dd.png",
+    "static/media/mostPointsAwardEmpty.png": "/PEFFL_archive/static/media/mostPointsAwardEmpty.475864d09dda0f7984a9.png",
+    "static/media/rscTrophy.png": "/PEFFL_archive/static/media/rscTrophy.931f00eb8aa65c01ff80.png",
+    "static/media/rscTrophyEmpty.png": "/PEFFL_archive/static/media/rscTrophyEmpty.f1515f12e2f9f7b980a8.png",
+    "static/media/fdivBanner.png": "/PEFFL_archive/static/media/fdivBanner.e55c5bf049a99f882bb7.png",
+    "static/media/jdivBanner.png": "/PEFFL_archive/static/media/jdivBanner.00846ada6a4427549aa1.png",
+    "static/media/fdivBannerEmpty.png": "/PEFFL_archive/static/media/fdivBannerEmpty.e29329a0b1a15f4b062a.png",
+    "static/media/jdivBannerEmpty.png": "/PEFFL_archive/static/media/jdivBannerEmpty.3e319bd912626278e368.png",
+    "index.html": "/PEFFL_archive/index.html",
+    "main.3a74826a.css.map": "/PEFFL_archive/static/css/main.3a74826a.css.map",
+    "main.ed0be619.js.map": "/PEFFL_archive/static/js/main.ed0be619.js.map"
   },
   "entrypoints": [
     "static/css/main.3a74826a.css",
-    "static/js/main.39f664bf.js"
+    "static/js/main.ed0be619.js"
   ]
 }
