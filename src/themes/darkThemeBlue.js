@@ -27,6 +27,7 @@ import {
   dark_modalBgColor,
   dark_textSidebarColor,
   dark_sidebarBgColor,
+  dark_teampageHeaderBGcolorMOZ,
 } from "./ThemeBase";
 
 const darkThemeBlue = {
@@ -58,6 +59,7 @@ const darkThemeBlue = {
     weeklyLossBg: dark_weeklyLossBg,
     // teampage
     teampageHeaderBGcolor: dark_teampageHeaderBGcolor,
+    teampageHeaderBGcolorMOZ: dark_teampageHeaderBGcolorMOZ,
     teampageHeaderTextColor: dark_teampageHeaderTextColor,
     // modal
     modalBgColor: dark_modalBgColor,

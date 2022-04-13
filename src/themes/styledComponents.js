@@ -269,6 +269,11 @@ const SC = {
     background-color: ${(props) =>
       props.theme.colors.teampageHeaderBGcolor} !important;
     color: ${(props) => props.theme.colors.teampageHeaderTextColor} !important;
+
+    @-moz-document url-prefix() {
+      background-color: ${(props) =>
+        props.theme.colors.teampageHeaderBGcolorMOZ} !important;
+    }
   `,
 
   // ---------- H2H ----------

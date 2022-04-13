@@ -20,7 +20,9 @@ export const light_weeklyWinBg = "rgb(0, 85, 255, 0.17)";
 export const light_weeklyLossBg = "rgba(255, 47, 89, 0.17)";
 ////// teampage
 export const light_teampageHeaderBGcolor = "rgba(15, 19, 30, 0.75);";
+export const light_teampageHeaderBGcolorMOZ = "rgba(12,12,12, 0.97)";
 export const light_teampageHeaderTextColor = "rgb(210, 210, 210)";
+////// modal
 export const light_modalBgColor = "rgba(150,150,150, .3)";
 
 // DARK
@@ -45,6 +47,7 @@ export const dark_weeklyWinBg = "rgb(0, 85, 255, 0.3)";
 export const dark_weeklyLossBg = "rgba(255, 47, 89, 0.3)";
 ////// teampage
 export const dark_teampageHeaderBGcolor = "rgba(0, 0, 0, 0.45)";
+export const dark_teampageHeaderBGcolorMOZ = "rgba(12,12,12, 0.97)";
 export const dark_teampageHeaderTextColor = "rgb(210, 210, 210)";
 ////// modal
 export const dark_modalBgColor = "rgba(10, 10, 10, 0.75)";

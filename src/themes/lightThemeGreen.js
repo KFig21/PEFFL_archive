@@ -27,6 +27,7 @@ import {
   light_modalBgColor,
   light_textSidebarColor,
   light_sidebarBgColor,
+  light_teampageHeaderBGcolorMOZ,
 } from "./ThemeBase";
 
 const lightThemeGreen = {
@@ -58,6 +59,7 @@ const lightThemeGreen = {
     weeklyLossBg: light_weeklyLossBg,
     // teampage
     teampageHeaderBGcolor: light_teampageHeaderBGcolor,
+    teampageHeaderBGcolorMOZ: light_teampageHeaderBGcolorMOZ,
     teampageHeaderTextColor: light_teampageHeaderTextColor,
     // modal
     modalBgColor: light_modalBgColor,
