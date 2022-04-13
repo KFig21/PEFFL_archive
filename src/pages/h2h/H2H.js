@@ -350,6 +350,8 @@ export default function H2H({
               difpgRank_h2h={difpgRank_h2h}
               winStreak={winStreak}
               winner={winner}
+              helmetStyle={helmetStyle}
+              helmetView={helmetView}
             />
             {/* OVERALL SECTION */}
             <Overall_Section

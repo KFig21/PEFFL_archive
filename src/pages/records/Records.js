@@ -77,8 +77,13 @@ export default function Records({
       <SC.teampageHeader className="page-header">
         <div className="records-header">Records</div>
       </SC.teampageHeader>
-      <div className="top-of-page" id="records-page"></div>
-      <div className="records-references">
+      {/* <div className="top-of-page" id="records-page"></div> */}
+
+      {/* CANNOT USE REFERENCES WITH HASHROUTER
+CANNOUT REFRESH PAGE WITH BROWSER ROUTER
+DECIDED TO STICK WITH BROWSER ROUTER */}
+
+      {/* <div className="records-references">
         <SC.primaryColorAnchorInverse
           className="records-references-links"
           href="#single-game-most-pf"
@@ -109,7 +114,7 @@ export default function Records({
         >
           Weekly Records
         </SC.primaryColorAnchorInverse>
-      </div>
+      </div> */}
       <div className="record-tables-container">
         <SingleGameMostPF
           j_Division={j_Division}
@@ -142,7 +147,7 @@ export default function Records({
         />
         <br />
       </div>
-      <div className="arrows-container">
+      {/* <div className="arrows-container">
         <div className="prev-next-button-container">
           <SC.primaryColorAnchor
             className="prev-record-button"
@@ -165,7 +170,7 @@ export default function Records({
         >
           <KeyboardDoubleArrowUpIcon />
         </SC.primaryColorAnchor>
-      </div>
+      </div> */}
     </div>
   );
 }

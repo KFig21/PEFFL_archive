@@ -12,6 +12,7 @@ export default function Matchups({
   schedule,
   loaded,
   helmetStyle,
+  helmetView,
 }) {
   return (
     <div className="h2h-matchups-container">
@@ -107,6 +108,7 @@ export default function Matchups({
                                 team={game.team}
                                 size={"records"}
                                 helmetStyle={helmetStyle}
+                                helmetView={helmetView}
                               />
                             </div>
                           </Link>
@@ -150,6 +152,7 @@ export default function Matchups({
                                 team={game.opp}
                                 size={"records"}
                                 helmetStyle={helmetStyle}
+                                helmetView={helmetView}
                               />
                             </div>
                             <SC.textOnBgColor className="records-team-name">

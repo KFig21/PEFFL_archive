@@ -152,6 +152,10 @@
         min-width: 100%;
       }
 
+      &.first {
+        margin-top: unset;
+      }
+
       span {
         font-size: 28px;
         font-weight: 700;

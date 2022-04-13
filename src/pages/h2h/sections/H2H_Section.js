@@ -15,6 +15,8 @@ export default function H2H_Section({
   difpgRank_h2h,
   winStreak,
   winner,
+  helmetStyle,
+  helmetView,
 }) {
   return (
     <div className="h2h-all-stats-section">
@@ -197,10 +199,20 @@ export default function H2H_Section({
             <SC.primaryBorderColor className="h2h-winstreak-container">
               <SC.textOnBgColor>
                 <div className="h2h-winstreak-header">
-                  <Helmet team={winner} size="h2h-streak" />
+                  <Helmet
+                    team={winner}
+                    size="h2h-streak"
+                    helmetStyle={helmetStyle}
+                    helmetView={helmetView}
+                  />
                   <span>{winStreak} game win streak</span>
                   <div className="mirror-helmet-inactive">
-                    <Helmet team={winner} size="h2h-streak" />
+                    <Helmet
+                      team={winner}
+                      size="h2h-streak"
+                      helmetStyle={helmetStyle}
+                      helmetView={helmetView}
+                    />
                   </div>
                 </div>
               </SC.textOnBgColor>

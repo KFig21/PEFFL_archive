@@ -29,7 +29,7 @@ export default function SingleGameMostPF({
 
   return (
     <div className="record-table" id="single-game-most-pf">
-      <div className="table-name">
+      <div className="table-name first">
         <SC.textOnBgColor>Single Game Most PF</SC.textOnBgColor>
       </div>
       <SC.TableContainer className="standing-container">
