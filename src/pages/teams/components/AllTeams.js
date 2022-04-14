@@ -83,10 +83,10 @@ export default function AllTeams({ j_Division, helmetStyle, helmetView }) {
           </SC.primaryColorButton>
         </div>
       </SC.teampageHeader>
-      <SC.teampageHeader className="allteams-buttons-container desktop">
+      <SC.teampageHeader className="schedule-buttons-container desktop">
         <SC.primaryColorAnchorInverse
           className={
-            schedule === "RS" ? "allteams-button active" : "allteams-button"
+            schedule === "RS" ? "schedule-button active" : "schedule-button"
           }
           onClick={() => changeSchedule("RS")}
         >
@@ -95,8 +95,8 @@ export default function AllTeams({ j_Division, helmetStyle, helmetView }) {
         <SC.primaryColorAnchorInverse
           className={
             schedule === "playoffs"
-              ? "allteams-button active"
-              : "allteams-button"
+              ? "schedule-button active"
+              : "schedule-button"
           }
           onClick={() => changeSchedule("playoffs")}
         >
@@ -104,17 +104,17 @@ export default function AllTeams({ j_Division, helmetStyle, helmetView }) {
         </SC.primaryColorAnchorInverse>
         <SC.primaryColorAnchorInverse
           className={
-            schedule === "AG" ? "allteams-button active" : "allteams-button"
+            schedule === "AG" ? "schedule-button active" : "schedule-button"
           }
           onClick={() => changeSchedule("AG")}
         >
           All Games
         </SC.primaryColorAnchorInverse>
       </SC.teampageHeader>
-      <SC.teampageHeader className="allteams-buttons-container mobile">
+      <SC.teampageHeader className="schedule-buttons-container mobile">
         <SC.primaryColorAnchorInverse
           className={
-            schedule === "RS" ? "allteams-button active" : "allteams-button"
+            schedule === "RS" ? "schedule-button active" : "schedule-button"
           }
           onClick={() => changeSchedule("RS")}
         >
@@ -123,8 +123,8 @@ export default function AllTeams({ j_Division, helmetStyle, helmetView }) {
         <SC.primaryColorAnchorInverse
           className={
             schedule === "playoffs"
-              ? "allteams-button active"
-              : "allteams-button"
+              ? "schedule-button active"
+              : "schedule-button"
           }
           onClick={() => changeSchedule("playoffs")}
         >
@@ -132,7 +132,7 @@ export default function AllTeams({ j_Division, helmetStyle, helmetView }) {
         </SC.primaryColorAnchorInverse>
         <SC.primaryColorAnchorInverse
           className={
-            schedule === "AG" ? "allteams-button active" : "allteams-button"
+            schedule === "AG" ? "schedule-button active" : "schedule-button"
           }
           onClick={() => changeSchedule("AG")}
         >

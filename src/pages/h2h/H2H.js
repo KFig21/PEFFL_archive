@@ -379,45 +379,57 @@ export default function H2H({
       ) : (
         <Loader type={"full-screen"} />
       )}
-      <SC.teampageHeader className="h2h-buttons-container desktop">
+      <SC.teampageHeader className="schedule-buttons-container desktop">
         <SC.primaryColorAnchorInverse
-          className={schedule === "RS" ? "h2h-button active" : "h2h-button"}
+          className={
+            schedule === "RS" ? "schedule-button active" : "schedule-button"
+          }
           onClick={() => changeSchedule("RS")}
         >
           Regular Season
         </SC.primaryColorAnchorInverse>
         <SC.primaryColorAnchorInverse
           className={
-            schedule === "playoffs" ? "h2h-button active" : "h2h-button"
+            schedule === "playoffs"
+              ? "schedule-button active"
+              : "schedule-button"
           }
           onClick={() => changeSchedule("playoffs")}
         >
           Playoffs
         </SC.primaryColorAnchorInverse>
         <SC.primaryColorAnchorInverse
-          className={schedule === "AG" ? "h2h-button active" : "h2h-button"}
+          className={
+            schedule === "AG" ? "schedule-button active" : "schedule-button"
+          }
           onClick={() => changeSchedule("AG")}
         >
           All Games
         </SC.primaryColorAnchorInverse>
       </SC.teampageHeader>
-      <SC.teampageHeader className="h2h-buttons-container mobile">
+      <SC.teampageHeader className="schedule-buttons-container mobile">
         <SC.primaryColorAnchorInverse
-          className={schedule === "RS" ? "h2h-button active" : "h2h-button"}
+          className={
+            schedule === "RS" ? "schedule-button active" : "schedule-button"
+          }
           onClick={() => changeSchedule("RS")}
         >
           Season
         </SC.primaryColorAnchorInverse>
         <SC.primaryColorAnchorInverse
           className={
-            schedule === "playoffs" ? "h2h-button active" : "h2h-button"
+            schedule === "playoffs"
+              ? "schedule-button active"
+              : "schedule-button"
           }
           onClick={() => changeSchedule("playoffs")}
         >
           Playoffs
         </SC.primaryColorAnchorInverse>
         <SC.primaryColorAnchorInverse
-          className={schedule === "AG" ? "h2h-button active" : "h2h-button"}
+          className={
+            schedule === "AG" ? "schedule-button active" : "schedule-button"
+          }
           onClick={() => changeSchedule("AG")}
         >
           All

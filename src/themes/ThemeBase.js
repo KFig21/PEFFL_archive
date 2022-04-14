@@ -1,6 +1,6 @@
 // LIGHT
 ////// core
-export const light_backgroundColor = "rgb(244, 244, 244)";
+export const light_backgroundColor = "rgb(234, 234, 234)";
 export const light_textOnBgColor = "black";
 export const light_textSidebarColor = "rgb(210, 210, 210)";
 export const light_sidebarBgColor = "rgb(33, 38, 42)";
@@ -11,7 +11,7 @@ export const light_rowHoverColor = "rgba(253, 244, 213, 0.5)";
 export const light_activeColColor = "rgba(204, 231, 243, 0.5)";
 export const light_activeColColorHeader = "rgba(154, 179, 191, 0.5)";
 export const light_tableBorderColor = "lightgrey";
-export const light_tableHeaderBgColor = "rgb(226, 226, 226)";
+export const light_tableHeaderBgColor = "rgb(200, 200, 200)";
 export const light_weeklyHighBorder = "rgb(0, 85, 255)";
 export const light_weeklyHighBg = "rgb(0, 85, 255, 0.4)";
 export const light_weeklyLowBorder = "rgb(255, 47, 89)";
@@ -27,10 +27,10 @@ export const light_modalBgColor = "rgba(150,150,150, .3)";
 
 // DARK
 ////// core
-export const dark_backgroundColor = "#141414";
+export const dark_backgroundColor = "rgb(26, 25, 28)";
 export const dark_textOnBgColor = "rgb(210, 210, 210)";
 export const dark_textSidebarColor = "rgb(210, 210, 210)";
-export const dark_sidebarBgColor = "rgb(31, 33, 36)";
+export const dark_sidebarBgColor = "rgb(35, 37, 41)";
 export const dark_subtextOnBgColor = "grey";
 export const dark_tableHeaderColor = "grey";
 ////// table
@@ -46,7 +46,7 @@ export const dark_weeklyLowBg = "rgba(255, 47, 89, 0.4)";
 export const dark_weeklyWinBg = "rgb(0, 85, 255, 0.3)";
 export const dark_weeklyLossBg = "rgba(255, 47, 89, 0.3)";
 ////// teampage
-export const dark_teampageHeaderBGcolor = "rgba(0, 0, 0, 0.45)";
+export const dark_teampageHeaderBGcolor = "rgba(0, 0, 0, 0.65)";
 export const dark_teampageHeaderBGcolorMOZ = "rgba(12,12,12, 0.97)";
 export const dark_teampageHeaderTextColor = "rgb(210, 210, 210)";
 ////// modal

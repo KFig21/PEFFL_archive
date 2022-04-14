@@ -115,10 +115,10 @@ export default function Standings({
         </div>
       </SC.teampageHeader>
       {/* DESKTOP BUTTONS */}
-      <SC.teampageHeader className="standings-buttons-container desktop">
+      <SC.teampageHeader className="schedule-buttons-container desktop">
         <SC.primaryColorAnchorInverse
           className={
-            schedule === "RS" ? "standings-button active" : "standings-button"
+            schedule === "RS" ? "schedule-button active" : "schedule-button"
           }
           onClick={() => changeSchedule("RS")}
         >
@@ -127,8 +127,8 @@ export default function Standings({
         <SC.primaryColorAnchorInverse
           className={
             schedule === "playoffs"
-              ? "standings-button active"
-              : "standings-button"
+              ? "schedule-button active"
+              : "schedule-button"
           }
           onClick={() => changeSchedule("playoffs")}
         >
@@ -136,7 +136,7 @@ export default function Standings({
         </SC.primaryColorAnchorInverse>
         <SC.primaryColorAnchorInverse
           className={
-            schedule === "AG" ? "standings-button active" : "standings-button"
+            schedule === "AG" ? "schedule-button active" : "schedule-button"
           }
           onClick={() => changeSchedule("AG")}
         >
@@ -144,10 +144,10 @@ export default function Standings({
         </SC.primaryColorAnchorInverse>
       </SC.teampageHeader>
       {/* MOBILE BUTTONS */}
-      <SC.teampageHeader className="standings-buttons-container mobile">
+      <SC.teampageHeader className="schedule-buttons-container mobile">
         <SC.primaryColorAnchorInverse
           className={
-            schedule === "RS" ? "standings-button active" : "standings-button"
+            schedule === "RS" ? "schedule-button active" : "schedule-button"
           }
           onClick={() => changeSchedule("RS")}
         >
@@ -156,8 +156,8 @@ export default function Standings({
         <SC.primaryColorAnchorInverse
           className={
             schedule === "playoffs"
-              ? "standings-button active"
-              : "standings-button"
+              ? "schedule-button active"
+              : "schedule-button"
           }
           onClick={() => changeSchedule("playoffs")}
         >
@@ -165,7 +165,7 @@ export default function Standings({
         </SC.primaryColorAnchorInverse>
         <SC.primaryColorAnchorInverse
           className={
-            schedule === "AG" ? "standings-button active" : "standings-button"
+            schedule === "AG" ? "schedule-button active" : "schedule-button"
           }
           onClick={() => changeSchedule("AG")}
         >

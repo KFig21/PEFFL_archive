@@ -161,6 +161,22 @@ const SC = {
   Sidebar: styled.div`
     background-color: ${(props) =>
       props.theme.colors.sidebarBgColor} !important;
+
+    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.6) !important;
+
+    ::-webkit-scrollbar-thumb {
+      border: none;
+      border-radius: 0px;
+      background-color: ${(props) =>
+        props.theme.colors.primaryColorFaded} !important;
+      &:hover {
+        background-color: ${(props) =>
+          props.theme.colors.primaryColor} !important;
+      }
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
   `,
   SidebarLink: styled.div`
     display: flex;
@@ -269,6 +285,14 @@ const SC = {
     background-color: ${(props) =>
       props.theme.colors.teampageHeaderBGcolor} !important;
     color: ${(props) => props.theme.colors.teampageHeaderTextColor} !important;
+
+    border-bottom: solid 3px rgb(44, 44, 44);
+    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.6) !important;
+
+    &.schedule-buttons-container {
+      border: solid 3px rgb(44, 44, 44);
+      border-bottom: none;
+    }
 
     @-moz-document url-prefix() {
       background-color: ${(props) =>
