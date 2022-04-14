@@ -4,10 +4,10 @@ export const light_backgroundColor = "rgb(234, 234, 234)";
 export const light_textOnBgColor = "black";
 export const light_textSidebarColor = "rgb(210, 210, 210)";
 export const light_sidebarBgColor = "rgb(33, 38, 42)";
-export const light_subtextOnBgColor = "grey";
+export const light_subtextOnBgColor = "rgb(120,120,120)";
 export const light_tableHeaderColor = "black";
 ////// table
-export const light_rowHoverColor = "rgba(253, 244, 213, 0.5)";
+export const light_rowHoverColor = "rgba(243, 234, 203, 0.65)";
 export const light_activeColColor = "rgba(204, 231, 243, 0.5)";
 export const light_activeColColorHeader = "rgba(154, 179, 191, 0.5)";
 export const light_tableBorderColor = "lightgrey";

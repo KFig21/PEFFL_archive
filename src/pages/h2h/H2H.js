@@ -211,7 +211,7 @@ export default function H2H({
                     >
                       <Helmet
                         team={"loading"}
-                        size={"teampage"}
+                        size={"h2h-header"}
                         helmetStyle={helmetStyle}
                         helmetView={helmetView}
                       />
@@ -229,7 +229,7 @@ export default function H2H({
                     >
                       <Helmet
                         team={"loading"}
-                        size={"teampage"}
+                        size={"h2h-header"}
                         helmetStyle={helmetStyle}
                         helmetView={helmetView}
                       />
