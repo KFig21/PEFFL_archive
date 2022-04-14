@@ -5,7 +5,7 @@
 <p>PEFFL API repo - <a href="https://github.com/KFig21/PEFFL_api" target="_blank" rel="noopener noreferrer">click here!</a></p>
 
 <h3>Summary</h3>
-<p>An comprehensive archive of the PEFFL fantasy football league. This site is built with the MERN stack, Redux, AWS RDS, SASS, Styled-components, and JWT authentication. The goal of this project was to build an archive of statistical data for this league. League members can login and customize there experience. The site is fully responsive.</p>
+<p>A comprehensive archive of the PEFFL fantasy football league. This site is built with the MERN stack, Redux, AWS RDS, SASS, Styled-components, and JWT authentication. The goal of this project was to build an archive of statistical data for this league. League members can login and customize there experience. The site is fully responsive.</p>
 
  <h3>Technologies:</h3>
   <ul>
