@@ -409,7 +409,22 @@
         .titles-col {
           min-width: 45px;
         }
-        td {
+        .espn-link-col {
+          text-align: center;
+
+          a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .link-icon-container {
+              max-width: 20px;
+              max-height: 20px;
+              .link-icon {
+                max-width: 20px;
+                max-height: 20px;
+              }
+            }
+          }
         }
       }
     }

@@ -295,7 +295,7 @@
             }
 
             .allteams-team {
-              padding: 3px 10px 3px 20px;
+              padding: 3px 10px 3px 10px;
               display: flex;
               align-items: center;
 
@@ -318,7 +318,7 @@
 
               .standings-team-name {
                 font-family: poppins, sans-serif;
-                font-size: 22px;
+                font-size: 20px;
                 font-weight: 700;
                 text-align: left;
                 margin-left: 10px;
@@ -375,8 +375,8 @@
               position: relative;
             }
             .record-col {
-              font-size: 20px;
-              min-width: 25px;
+              font-size: 18px;
+              min-width: 18px;
               text-align: center;
 
               &.padding-left {
@@ -435,6 +435,24 @@
 
               &.schedule-border {
                 border-right: solid 1px gray;
+              }
+            }
+            .espn-link-col {
+              text-align: center;
+              padding: 0px 6px 0px 0px;
+
+              a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                .link-icon-container {
+                  max-width: 20px;
+                  max-height: 20px;
+                  .link-icon {
+                    max-width: 20px;
+                    max-height: 20px;
+                  }
+                }
               }
             }
           }

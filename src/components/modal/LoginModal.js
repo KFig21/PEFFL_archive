@@ -64,7 +64,7 @@ export default function LoginModal({ setShowLoginModal, showLoginModal }) {
       >
         <div className="modal-input-container">
           <form onSubmit={isValid ? handleSubmit : null}>
-            <div>
+            <div className="input-wrapper">
               <SC.authInput
                 className="auth-input"
                 type="text"
@@ -74,7 +74,7 @@ export default function LoginModal({ setShowLoginModal, showLoginModal }) {
               ></SC.authInput>
             </div>
 
-            <div>
+            <div className="input-wrapper">
               <SC.authInput
                 className="auth-input"
                 placeholder="Password"

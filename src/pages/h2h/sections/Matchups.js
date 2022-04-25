@@ -5,6 +5,9 @@ import Helmet from "../../../components/helmet/Helmet";
 import Loader from "../../../components/loader/Loader";
 import SC from "../../../themes/styledComponents";
 import "../H2H.scss";
+import InsertLinkIcon from "@mui/icons-material/InsertLink";
+import { useSelector } from "react-redux";
+import { espnIds } from "../../../helpers/hardStats";
 
 export default function Matchups({
   matchups,
@@ -14,6 +17,8 @@ export default function Matchups({
   helmetStyle,
   helmetView,
 }) {
+  const user = useSelector((state) => state.user);
+
   return (
     <div className="h2h-matchups-container">
       <div className="h2h-section-header-container">
@@ -35,6 +40,8 @@ export default function Matchups({
                   <SC.tableHeaderBgColor className="table-header">
                     <th>G</th>
                     <th>Year</th>
+                    {/* Link col */}
+                    {user.username !== null && <th></th>}
                     <th>Team</th>
                     <th>PF</th>
                     <th></th>
@@ -58,6 +65,18 @@ export default function Matchups({
                         : game.week === "WC"
                         ? "Wild Card"
                         : `week ${game.week}`;
+
+                    let weekId = game.week;
+
+                    if (weekId === "DC") {
+                      weekId = game.year > 2020 ? 17 : 16;
+                    } else if (weekId === "SF") {
+                      weekId = game.year > 2020 ? 16 : 15;
+                    } else if (weekId === "WC") {
+                      weekId = game.year > 2020 ? 15 : 14;
+                    }
+
+                    let espnId = espnIds[game.team];
 
                     return (
                       <SC.tableBorderColorTR
@@ -89,6 +108,24 @@ export default function Matchups({
                             </div>
                           </Link>
                         </td>
+
+                        {/* LINK to ESPN */}
+                        {user.username !== null && (
+                          <td className="espn-link-col">
+                            {game.year >= 2019 && (
+                              <a
+                                href={`https://fantasy.espn.com/football/boxscore?leagueId=648045&matchupPeriodId=${weekId}&scoringPeriodId=${weekId}&seasonId=${game.year}&teamId=${espnId}&view=scoringperiod`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                <SC.subtextOnBgColor className="link-icon-container">
+                                  <InsertLinkIcon className="link-icon" />
+                                </SC.subtextOnBgColor>
+                              </a>
+                            )}
+                          </td>
+                        )}
+
                         {/* TEAM */}
                         <td
                           className="records-team-away"

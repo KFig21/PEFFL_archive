@@ -5,13 +5,19 @@ import axios from "axios";
 import Loader from "../../../../components/loader/Loader";
 import ArrowDropUpRoundedIcon from "@mui/icons-material/ArrowDropUpRounded";
 import ArrowDropDownRoundedIcon from "@mui/icons-material/ArrowDropDownRounded";
+import InsertLinkIcon from "@mui/icons-material/InsertLink";
 import "../../teampage/TeamPage.scss";
 import { Link } from "react-router-dom";
 import {
   getAllTeamsMedals,
   getTeamSeasons,
 } from "../../../../helpers/apiCalls";
-import { weeklyMax, weeklyMin } from "../../../../helpers/hardStats.js";
+import {
+  weeklyMax,
+  weeklyMin,
+  espnIds,
+} from "../../../../helpers/hardStats.js";
+import { useSelector } from "react-redux";
 
 export default function Seasons({ team, j_Division }) {
   const [seasons, setSeasons] = useState([]);
@@ -19,6 +25,7 @@ export default function Seasons({ team, j_Division }) {
   const [sortBy, setSortBy] = useState("year");
   const [sortOrder, setSortOrder] = useState("DESC");
   const [schedule, setSchedule] = useState("RS");
+  const user = useSelector((state) => state.user);
   // TEAMS MEDALS
   const [allTeamsPFmedals, setAllTeamsPFmedals] = useState([]);
   const [allTeamsPAmedals, setAllTeamsPAmedals] = useState([]);
@@ -278,6 +285,9 @@ export default function Seasons({ team, j_Division }) {
                   </div>
                   {perStat ? "TPG" : "Total"}
                 </SC.tableSortableColHeader>
+                {/* Link col */}
+                {user.username !== null && <th></th>}
+                {/* Schedule cols */}
                 {schedule !== "playoffs" && <th>1</th>}
                 {schedule !== "playoffs" && <th>2</th>}
                 {schedule !== "playoffs" && <th>3</th>}
@@ -453,6 +463,8 @@ export default function Seasons({ team, j_Division }) {
                 let difFormat =
                   season.DIF > 0 ? "green" : season.DIF < 0 ? "crimson" : null;
 
+                let espnId = espnIds[team.team];
+
                 return (
                   <SC.tableBorderColorTR className="h2h-team-row" key={i}>
                     {/* YEAR */}
@@ -581,6 +593,21 @@ export default function Seasons({ team, j_Division }) {
                         </div>
                       </div>
                     </SC.tableSortableCol>
+
+                    {/* LINK to ESPN */}
+                    {user.username !== null && (
+                      <td className="espn-link-col">
+                        <a
+                          href={`https://fantasy.espn.com/football/team?leagueId=648045&seasonId=${season.year_}&teamId=${espnId}&view=overview`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <SC.subtextOnBgColor className="link-icon-container">
+                            <InsertLinkIcon className="link-icon" />
+                          </SC.subtextOnBgColor>
+                        </a>
+                      </td>
+                    )}
 
                     {/* REGULAR SEASON */}
                     {schedule !== "playoffs" &&

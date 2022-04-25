@@ -8,10 +8,11 @@ import {
 import SC from "../../themes/styledComponents";
 import Helmet from "../../components/helmet/Helmet";
 import "./Seasons.scss";
-import { weeklyMax, weeklyMin } from "../../helpers/hardStats.js";
+import { weeklyMax, weeklyMin, espnIds } from "../../helpers/hardStats.js";
 import Loader from "../../components/loader/Loader";
 import ArrowDropUpRoundedIcon from "@mui/icons-material/ArrowDropUpRounded";
 import ArrowDropDownRoundedIcon from "@mui/icons-material/ArrowDropDownRounded";
+import InsertLinkIcon from "@mui/icons-material/InsertLink";
 // trophy images
 import denRcup from "../../assets/denrCup.png";
 import ruTrophy from "../../assets/ruTrophy.png";
@@ -374,6 +375,9 @@ export default function Seasons({
                   <thead>
                     <SC.tableHeaderBgColor className="table-header">
                       <th>Team</th>
+                      {/* Link col */}
+                      {user.username !== null && <th></th>}
+                      {/* Schedule cols */}
                       {schedule !== "playoffs" && <th>1</th>}
                       {schedule !== "playoffs" && <th>2</th>}
                       {schedule !== "playoffs" && <th>3</th>}
@@ -637,6 +641,8 @@ export default function Seasons({
                         },
                       ];
 
+                      let espnId = espnIds[team.team_];
+
                       return (
                         <SC.tableBorderColorTR
                           className={`allteams-team-row ${
@@ -666,7 +672,20 @@ export default function Seasons({
                               <div className={`standings-${division}`}></div>
                             </td>
                           </Link>
-
+                          {/* LINK to ESPN */}
+                          {user.username !== null && (
+                            <td className="espn-link-col">
+                              <a
+                                href={`https://fantasy.espn.com/football/team?leagueId=648045&seasonId=${yearInput}&teamId=${espnId}&view=overview`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                <SC.subtextOnBgColor className="link-icon-container">
+                                  <InsertLinkIcon className="link-icon" />
+                                </SC.subtextOnBgColor>
+                              </a>
+                            </td>
+                          )}
                           {/* WEEKS */}
                           {schedule !== "playoffs" &&
                             weeks.map((week, i) => {
@@ -691,7 +710,6 @@ export default function Seasons({
                                 </SC.tableSortableCol>
                               );
                             })}
-
                           {/* PLAYOFFS */}
                           {schedule !== "RS" &&
                             playoffs.map((week, i) => {
@@ -714,7 +732,6 @@ export default function Seasons({
                                 </SC.tableSortableCol>
                               );
                             })}
-
                           {/* BORDER */}
                           <td className="table-border-col"></td>
                           {/* WINS */}

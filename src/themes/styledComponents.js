@@ -52,6 +52,14 @@ const SC = {
   `,
   subtextOnBgColor: styled.span`
     color: ${(props) => props.theme.colors.subtextOnBgColor} !important;
+
+    &.link-icon-container {
+      &:hover {
+        .link-icon {
+          color: ${(props) => props.theme.colors.primaryColor} !important;
+        }
+      }
+    }
   `,
   primaryColorButton: styled.button`
     color: ${(props) => props.theme.colors.textOnPrimaryColor} !important;
@@ -384,16 +392,16 @@ const SC = {
   // ---------- MODAL ----------
   ModalPage: styled.div`
     width: inherit;
-    min-height: 100vh;
-    max-height: 100vh;
-    position: absolute;
+    min-height: 100%;
+    max-height: 100%;
+    position: fixed;
 
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
 
-    z-index: 100;
+    z-index: 101;
 
     &.open {
       transition: all ease 0.75s;
@@ -458,6 +466,10 @@ const SC = {
     .modal-input-container {
       max-width: 90%;
       overflow: hidden;
+
+      .input-wrapper {
+        display: flex;
+      }
     }
 
     @media (min-height: ${mobileHeightMin}) {

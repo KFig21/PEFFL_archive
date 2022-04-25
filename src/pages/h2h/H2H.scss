@@ -350,9 +350,13 @@ $statsCellWidthMobile: 125px;
         }
 
         .h2h-team-stats-category-column {
-          min-width: 100px;
+          min-width: 105px;
           font-size: 14px;
           font-weight: 700;
+
+          @include mobile {
+            min-width: 100px;
+          }
 
           .h2h-team-stat-category-cell {
             min-height: $cellHeight;
@@ -787,6 +791,28 @@ $statsCellWidthMobile: 125px;
             .weekly-record-col-val {
               width: fit-content;
               position: relative;
+            }
+          }
+          .espn-link-col {
+            text-align: center;
+            padding: 0px 0px 0px 12px;
+
+            @include mobile {
+              padding-left: 6px;
+            }
+
+            a {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              .link-icon-container {
+                max-width: 20px;
+                max-height: 20px;
+                .link-icon {
+                  max-width: 20px;
+                  max-height: 20px;
+                }
+              }
             }
           }
           td {

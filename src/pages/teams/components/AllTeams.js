@@ -7,9 +7,11 @@ import Loader from "../../../components/loader/Loader";
 import Helmet from "../../../components/helmet/Helmet";
 import ArrowDropUpRoundedIcon from "@mui/icons-material/ArrowDropUpRounded";
 import ArrowDropDownRoundedIcon from "@mui/icons-material/ArrowDropDownRounded";
+import InsertLinkIcon from "@mui/icons-material/InsertLink";
 import "./AllTeams.scss";
 import { useSelector } from "react-redux";
 import { getAllTeamsMedals, getTeams } from "../../../helpers/apiCalls";
+import { espnIds } from "../../../helpers/hardStats";
 
 export default function AllTeams({ j_Division, helmetStyle, helmetView }) {
   const [teams, setTeams] = useState([]);
@@ -167,6 +169,9 @@ export default function AllTeams({ j_Division, helmetStyle, helmetView }) {
                 >
                   L
                 </SC.tableSortableColHeader>
+                {/* Link COL */}
+                {user.username !== null && <th></th>}
+                {/* BORDER COL */}
                 <th></th>
                 <SC.tableSortableColHeader
                   className={
@@ -328,6 +333,8 @@ export default function AllTeams({ j_Division, helmetStyle, helmetView }) {
                   ? "j_Division"
                   : "f_Division";
 
+                let espnId = espnIds[team.team];
+
                 return (
                   <SC.tableBorderColorTR
                     className={`allteams-team-row ${
@@ -378,6 +385,20 @@ export default function AllTeams({ j_Division, helmetStyle, helmetView }) {
                     <td className="standings-col record-col">
                       <SC.textOnBgColor>{team.L}</SC.textOnBgColor>
                     </td>
+                    {/* LINK to ESPN */}
+                    {user.username !== null && (
+                      <td className="standings-col espn-link-col">
+                        <a
+                          href={`https://fantasy.espn.com/football/team?leagueId=648045&seasonId=${team.year}&teamId=${espnId}&view=overview`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <SC.subtextOnBgColor className="link-icon-container">
+                            <InsertLinkIcon className="link-icon" />
+                          </SC.subtextOnBgColor>
+                        </a>
+                      </td>
+                    )}
                     {/* border */}
                     <td className="table-border-col"></td>
                     {/* POINTS FOR */}

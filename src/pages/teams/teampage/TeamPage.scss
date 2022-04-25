@@ -707,6 +707,26 @@
               border-right: solid 1px gray;
             }
           }
+
+          .espn-link-col {
+            text-align: center;
+            padding: 0px 10px 0px 0px;
+
+            a {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              .link-icon-container {
+                max-width: 20px;
+                max-height: 20px;
+                .link-icon {
+                  max-width: 20px;
+                  max-height: 20px;
+                }
+              }
+            }
+          }
+
           td {
             @include mobile {
               &.desktop {

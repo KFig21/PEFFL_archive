@@ -106,3 +106,17 @@ export const awards = {
     dc: [],
   },
 };
+export const espnIds = {
+  Fig: 8,
+  Chad: 5,
+  Rose: 7,
+  Billy: 3,
+  "Big Boy": 12,
+  Taylor: 9,
+  DenR: 4,
+  "The Boo": 6,
+  Timmy: 1,
+  Frankie: 11,
+  Nordy: 13,
+  AJ: 10,
+};
