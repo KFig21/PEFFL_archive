@@ -1,6 +1,5 @@
 /* eslint-disable react/jsx-pascal-case */
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import SC from "../../../themes/styledComponents";
 import Loader from "../../../components/loader/Loader";
 import { Link } from "react-router-dom";

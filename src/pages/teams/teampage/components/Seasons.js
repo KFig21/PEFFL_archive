@@ -1,7 +1,6 @@
 /* eslint-disable react/jsx-pascal-case */
 import React, { useState, useEffect } from "react";
 import SC from "../../../../themes/styledComponents";
-import axios from "axios";
 import Loader from "../../../../components/loader/Loader";
 import ArrowDropUpRoundedIcon from "@mui/icons-material/ArrowDropUpRounded";
 import ArrowDropDownRoundedIcon from "@mui/icons-material/ArrowDropDownRounded";

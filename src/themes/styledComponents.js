@@ -464,7 +464,7 @@ const SC = {
     }
 
     .modal-input-container {
-      max-width: 100%;
+      max-width: 90%;
       overflow: hidden;
 
       .input-wrapper {
@@ -581,6 +581,40 @@ const SC = {
   primaryBorderColor: styled.div`
     border-color: ${(props) => props.theme.colors.primaryColor} !important;
   `,
+
+  countdownContainer: styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid grey;
+    border-radius: 20px;
+    padding: 20px 10px;
+    flex-direction: column;
+    width: 100%;
+    margin: 20px 0px;
+
+    .timer{
+      display: flex;
+      flex-direction: row;
+
+      .timeslot{
+        padding: 0px 20px;
+        width: 100px;
+
+        .time{
+          font-weight: 800;
+        }
+      }
+      
+
+      @media (min-height: ${mobileHeightMin}) {
+        @media (max-width: ${mobileWidthMax}) {
+          flex-direction: column;
+        }
+      }
+    }
+    
+  `
 };
 
 export default SC;
