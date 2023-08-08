@@ -464,7 +464,7 @@ const SC = {
     }
 
     .modal-input-container {
-      max-width: 90%;
+      max-width: 100%;
       overflow: hidden;
 
       .input-wrapper {
