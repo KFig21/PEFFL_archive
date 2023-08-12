@@ -19,6 +19,7 @@ export default function Home({ setCurrentPage }) {
       <SC.textOnBgColor className="home-container">
         {/* STRUCTURE */}
         <Countdown year={2023} month={8} day={12} title={"2023 Draft Day Countdown"} message={"It's Draft Day!"}/>
+        {/* <Countdown year={2023} month={9} day={7} title={"Week 1 Countdown"} message={"It's Week 1!"}/> */}
         <div className="home-section">
           <SC.primaryColorUnderline className="home-section-header-container">
             <div className="home-section-header"> News & Updates</div>
@@ -51,7 +52,13 @@ export default function Home({ setCurrentPage }) {
               <SC.primaryColorFont className="item-arrow">
                 &gt;
               </SC.primaryColorFont>
-              Draft day is Saturday August 12th at 7pm
+              Draft day is Saturday August 12th at 7pm.
+            </div>
+            <div className="home-section-item-detail">
+              <SC.primaryColorFont className="item-arrow">
+                &gt;
+              </SC.primaryColorFont>
+              Pay league dues before the start of the draft.
             </div>
             {/* <div className="home-section-item-detail">
               <SC.primaryColorFont className="item-arrow">

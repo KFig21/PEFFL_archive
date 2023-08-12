@@ -108,13 +108,13 @@ export default function SingleSeasonMostPF({
                       <SC.textOnBgColor>{team.pf}</SC.textOnBgColor>
                     </td>
                     <td className="record-col wl-col">
-                      <SC.textOnBgColor>{team.W}</SC.textOnBgColor>
+                      <SC.textOnBgColor>{team.w}</SC.textOnBgColor>
                     </td>
                     <td className="record-col dash-col">
                       <SC.textOnBgColor>-</SC.textOnBgColor>
                     </td>
                     <td className="record-col">
-                      <SC.textOnBgColor>{team.L}</SC.textOnBgColor>
+                      <SC.textOnBgColor>{team.l}</SC.textOnBgColor>
                     </td>
                     <td className="padding-col"></td>
                   </SC.tableBorderColorTR>

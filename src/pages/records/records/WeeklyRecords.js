@@ -159,20 +159,20 @@ export default function WeeklyRecords({
                   : "f_Division";
 
                 let pfMedal =
-                  weeksMostPFmedals.indexOf(team.PF) > -1
-                    ? "medal" + weeksMostPFmedals.indexOf(team.PF)
+                  weeksMostPFmedals.indexOf(parseInt(team.pf)) > -1
+                    ? "medal" + weeksMostPFmedals.indexOf(parseInt(team.pf))
                     : "nomedal";
                 let paMedal =
-                  weeksMostPAmedals.indexOf(team.PA) > -1
-                    ? "medal" + weeksMostPAmedals.indexOf(team.PA)
+                  weeksMostPAmedals.indexOf(parseInt(team.pa)) > -1
+                    ? "medal" + weeksMostPAmedals.indexOf(parseInt(team.pa))
                     : "nomedal";
                 let lpfMedal =
-                  weeksLeastPFmedals.indexOf(team.LeastPF) > -1
-                    ? "medal" + weeksLeastPFmedals.indexOf(team.LeastPF)
+                  weeksLeastPFmedals.indexOf(parseInt(team.leastpf)) > -1
+                    ? "medal" + weeksLeastPFmedals.indexOf(parseInt(team.leastpf))
                     : "nomedal";
                 let lpaMedal =
-                  weeksLeastPAmedals.indexOf(team.LeastPA) > -1
-                    ? "medal" + weeksLeastPAmedals.indexOf(team.LeastPA)
+                  weeksLeastPAmedals.indexOf(parseInt(team.leastpa)) > -1
+                    ? "medal" + weeksLeastPAmedals.indexOf(parseInt(team.leastpa))
                     : "nomedal";
 
                 if (team.team === "Taylor") lpfMedal = "nomedal";
@@ -219,7 +219,7 @@ export default function WeeklyRecords({
                     >
                       <td className="weekly-record-col weekly-awards">
                         <div className="weekly-record-col-val">
-                          <SC.textOnBgColor>{team.PF}</SC.textOnBgColor>
+                          <SC.textOnBgColor>{team.pf}</SC.textOnBgColor>
                           <div className={`medal-small ${pfMedal}`}></div>
                         </div>
                       </td>
@@ -234,7 +234,7 @@ export default function WeeklyRecords({
                     >
                       <td className="weekly-record-col weekly-awards">
                         <div className="weekly-record-col-val">
-                          <SC.textOnBgColor>{team.PA}</SC.textOnBgColor>
+                          <SC.textOnBgColor>{team.pa}</SC.textOnBgColor>
                           <div className={`medal-small ${paMedal}`}></div>
                         </div>
                       </td>
@@ -251,10 +251,10 @@ export default function WeeklyRecords({
                         <div className="weekly-record-col-val">
                           {team.team === "AJ" || team.team === "Taylor" ? (
                             <SC.subtextOnBgColor>
-                              {team.LeastPF}
+                              {team.leastpf}
                             </SC.subtextOnBgColor>
                           ) : (
-                            <SC.textOnBgColor>{team.LeastPF}</SC.textOnBgColor>
+                            <SC.textOnBgColor>{team.leastpf}</SC.textOnBgColor>
                           )}{" "}
                           <div className={`medal-small ${lpfMedal}`}></div>
                         </div>
@@ -272,10 +272,10 @@ export default function WeeklyRecords({
                         <div className="weekly-record-col-val">
                           {team.team === "AJ" || team.team === "Taylor" ? (
                             <SC.subtextOnBgColor>
-                              {team.LeastPA}
+                              {team.leastpa}
                             </SC.subtextOnBgColor>
                           ) : (
-                            <SC.textOnBgColor>{team.LeastPA}</SC.textOnBgColor>
+                            <SC.textOnBgColor>{team.leastpa}</SC.textOnBgColor>
                           )}
                           <div className={`medal-small ${lpaMedal}`}></div>
                         </div>

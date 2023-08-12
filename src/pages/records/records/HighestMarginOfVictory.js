@@ -51,11 +51,10 @@ export default function HighestMarginOfVictory({
             <tbody>
               {games.map((game, i) => {
                 let rank = i + 1;
-
-                let winnerPF = Math.max(game.pf, game.pa);
-                let loserPF = Math.min(game.pf, game.pa);
-                let winner = winnerPF === game.pf ? game.team : game.opp;
-                let loser = loserPF === game.pf ? game.team : game.opp;
+                let winnerPF = Math.max(parseInt(game.pf), parseInt(game.pa));
+                let loserPF = Math.min(parseInt(game.pf), parseInt(game.pa));
+                let winner = winnerPF === parseInt(game.pf) ? game.team : game.opp;
+                let loser = loserPF === parseInt(game.pf) ? game.team : game.opp;
 
                 let winnerDivision = j_Division.includes(winner)
                   ? "j_Division"

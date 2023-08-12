@@ -49,9 +49,9 @@ export default function Seasons({
   const [divisionWinnerF, setDivisionWinnerF] = useState("");
 
   const handleCheckWeeklyMinMax = (week, pts) => {
-    if (weeklyMax[yearInput][week] === pts) {
+    if (weeklyMax[yearInput][week] === parseInt(pts)) {
       return "weekly-high";
-    } else if (weeklyMin[yearInput][week] === pts) {
+    } else if (weeklyMin[yearInput][week] === parseInt(pts)) {
       return "weekly-low";
     } else {
       return "";
@@ -509,10 +509,10 @@ export default function Seasons({
                   {/* BODY */}
                   <tbody>
                     {seasonTableInfo.map((team, i) => {
-                      let PPG = (Math.round(team.PPG * 100) / 100).toFixed(1);
-                      let PAPG = (Math.round(team.PAPG * 100) / 100).toFixed(1);
+                      let PPG = (Math.round(team.ppg * 100) / 100).toFixed(1);
+                      let PAPG = (Math.round(team.papg * 100) / 100).toFixed(1);
                       let totalDif = (
-                        Math.round((team.PF - team.PA) * 100) / 100
+                        Math.round((team.pf - team.pa) * 100) / 100
                       ).toFixed(0);
                       let difFormat =
                         totalDif > 0
@@ -521,13 +521,13 @@ export default function Seasons({
                           ? "crimson"
                           : null;
                       let winPercentage = (
-                        ((team.W / (team.W + team.L)) * 100) /
+                        ((team.w / (team.w + team.l)) * 100) /
                         100
                       )
                         .toFixed(3)
                         .toString()
                         .substring(1);
-                      let division = j_Division.includes(team.team_)
+                      let division = j_Division.includes(team.team)
                         ? "j_Division"
                         : "f_Division";
                       let weeks = [
@@ -641,19 +641,19 @@ export default function Seasons({
                         },
                       ];
 
-                      let espnId = espnIds[team.team_];
+                      let espnId = espnIds[team.team];
 
                       return (
                         <SC.tableBorderColorTR
                           className={`allteams-team-row ${
-                            user.username === team.team_ &&
+                            user.username === team.team &&
                             user.highlightUser &&
                             "logged-in"
                           }`}
                           key={i}
                         >
                           {/* TEAM */}
-                          <Link to={`/teams/${team.team_}`}>
+                          <Link to={`/teams/${team.team}`}>
                             <td className="allteams-team">
                               <span className="standings-rank medal">
                                 <div className={`medal-medium medal${i}`}>
@@ -661,13 +661,13 @@ export default function Seasons({
                                 </div>
                               </span>
                               <Helmet
-                                team={team.team_}
+                                team={team.team}
                                 size={"season-standings"}
                                 helmetStyle={helmetStyle}
                                 helmetView={helmetView}
                               />
                               <SC.textOnBgColor className="standings-team-name">
-                                {team.team_}
+                                {team.team}
                               </SC.textOnBgColor>
                               <div className={`standings-${division}`}></div>
                             </td>
@@ -690,7 +690,7 @@ export default function Seasons({
                           {schedule !== "playoffs" &&
                             weeks.map((week, i) => {
                               let minMax = handleCheckWeeklyMinMax(i, week.pts);
-                              let outcome = week.outcome === 1 ? "win" : "loss";
+                              let outcome = parseInt(week.outcome) === 1 ? "win" : "loss";
                               return (
                                 <SC.tableSortableCol
                                   className={`season-week-col ${
@@ -714,9 +714,9 @@ export default function Seasons({
                           {schedule !== "RS" &&
                             playoffs.map((week, i) => {
                               let outcome =
-                                week.outcome === 1
+                                parseInt(week.outcome) === 1
                                   ? "win"
-                                  : week.outcome === 0
+                                  : parseInt(week.outcome) === 0
                                   ? "loss"
                                   : "";
                               return (
@@ -736,7 +736,7 @@ export default function Seasons({
                           <td className="table-border-col"></td>
                           {/* WINS */}
                           <td className="standings-col record-col padding-left">
-                            <SC.textOnBgColor>{team.W}</SC.textOnBgColor>
+                            <SC.textOnBgColor>{team.w}</SC.textOnBgColor>
                           </td>
                           {/* DASH */}
                           <td className="standings-col record-col dash-col">
@@ -744,20 +744,20 @@ export default function Seasons({
                           </td>
                           {/* LOSSES */}
                           <td className="standings-col record-col">
-                            <SC.textOnBgColor>{team.L}</SC.textOnBgColor>
+                            <SC.textOnBgColor>{team.l}</SC.textOnBgColor>
                           </td>
                           {/* POINTS FOR */}
                           <SC.tableSortableCol className="standings-col points-col">
                             <div className="standings-points">
                               <div className="standings-ppg">
                                 <SC.textOnBgColor>
-                                  {perStat ? PPG : team.PF.toLocaleString()}
+                                  {perStat ? PPG : team.pf.toLocaleString()}
                                 </SC.textOnBgColor>
                                 {/* <div className={`medal-small ${pfMedal}`}></div> */}
                               </div>
                               <div className="standings-total-points">
                                 <SC.subtextOnBgColor>
-                                  {perStat ? team.PF.toLocaleString() : PPG}
+                                  {perStat ? team.pf.toLocaleString() : PPG}
                                 </SC.subtextOnBgColor>
                               </div>
                             </div>
@@ -767,13 +767,13 @@ export default function Seasons({
                             <div className="standings-points ">
                               <div className="standings-ppg">
                                 <SC.textOnBgColor>
-                                  {perStat ? PAPG : team.PA.toLocaleString()}
+                                  {perStat ? PAPG : team.pa.toLocaleString()}
                                 </SC.textOnBgColor>
                                 {/* <div className={`medal-small ${paMedal}`}></div> */}
                               </div>
                               <div className="standings-total-points">
                                 <SC.subtextOnBgColor>
-                                  {perStat ? team.PA.toLocaleString() : PAPG}
+                                  {perStat ? team.pa.toLocaleString() : PAPG}
                                 </SC.subtextOnBgColor>
                               </div>
                             </div>
@@ -788,7 +788,7 @@ export default function Seasons({
                                 {totalDif > 0 ? "+" : ""}
                                 {perStat
                                   ? (
-                                      Math.round(team.DIFPG * 100) / 100
+                                      Math.round(team.difpg * 100) / 100
                                     ).toFixed(1)
                                   : totalDif.toLocaleString()}
                                 {/* <div className={`medal-small ${difMedal}`}></div> */}
@@ -799,7 +799,7 @@ export default function Seasons({
                                   {perStat
                                     ? totalDif.toLocaleString()
                                     : (
-                                        Math.round(team.DIFPG * 100) / 100
+                                        Math.round(team.difpg * 100) / 100
                                       ).toFixed(1)}
                                 </SC.subtextOnBgColor>
                               </div>

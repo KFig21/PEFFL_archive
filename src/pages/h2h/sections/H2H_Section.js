@@ -28,14 +28,14 @@ export default function H2H_Section({
             </SC.textOnBgColor>
             <SC.subtextOnBgColor>
               <div className="h2h-section-subheader">
-                {team1data.W_h2h + team2data.W_h2h} games
+                {team1data.h2h.w + team2data.h2h.w} games
               </div>
             </SC.subtextOnBgColor>
           </div>
           <div className="h2h-team-stats-container">
             {/* TEAM 1 */}
             <TeamH2H
-              team={team1data}
+              team={team1data.h2h}
               winsRank_h2h={winsRank_h2h}
               ppgRank_h2h={ppgRank_h2h}
               pfRank_h2h={pfRank_h2h}
@@ -187,7 +187,7 @@ export default function H2H_Section({
             </div>
             {/* TEAM 2 */}
             <TeamH2H
-              team={team2data}
+              team={team2data.h2h}
               winsRank_h2h={winsRank_h2h}
               ppgRank_h2h={ppgRank_h2h}
               pfRank_h2h={pfRank_h2h}

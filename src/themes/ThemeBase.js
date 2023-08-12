@@ -1,6 +1,6 @@
 // LIGHT
 ////// core
-export const light_backgroundColor = "rgb(234, 234, 234)";
+export const light_backgroundColor = "rgb(240, 240, 240)";
 export const light_textOnBgColor = "black";
 export const light_textSidebarColor = "rgb(210, 210, 210)";
 export const light_sidebarBgColor = "rgb(33, 38, 42)";
@@ -28,8 +28,8 @@ export const light_modalBgColor = "rgba(150,150,150, .3)";
 // DARK
 ////// core
 export const dark_backgroundColor = "rgb(26, 25, 28)";
-export const dark_textOnBgColor = "rgb(210, 210, 210)";
-export const dark_textSidebarColor = "rgb(210, 210, 210)";
+export const dark_textOnBgColor = "rgb(220, 220, 220)";
+export const dark_textSidebarColor = "rgb(220, 220, 220)";
 export const dark_sidebarBgColor = "rgb(35, 37, 41)";
 export const dark_subtextOnBgColor = "grey";
 export const dark_tableHeaderColor = "grey";

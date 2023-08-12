@@ -203,13 +203,13 @@ export default function Awards({
                 let division = j_Division.includes(team.team)
                   ? "j_Division"
                   : "f_Division";
-                let awards = team.C + team.R + team.RSC + team.P + team.DT;
+                let awards = team.c + team.r + team.rsc + team.p + team.dt;
                 let money = team.money.toLocaleString();
-                let titlesFormat = team.C > 0 ? "goldenrod" : "transparent";
-                let runnerUpsFormat = team.R > 0 ? "#a0a3a6" : "transparent";
-                let RSC = team.RSC > 0 ? team.RSC : "";
-                let PTS = team.P > 0 ? team.P : "";
-                let DT = team.DT > 0 ? team.DT : "";
+                let titlesFormat = team.c > 0 ? "goldenrod" : "transparent";
+                let runnerUpsFormat = team.r > 0 ? "#a0a3a6" : "transparent";
+                let RSC = team.rsc > 0 ? team.rsc : "";
+                let PTS = team.p > 0 ? team.p : "";
+                let DT = team.dt > 0 ? team.dt : "";
                 let moneyFormat = team.money > 0 ? "rgb(29, 147, 76)" : "grey";
                 let dtFormat =
                   DT > 0
@@ -261,7 +261,7 @@ export default function Awards({
                       }
                       style={{ color: `${titlesFormat}` }}
                     >
-                      {team.C}
+                      {team.c}
                     </SC.tableSortableCol>
                     {/* RUNNER UPS */}
                     <SC.tableSortableCol
@@ -272,7 +272,7 @@ export default function Awards({
                       }
                       style={{ color: `${runnerUpsFormat}` }}
                     >
-                      {team.R}
+                      {team.r}
                     </SC.tableSortableCol>
                     {/* REGULAR SEASON CHAMPIONSHIPS */}
                     <SC.tableSortableCol

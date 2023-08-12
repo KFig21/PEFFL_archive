@@ -1,30 +1,14 @@
 /* eslint-disable react/jsx-pascal-case */
 import React, { useEffect, useState } from "react";
 import SC from "../../themes/styledComponents";
-import axios from "axios";
 import "./H2H.scss";
 import Helmet from "../../components/helmet/Helmet";
 import Loader from "../../components/loader/Loader";
-import { SportsFootball } from "@material-ui/icons";
 import {
-  getDifpgRank_h2h,
-  getDifpgRank_overall,
-  getDifRank_h2h,
-  getDifRank_overall,
   getH2hMatchups,
-  getH2Hteam1,
-  getH2Hteam2,
-  getPapgRank_overall,
-  getPaRank_overall,
-  getPfRank_h2h,
-  getPfRank_overall,
-  getPpgRank_h2h,
-  getPpgRank_overall,
-  getWinPercentageRank,
-  getWinsRank_h2h,
+  getH2Hteams,
+  getAllRanks,
 } from "../../helpers/apiCalls";
-import TeamOverall from "./sections/components/TeamOverall";
-import TeamH2H from "./sections/components/TeamH2H";
 import { Link, useParams } from "react-router-dom";
 import H2H_Section from "./sections/H2H_Section";
 import Overall_Section from "./sections/Overall_Section";
@@ -43,7 +27,6 @@ export default function H2H({
   const [team1data, setTeam1data] = useState({});
   const [team2data, setTeam2data] = useState({});
   const [schedule, setSchedule] = useState("RS");
-  const [perStat, setPerStat] = useState(true);
   const [loaded, setLoaded] = useState(false);
   const isInvalid = team1input === team2input;
   const teamnames = [
@@ -79,38 +62,50 @@ export default function H2H({
   const [winStreak, setWinStreak] = useState(0);
   const [winner, setWinner] = useState("");
 
-  const getH2H = async (_team1 = "DenR", _team2 = "The Boo", table) => {
-    const team1data = await getH2Hteam1(_team1, _team2, table);
-    setTeam1data(team1data);
+  const getH2H = async (_team1 = "Frankie", _team2 = "The Boo", table) => {
+    setLoaded(false)
+    const teamdata = await getH2Hteams(_team1, _team2, table);
+    let floats = ['winp', 'totpg', 'ppg', 'papg', 'difpg']
+    let ints = ['w', 'l', 'g', 'pf', 'pa', 'tot', 'dif']    
+    const transformRows = (row) => {
+      return Object.keys(row).forEach(key => {
+        if (floats.includes(key)) { row[key] = parseFloat(parseFloat(row[key]).toFixed(3)); }
+        if (ints.includes(key)) { row[key] = parseInt(row[key]); }
+      });
+    }
+    transformRows(teamdata.team1.h2h)
+    transformRows(teamdata.team1.overall)
+    transformRows(teamdata.team2.h2h)
+    transformRows(teamdata.team2.overall)
+    
+    setTeam1data(teamdata.team1);
+    setTeam2data(teamdata.team2);
 
-    const team2data = await getH2Hteam2(_team1, _team2, table);
-    setTeam2data(team2data);
-
+    let allRanks = (await getAllRanks(table))
+    
     // set ranks - overall
-    setWinPercentageRank(await getWinPercentageRank(table));
-    setPpgRank_overall(await getPpgRank_overall(table));
-    setPapgRank_overall(await getPapgRank_overall(table));
-    setDifpgRank_overall(await getDifpgRank_overall(table));
-    setPfRank_overall(await getPfRank_overall(table));
-    setPaRank_overall(await getPaRank_overall(table));
-    setDifRank_overall(await getDifRank_overall(table));
+    setWinPercentageRank(allRanks.overall.win);
+    setPpgRank_overall(allRanks.overall.ppg);
+    setPapgRank_overall(allRanks.overall.papg);
+    setDifpgRank_overall(allRanks.overall.difpg);
+    setPfRank_overall(allRanks.overall.pf);
+    setPaRank_overall(allRanks.overall.pa);
+    setDifRank_overall(allRanks.overall.dif);
     // set ranks - h2h
-    setWinsRank_h2h(await getWinsRank_h2h(table));
-    setPpgRank_h2h(await getPpgRank_h2h(table, team1input, team2input));
-    setPfRank_h2h(await getPfRank_h2h(table));
-    setDifpgRank_h2h(await getDifpgRank_h2h(table, team1input, team2input));
-    setDifRank_h2h(await getDifRank_h2h(table));
+    setWinsRank_h2h(allRanks.h2h.wins);
+    setPfRank_h2h(allRanks.h2h.pf);
+    setDifRank_h2h(allRanks.h2h.dif);
+    if (_team1 === 'AJ' || _team1 === 'Taylor' || _team2 === 'AJ' ||_team1 === 'Taylor'){
+      setPpgRank_h2h(allRanks.h2h.ppg);
+      setDifpgRank_h2h(allRanks.h2h.difpg);
+    } else{
+      setPpgRank_h2h(allRanks.h2h.ppgfilter);
+      setDifpgRank_h2h(allRanks.h2h.difpgfilter);
+    }
     // set matchups
-    setMatchups(await getH2hMatchups(table, team1input, team2input));
-    getWinStreak(table);
-
-    setTimeout(() => {
-      setLoaded(true);
-    }, 500);
-  };
-
-  const getWinStreak = async (table) => {
-    let games = await getH2hMatchups(table, team1input, team2input);
+    let games = await getH2hMatchups(table, team1input, team2input)
+    setMatchups(games);
+    // get win streak
     if (games) {
       let currentWinner = games[0].pf > games[0].pa ? team1input : team2input;
       let winningSide = games[0].pf > games[0].pa ? "pf" : "pa";
@@ -127,7 +122,31 @@ export default function H2H({
       setWinStreak(streak);
       setWinner(currentWinner);
     }
+
+    setTimeout(() => {
+      setLoaded(true);
+    }, 500);
   };
+
+  // const getWinStreak = async (table) => {
+  //   let games = await getH2hMatchups(table, team1input, team2input);
+  //   if (games) {
+  //     let currentWinner = games[0].pf > games[0].pa ? team1input : team2input;
+  //     let winningSide = games[0].pf > games[0].pa ? "pf" : "pa";
+  //     let losingSide = games[0].pf < games[0].pa ? "pf" : "pa";
+  //     let streak = 0;
+
+  //     for (let i = 0; i < games.length; i++) {
+  //       if (games[i][winningSide] > games[i][losingSide]) {
+  //         streak++;
+  //       } else {
+  //         i = games.length;
+  //       }
+  //     }
+  //     setWinStreak(streak);
+  //     setWinner(currentWinner);
+  //   }
+  // };
 
   const changeSchedule = (table) => {
     setSchedule(table);

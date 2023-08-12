@@ -311,136 +311,136 @@ export default function Seasons({ team, j_Division }) {
               {seasons.map((season, i) => {
                 let weeks = [
                   {
-                    pts: season.week1,
-                    outcome: season.week1_outcome,
+                    pts: parseInt(season.week1),
+                    outcome: parseInt(season.week1_outcome),
                     opp: season.week1_opp,
-                    pa: season.week1_pa,
+                    pa: parseInt(season.week1_pa),
                   },
                   {
-                    pts: season.week2,
-                    outcome: season.week2_outcome,
+                    pts: parseInt(season.week2),
+                    outcome: parseInt(season.week2_outcome),
                     opp: season.week2_opp,
-                    pa: season.week2_pa,
+                    pa: parseInt(season.week2_pa),
                   },
                   {
-                    pts: season.week3,
-                    outcome: season.week3_outcome,
+                    pts: parseInt(season.week3),
+                    outcome: parseInt(season.week3_outcome),
                     opp: season.week3_opp,
-                    pa: season.week3_pa,
+                    pa: parseInt(season.week3_pa),
                   },
                   {
-                    pts: season.week4,
-                    outcome: season.week4_outcome,
+                    pts: parseInt(season.week4),
+                    outcome: parseInt(season.week4_outcome),
                     opp: season.week4_opp,
-                    pa: season.week4_pa,
+                    pa: parseInt(season.week4_pa),
                   },
                   {
-                    pts: season.week5,
-                    outcome: season.week5_outcome,
+                    pts: parseInt(season.week5),
+                    outcome: parseInt(season.week5_outcome),
                     opp: season.week5_opp,
-                    pa: season.week5_pa,
+                    pa: parseInt(season.week5_pa),
                   },
                   {
-                    pts: season.week6,
-                    outcome: season.week6_outcome,
+                    pts: parseInt(season.week6),
+                    outcome: parseInt(season.week6_outcome),
                     opp: season.week6_opp,
-                    pa: season.week6_pa,
+                    pa: parseInt(season.week6_pa),
                   },
                   {
-                    pts: season.week7,
-                    outcome: season.week7_outcome,
+                    pts: parseInt(season.week7),
+                    outcome: parseInt(season.week7_outcome),
                     opp: season.week7_opp,
-                    pa: season.week7_pa,
+                    pa: parseInt(season.week7_pa),
                   },
                   {
-                    pts: season.week8,
-                    outcome: season.week8_outcome,
+                    pts: parseInt(season.week8),
+                    outcome: parseInt(season.week8_outcome),
                     opp: season.week8_opp,
-                    pa: season.week8_pa,
+                    pa: parseInt(season.week8_pa),
                   },
                   {
-                    pts: season.week9,
-                    outcome: season.week9_outcome,
+                    pts: parseInt(season.week9),
+                    outcome: parseInt(season.week9_outcome),
                     opp: season.week9_opp,
-                    pa: season.week9_pa,
+                    pa: parseInt(season.week9_pa),
                   },
                   {
-                    pts: season.week10,
-                    outcome: season.week10_outcome,
+                    pts: parseInt(season.week10),
+                    outcome: parseInt(season.week10_outcome),
                     opp: season.week10_opp,
-                    pa: season.week10_pa,
+                    pa: parseInt(season.week10_pa),
                   },
                   {
-                    pts: season.week11,
-                    outcome: season.week11_outcome,
+                    pts: parseInt(season.week11),
+                    outcome: parseInt(season.week11_outcome),
                     opp: season.week11_opp,
-                    pa: season.week11_pa,
+                    pa: parseInt(season.week11_pa),
                   },
                   {
-                    pts: season.week12,
-                    outcome: season.week12_outcome,
+                    pts: parseInt(season.week12),
+                    outcome: parseInt(season.week12_outcome),
                     opp: season.week12_opp,
-                    pa: season.week12_pa,
+                    pa: parseInt(season.week12_pa),
                   },
                   {
-                    pts: season.week13,
-                    outcome: season.week13_outcome,
+                    pts: parseInt(season.week13),
+                    outcome: parseInt(season.week13_outcome),
                     opp: season.week13_opp,
-                    pa: season.week13_pa,
+                    pa: parseInt(season.week13_pa),
                   },
                 ];
 
                 if (season.week14 !== undefined) {
                   weeks.push({
-                    pts: season.week14,
-                    outcome: season.week14_outcome,
-                    opp: season.week14_opp,
-                    pa: season.week14_pa,
+                    pts: season.week14 ? parseInt(season.week14) : '',
+                    outcome: season.week14 ? parseInt(season.week14_outcome) : '',
+                    opp: season.week14 ? season.week14_opp : '',
+                    pa: season.week14 ? parseInt(season.week14_pa) : '',
                   });
                 }
 
                 let playoffs = [
                   {
-                    pts: season.wc,
-                    outcome: season.weekWc_outcome,
-                    opp: season.weekWc_opp,
-                    pa: season.weekWc_pa,
+                    pts: season.weekwc ? parseInt(season.weekwc) : '',
+                    outcome: season.weekwc_outcome ? parseInt(season.weekwc_outcome) : '',
+                    opp: season.weekwc_opp ? season.weekwc_opp : '',
+                    pa: season.weekwc_pa ? parseInt(season.weekwc_pa) : '',
                   },
                   {
-                    pts: season.sf,
-                    outcome: season.weekSf_outcome,
-                    opp: season.weekSf_opp,
-                    pa: season.weekSf_pa,
+                    pts: season.weeksf ? parseInt(season.weeksf) : '',
+                    outcome: season.weeksf_outcome ? parseInt(season.weeksf_outcome) : '',
+                    opp: season.weeksf_opp ? season.weeksf_opp : '',
+                    pa: season.weeksf_pa ? parseInt(season.weeksf_pa) : '',
                   },
                   {
-                    pts: season.dc,
-                    outcome: season.weekDc_outcome,
-                    opp: season.weekDc_opp,
-                    pa: season.weekDc_pa,
+                    pts: season.weekdc ? parseInt(season.weekdc) : '',
+                    outcome: season.weekdc_outcome ? parseInt(season.weekdc_outcome) : '',
+                    opp: season.weekdc_opp ? season.weekdc_opp : '',
+                    pa: season.weekdc_pa ? parseInt(season.weekdc_pa) : '',
                   },
                 ];
 
-                let PPG = (Math.round(season.PPG * 100) / 100).toFixed(1);
-                let PAPG = (Math.round(season.PAPG * 100) / 100).toFixed(1);
-                let DIFPG = (Math.round(season.DIFPG * 100) / 100).toFixed(1);
-                let TOTPG = (Math.round(season.TOTPG * 100) / 100).toFixed(1);
+                let PPG = (Math.round(season.ppg * 100) / 100).toFixed(1);
+                let PAPG = (Math.round(season.papg * 100) / 100).toFixed(1);
+                let DIFPG = (Math.round(season.difpg * 100) / 100).toFixed(1);
+                let TOTPG = (Math.round(season.totpg * 100) / 100).toFixed(1);
 
                 // MEDALS
                 let pfMedal =
-                  allTeamsPFmedals.indexOf(season.PF) > -1
-                    ? "medal" + allTeamsPFmedals.indexOf(season.PF)
+                  allTeamsPFmedals.indexOf(season.pf) > -1
+                    ? "medal" + allTeamsPFmedals.indexOf(season.pf)
                     : "nomedal";
                 let paMedal =
-                  allTeamsPAmedals.indexOf(season.PA) > -1
-                    ? "medal" + allTeamsPAmedals.indexOf(season.PA)
+                  allTeamsPAmedals.indexOf(season.pa) > -1
+                    ? "medal" + allTeamsPAmedals.indexOf(season.pa)
                     : "nomedal";
                 let difMedal =
-                  allTeamsDIFmedals.indexOf(season.DIF) > -1
-                    ? "medal" + allTeamsDIFmedals.indexOf(season.DIF)
+                  allTeamsDIFmedals.indexOf(season.dif) > -1
+                    ? "medal" + allTeamsDIFmedals.indexOf(season.dif)
                     : "nomedal";
                 let totMedal =
-                  allTeamsTOTmedals.indexOf(season.TOT) > -1
-                    ? "medal" + allTeamsTOTmedals.indexOf(season.TOT)
+                  allTeamsTOTmedals.indexOf(season.tot) > -1
+                    ? "medal" + allTeamsTOTmedals.indexOf(season.tot)
                     : "nomedal";
                 let ppgMedal =
                   allTeamsPPGmedals.indexOf(PPG) > -1
@@ -460,7 +460,7 @@ export default function Seasons({ team, j_Division }) {
                     : "nomedal";
 
                 let difFormat =
-                  season.DIF > 0 ? "green" : season.DIF < 0 ? "crimson" : null;
+                  season.dif > 0 ? "green" : season.dif < 0 ? "crimson" : null;
 
                 let espnId = espnIds[team.team];
 
@@ -474,7 +474,7 @@ export default function Seasons({ team, j_Division }) {
                     </Link>
                     {/* WINS */}
                     <td className="standings-col record-col">
-                      <SC.textOnBgColor>{season.W}</SC.textOnBgColor>
+                      <SC.textOnBgColor>{season.w}</SC.textOnBgColor>
                     </td>
                     {/* DASH */}
                     <td className="standings-col record-col dash-col">
@@ -482,7 +482,7 @@ export default function Seasons({ team, j_Division }) {
                     </td>
                     {/* LOSSES */}
                     <td className="standings-col record-col ">
-                      <SC.textOnBgColor>{season.L}</SC.textOnBgColor>
+                      <SC.textOnBgColor>{season.l}</SC.textOnBgColor>
                     </td>
                     {/* border */}
                     <td className="table-border-col"></td>
@@ -498,7 +498,7 @@ export default function Seasons({ team, j_Division }) {
                       <div className="standings-points">
                         <div className="standings-ppg">
                           <SC.textOnBgColor>
-                            {perStat ? PPG : season.PF.toLocaleString()}
+                            {perStat ? PPG : season.pf.toLocaleString()}
                           </SC.textOnBgColor>
                           <div
                             className={`medal-small ${
@@ -508,7 +508,7 @@ export default function Seasons({ team, j_Division }) {
                         </div>
                         <div className="standings-total-points">
                           <SC.subtextOnBgColor>
-                            {perStat ? season.PF.toLocaleString() : PPG}
+                            {perStat ? season.pf.toLocaleString() : PPG}
                           </SC.subtextOnBgColor>
                         </div>
                       </div>
@@ -524,7 +524,7 @@ export default function Seasons({ team, j_Division }) {
                       <div className="standings-points ">
                         <div className="standings-ppg">
                           <SC.textOnBgColor>
-                            {perStat ? PAPG : season.PA.toLocaleString()}
+                            {perStat ? PAPG : season.pa.toLocaleString()}
                           </SC.textOnBgColor>
                           <div
                             className={`medal-small ${
@@ -534,7 +534,7 @@ export default function Seasons({ team, j_Division }) {
                         </div>
                         <div className="standings-total-points">
                           <SC.subtextOnBgColor>
-                            {perStat ? season.PA.toLocaleString() : PAPG}
+                            {perStat ? season.pa.toLocaleString() : PAPG}
                           </SC.subtextOnBgColor>
                         </div>
                       </div>
@@ -552,7 +552,7 @@ export default function Seasons({ team, j_Division }) {
                           className="standings-ppg"
                           style={{ color: `${difFormat}` }}
                         >
-                          {perStat ? DIFPG : season.DIF.toLocaleString()}
+                          {perStat ? DIFPG : season.dif.toLocaleString()}
                           <div
                             className={`medal-small ${
                               perStat ? difpgMedal : difMedal
@@ -561,7 +561,7 @@ export default function Seasons({ team, j_Division }) {
                         </div>
                         <div className="standings-total-points">
                           <SC.subtextOnBgColor>
-                            {perStat ? season.DIF.toLocaleString() : DIFPG}
+                            {perStat ? season.dif.toLocaleString() : DIFPG}
                           </SC.subtextOnBgColor>
                         </div>
                       </div>
@@ -577,7 +577,7 @@ export default function Seasons({ team, j_Division }) {
                       <div className="standings-points ">
                         <div className="standings-ppg">
                           <SC.textOnBgColor>
-                            {perStat ? TOTPG : season.TOT.toLocaleString()}
+                            {perStat ? TOTPG : season.tot.toLocaleString()}
                           </SC.textOnBgColor>
                           <div
                             className={`medal-small ${
@@ -587,7 +587,7 @@ export default function Seasons({ team, j_Division }) {
                         </div>
                         <div className="standings-total-points">
                           <SC.subtextOnBgColor>
-                            {perStat ? season.TOT.toLocaleString() : TOTPG}
+                            {perStat ? season.tot.toLocaleString() : TOTPG}
                           </SC.subtextOnBgColor>
                         </div>
                       </div>

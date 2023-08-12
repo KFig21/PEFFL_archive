@@ -1,7 +1,6 @@
 /* eslint-disable react/jsx-pascal-case */
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import SC from "../../../themes/styledComponents";
 import Loader from "../../../components/loader/Loader";
 import Helmet from "../../../components/helmet/Helmet";
@@ -282,35 +281,35 @@ export default function AllTeams({ j_Division, helmetStyle, helmetView }) {
             {/* TABLE CONTENT */}
             <tbody>
               {teams.map((team, i) => {
-                let PPG = (Math.round(team.PPG * 100) / 100).toFixed(1);
-                let PAPG = (Math.round(team.PAPG * 100) / 100).toFixed(1);
-                let DIFPG = (Math.round(team.DIFPG * 100) / 100).toFixed(1);
-                let TOTPG = (Math.round(team.TOTPG * 100) / 100).toFixed(1);
+                let PPG = (Math.round(team.ppg * 100) / 100).toFixed(1);
+                let PAPG = (Math.round(team.papg * 100) / 100).toFixed(1);
+                let DIFPG = (Math.round(team.difpg * 100) / 100).toFixed(1);
+                let TOTPG = (Math.round(team.totpg * 100) / 100).toFixed(1);
                 let totalDif = (
-                  Math.round((team.PF - team.PA) * 100) / 100
+                  Math.round((team.pf - team.pa) * 100) / 100
                 ).toFixed(0);
                 let difFormat =
                   totalDif > 0 ? "green" : totalDif < 0 ? "crimson" : null;
-                let winPercentage = (((team.W / (team.W + team.L)) * 100) / 100)
+                let winPercentage = (((team.w / (team.w + team.l)) * 100) / 100)
                   .toFixed(3)
                   .toString()
                   .substring(1);
                 // MEDALS
                 let pfMedal =
-                  allTeamsPFmedals.indexOf(team.PF) > -1
-                    ? "medal" + allTeamsPFmedals.indexOf(team.PF)
+                  allTeamsPFmedals.indexOf(team.pf) > -1
+                    ? "medal" + allTeamsPFmedals.indexOf(team.pf)
                     : "nomedal";
                 let paMedal =
-                  allTeamsPAmedals.indexOf(team.PA) > -1
-                    ? "medal" + allTeamsPAmedals.indexOf(team.PA)
+                  allTeamsPAmedals.indexOf(team.pa) > -1
+                    ? "medal" + allTeamsPAmedals.indexOf(team.pa)
                     : "nomedal";
                 let difMedal =
-                  allTeamsDIFmedals.indexOf(team.DIF) > -1
-                    ? "medal" + allTeamsDIFmedals.indexOf(team.DIF)
+                  allTeamsDIFmedals.indexOf(team.dif) > -1
+                    ? "medal" + allTeamsDIFmedals.indexOf(team.dif)
                     : "nomedal";
                 let totMedal =
-                  allTeamsTOTmedals.indexOf(team.TOT) > -1
-                    ? "medal" + allTeamsTOTmedals.indexOf(team.TOT)
+                  allTeamsTOTmedals.indexOf(team.tot) > -1
+                    ? "medal" + allTeamsTOTmedals.indexOf(team.tot)
                     : "nomedal";
                 let ppgMedal =
                   allTeamsPPGmedals.indexOf(PPG) > -1
@@ -375,7 +374,7 @@ export default function AllTeams({ j_Division, helmetStyle, helmetView }) {
                     </Link>
                     {/* WINS */}
                     <td className="standings-col record-col">
-                      <SC.textOnBgColor>{team.W}</SC.textOnBgColor>
+                      <SC.textOnBgColor>{team.w}</SC.textOnBgColor>
                     </td>
                     {/* DASH */}
                     <td className="standings-col record-col dash-col">
@@ -383,7 +382,7 @@ export default function AllTeams({ j_Division, helmetStyle, helmetView }) {
                     </td>
                     {/* LOSSES */}
                     <td className="standings-col record-col">
-                      <SC.textOnBgColor>{team.L}</SC.textOnBgColor>
+                      <SC.textOnBgColor>{team.l}</SC.textOnBgColor>
                     </td>
                     {/* LINK to ESPN */}
                     {user.username !== null && (
@@ -412,7 +411,7 @@ export default function AllTeams({ j_Division, helmetStyle, helmetView }) {
                       <div className="standings-points">
                         <div className="standings-ppg">
                           <SC.textOnBgColor>
-                            {perStat ? PPG : team.PF.toLocaleString()}
+                            {perStat ? PPG : team.pf.toLocaleString()}
                           </SC.textOnBgColor>
                           <div
                             className={`medal-small ${
@@ -422,7 +421,7 @@ export default function AllTeams({ j_Division, helmetStyle, helmetView }) {
                         </div>
                         <div className="standings-total-points">
                           <SC.subtextOnBgColor>
-                            {perStat ? team.PF.toLocaleString() : PPG}
+                            {perStat ? team.pf.toLocaleString() : PPG}
                           </SC.subtextOnBgColor>
                         </div>
                       </div>
@@ -438,7 +437,7 @@ export default function AllTeams({ j_Division, helmetStyle, helmetView }) {
                       <div className="standings-points ">
                         <div className="standings-ppg">
                           <SC.textOnBgColor>
-                            {perStat ? PAPG : team.PA.toLocaleString()}
+                            {perStat ? PAPG : team.pa.toLocaleString()}
                           </SC.textOnBgColor>
                           <div
                             className={`medal-small ${
@@ -448,7 +447,7 @@ export default function AllTeams({ j_Division, helmetStyle, helmetView }) {
                         </div>
                         <div className="standings-total-points">
                           <SC.subtextOnBgColor>
-                            {perStat ? team.PA.toLocaleString() : PAPG}
+                            {perStat ? team.pa.toLocaleString() : PAPG}
                           </SC.subtextOnBgColor>
                         </div>
                       </div>
@@ -493,7 +492,7 @@ export default function AllTeams({ j_Division, helmetStyle, helmetView }) {
                       <div className="standings-points ">
                         <div className="standings-ppg">
                           <SC.textOnBgColor>
-                            {perStat ? TOTPG : team.TOT.toLocaleString()}
+                            {perStat ? TOTPG : team.tot.toLocaleString()}
                           </SC.textOnBgColor>
                           <div
                             className={`medal-small ${
@@ -503,7 +502,7 @@ export default function AllTeams({ j_Division, helmetStyle, helmetView }) {
                         </div>
                         <div className="standings-total-points">
                           <SC.subtextOnBgColor>
-                            {perStat ? team.TOT.toLocaleString() : TOTPG}
+                            {perStat ? team.tot.toLocaleString() : TOTPG}
                           </SC.subtextOnBgColor>
                         </div>
                       </div>

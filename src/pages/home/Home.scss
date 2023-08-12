@@ -47,6 +47,12 @@
 
     .home-section {
       letter-spacing: 0.1px;
+      border: 1px solid grey;
+      border-radius: 20px;
+      width: 100%;
+      margin: 20px 0px;
+      padding: 20px;
+
       .home-section-header-container {
         width: 100%;
         text-align: left;
@@ -54,6 +60,7 @@
         .home-section-header {
           font-size: 30px;
           font-weight: 700;
+          padding-left: 10px;
           text-align: left;
           position: relative;
           width: fit-content;

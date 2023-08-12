@@ -25,7 +25,7 @@ export default function Overall_Section({
       <div className="h2h-team-stats-container">
         {/* TEAM 1 */}
         <TeamOverall
-          team={team1data}
+          team={team1data.overall}
           winPercentageRank={winPercentageRank}
           ppgRank_overall={ppgRank_overall}
           papgRank_overall={papgRank_overall}
@@ -249,7 +249,7 @@ export default function Overall_Section({
         </div>
         {/* TEAM 2 */}
         <TeamOverall
-          team={team2data}
+          team={team2data.overall}
           winPercentageRank={winPercentageRank}
           ppgRank_overall={ppgRank_overall}
           papgRank_overall={papgRank_overall}

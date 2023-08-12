@@ -10,7 +10,7 @@ import ArrowDropUpRoundedIcon from "@mui/icons-material/ArrowDropUpRounded";
 import ArrowDropDownRoundedIcon from "@mui/icons-material/ArrowDropDownRounded";
 import "./Matchups.scss";
 import { useSelector } from "react-redux";
-import { getAllMatchups, getAllMatchupsMedals } from "../../helpers/apiCalls";
+import { getAllMatchups, getAllMatchupsMedals, getAllMedalsForMatchups } from "../../helpers/apiCalls";
 
 export default function Matchups({
   setCurrentPage,
@@ -24,31 +24,15 @@ export default function Matchups({
   const [sortOrder, setSortOrder] = useState("DESC");
   const [schedule, setSchedule] = useState("RS");
   const user = useSelector((state) => state.user);
-  // MATCHUP MEDALS
-  const [allMatchupsWINPmedals, setAllMatchupsWINPmedals] = useState([]);
-  const [allMatchupsPFmedals, setAllMatchupsPFmedals] = useState([]);
-  const [allMatchupsPAmedals, setAllMatchupsPAmedals] = useState([]);
-  const [allMatchupsPPGmedals, setAllMatchupsPPGmedals] = useState([]);
-  const [allMatchupsPAPGmedals, setAllMatchupsPAPGmedals] = useState([]);
-  const [allMatchupsDIFmedals, setAllMatchupsDIFmedals] = useState([]);
-  const [allMatchupsDIFPGmedals, setAllMatchupsDIFPGmedals] = useState([]);
-  const [allMatchupsTOTmedals, setAllMatchupsTOTmedals] = useState([]);
-  const [allMatchupsTOTPGmedals, setAllMatchupsTOTPGmedals] = useState([]);
+  const [allMatchupsMedals, setAllMatchupsMedals] = useState({});
 
   const getMatchups = async (column, order, table) => {
     setMatchups(await getAllMatchups(column, order, table));
   };
 
   const fetchMedals = async (table) => {
-    setAllMatchupsWINPmedals(await getAllMatchupsMedals(table, "WinP"));
-    setAllMatchupsPFmedals(await getAllMatchupsMedals(table, "PF"));
-    setAllMatchupsPAmedals(await getAllMatchupsMedals(table, "PA"));
-    setAllMatchupsPPGmedals(await getAllMatchupsMedals(table, "PPG"));
-    setAllMatchupsPAPGmedals(await getAllMatchupsMedals(table, "PAPG"));
-    setAllMatchupsDIFmedals(await getAllMatchupsMedals(table, "DIF"));
-    setAllMatchupsDIFPGmedals(await getAllMatchupsMedals(table, "DIFPG"));
-    setAllMatchupsTOTmedals(await getAllMatchupsMedals(table, "TOT"));
-    setAllMatchupsTOTPGmedals(await getAllMatchupsMedals(table, "TOTPG"));
+    let res = await getAllMedalsForMatchups(table)
+    setAllMatchupsMedals(res)
   };
 
   const handleColumnSort = (col) => {
@@ -324,59 +308,59 @@ export default function Matchups({
             </thead>
             <tbody>
               {matchups.map((matchup, i) => {
-                let PPG = (Math.round(matchup.PPG * 100) / 100).toFixed(1);
-                let PAPG = (Math.round(matchup.PAPG * 100) / 100).toFixed(1);
-                let DIFPG = (Math.round(matchup.DIFPG * 100) / 100).toFixed(1);
-                let TOTPG = (Math.round(matchup.TOTPG * 100) / 100).toFixed(1);
+                let PPG = (Math.round(matchup.ppg * 100) / 100).toFixed(1);
+                let PAPG = (Math.round(matchup.papg * 100) / 100).toFixed(1);
+                let DIFPG = (Math.round(matchup.difpg * 100) / 100).toFixed(1);
+                let TOTPG = (Math.round(matchup.totpg * 100) / 100).toFixed(1);
                 let totalDif = (
-                  Math.round((matchup.PF - matchup.PA) * 100) / 100
+                  Math.round((matchup.pf - matchup.pa) * 100) / 100
                 ).toFixed(0);
                 let difFormat =
                   totalDif > 0 ? "green" : totalDif < 0 ? "crimson" : null;
                 let winPercentage =
-                  matchup.W === matchup.G && matchup.G > 0
+                  matchup.w === matchup.g && matchup.g > 0
                     ? "1.000"
-                    : (((matchup.W / (matchup.W + matchup.L)) * 100) / 100)
+                    : (((matchup.w / (matchup.w + matchup.l)) * 100) / 100)
                         .toFixed(3)
                         .toString()
                         .substring(1);
 
                 // MEDALS
                 let winpMedal =
-                  allMatchupsWINPmedals.indexOf(winPercentage) > -1
-                    ? "medal" + allMatchupsWINPmedals.indexOf(winPercentage)
+                  allMatchupsMedals.winp.indexOf(winPercentage) > -1
+                    ? "medal" + allMatchupsMedals.winp.indexOf(winPercentage)
                     : "nomedal";
                 let pfMedal =
-                  allMatchupsPFmedals.indexOf(matchup.PF) > -1
-                    ? "medal" + allMatchupsPFmedals.indexOf(matchup.PF)
+                  allMatchupsMedals.pf.indexOf(matchup.pf) > -1
+                    ? "medal" + allMatchupsMedals.pf.indexOf(matchup.pf)
                     : "nomedal";
                 let paMedal =
-                  allMatchupsPAmedals.indexOf(matchup.PA) > -1
-                    ? "medal" + allMatchupsPAmedals.indexOf(matchup.PA)
+                  allMatchupsMedals.pa.indexOf(matchup.pa) > -1
+                    ? "medal" + allMatchupsMedals.pa.indexOf(matchup.pa)
                     : "nomedal";
                 let difMedal =
-                  allMatchupsDIFmedals.indexOf(matchup.DIF) > -1
-                    ? "medal" + allMatchupsDIFmedals.indexOf(matchup.DIF)
+                  allMatchupsMedals.dif.indexOf(matchup.dif) > -1
+                    ? "medal" + allMatchupsMedals.dif.indexOf(matchup.dif)
                     : "nomedal";
                 let totMedal =
-                  allMatchupsTOTmedals.indexOf(matchup.TOT) > -1
-                    ? "medal" + allMatchupsTOTmedals.indexOf(matchup.TOT)
+                  allMatchupsMedals.tot.indexOf(matchup.tot) > -1
+                    ? "medal" + allMatchupsMedals.tot.indexOf(matchup.tot)
                     : "nomedal";
                 let ppgMedal =
-                  allMatchupsPPGmedals.indexOf(PPG) > -1
-                    ? "medal" + allMatchupsPPGmedals.indexOf(PPG)
+                  allMatchupsMedals.ppg.indexOf(PPG) > -1
+                    ? "medal" + allMatchupsMedals.ppg.indexOf(PPG)
                     : "nomedal";
                 let papgMedal =
-                  allMatchupsPAPGmedals.indexOf(PAPG) > -1
-                    ? "medal" + allMatchupsPAPGmedals.indexOf(PAPG)
+                  allMatchupsMedals.papg.indexOf(PAPG) > -1
+                    ? "medal" + allMatchupsMedals.papg.indexOf(PAPG)
                     : "nomedal";
                 let difpgMedal =
-                  allMatchupsDIFPGmedals.indexOf(DIFPG) > -1
-                    ? "medal" + allMatchupsDIFPGmedals.indexOf(DIFPG)
+                  allMatchupsMedals.difpg.indexOf(DIFPG) > -1
+                    ? "medal" + allMatchupsMedals.difpg.indexOf(DIFPG)
                     : "nomedal";
                 let totpgMedal =
-                  allMatchupsTOTPGmedals.indexOf(TOTPG) > -1
-                    ? "medal" + allMatchupsTOTPGmedals.indexOf(TOTPG)
+                  allMatchupsMedals.totpg.indexOf(TOTPG) > -1
+                    ? "medal" + allMatchupsMedals.totpg.indexOf(TOTPG)
                     : "nomedal";
 
                 let winnerDivision = j_Division.includes(matchup.team)
@@ -404,7 +388,7 @@ export default function Matchups({
                     </td>
                     {/* GAMES */}
                     <SC.tableBorderColorTD className="standings-col gb-col">
-                      <SC.subtextOnBgColor>{matchup.G} gp</SC.subtextOnBgColor>
+                      <SC.subtextOnBgColor>{matchup.g} gp</SC.subtextOnBgColor>
                     </SC.tableBorderColorTD>
                     {/* TEAM */}
                     <td className="allmatchups-team-away">
@@ -425,7 +409,7 @@ export default function Matchups({
                     </td>
                     {/* WINS */}
                     <td className="standings-col record-col">
-                      <SC.textOnBgColor>{matchup.W}</SC.textOnBgColor>
+                      <SC.textOnBgColor>{matchup.w}</SC.textOnBgColor>
                     </td>
                     {/* DASH */}
                     <td className="standings-col record-col dash-col">
@@ -433,7 +417,7 @@ export default function Matchups({
                     </td>
                     {/* LOSSES */}
                     <td className="standings-col record-col">
-                      <SC.textOnBgColor>{matchup.L}</SC.textOnBgColor>
+                      <SC.textOnBgColor>{matchup.l}</SC.textOnBgColor>
                     </td>
                     {/* OPPONENT */}
                     <td className="allmatchups-team-home">
@@ -490,7 +474,7 @@ export default function Matchups({
                       <div className="standings-points">
                         <div className="standings-ppg">
                           <SC.textOnBgColor>
-                            {perStat ? PPG : matchup.PF.toLocaleString()}
+                            {perStat ? PPG : matchup.pf.toLocaleString()}
                           </SC.textOnBgColor>
                           <div
                             className={`medal-small ${
@@ -500,7 +484,7 @@ export default function Matchups({
                         </div>
                         <div className="standings-total-points">
                           <SC.subtextOnBgColor>
-                            {perStat ? matchup.PF.toLocaleString() : PPG}
+                            {perStat ? matchup.pf.toLocaleString() : PPG}
                           </SC.subtextOnBgColor>
                         </div>
                       </div>
@@ -516,7 +500,7 @@ export default function Matchups({
                       <div className="standings-points ">
                         <div className="standings-ppg">
                           <SC.textOnBgColor>
-                            {perStat ? PAPG : matchup.PA.toLocaleString()}
+                            {perStat ? PAPG : matchup.pa.toLocaleString()}
                           </SC.textOnBgColor>
                           <div
                             className={`medal-small ${
@@ -526,7 +510,7 @@ export default function Matchups({
                         </div>
                         <div className="standings-total-points">
                           <SC.subtextOnBgColor>
-                            {perStat ? matchup.PA.toLocaleString() : PAPG}
+                            {perStat ? matchup.pa.toLocaleString() : PAPG}
                           </SC.subtextOnBgColor>
                         </div>
                       </div>
@@ -544,8 +528,8 @@ export default function Matchups({
                           className="standings-ppg"
                           style={{ color: `${difFormat}` }}
                         >
-                          {matchup.DIF > 0 ? "+" : ""}
-                          {perStat ? DIFPG : matchup.DIF.toLocaleString()}
+                          {matchup.dif > 0 ? "+" : ""}
+                          {perStat ? DIFPG : matchup.dif.toLocaleString()}
                           <div
                             className={`medal-small ${
                               perStat ? difpgMedal : difMedal
@@ -554,8 +538,8 @@ export default function Matchups({
                         </div>
                         <div className="standings-total-points">
                           <SC.subtextOnBgColor>
-                            {matchup.DIF > 0 ? "+" : ""}
-                            {perStat ? matchup.DIF.toLocaleString() : DIFPG}
+                            {matchup.dif > 0 ? "+" : ""}
+                            {perStat ? matchup.dif.toLocaleString() : DIFPG}
                           </SC.subtextOnBgColor>
                         </div>
                       </div>
@@ -571,7 +555,7 @@ export default function Matchups({
                       <div className="standings-points ">
                         <div className="standings-ppg">
                           <SC.textOnBgColor>
-                            {perStat ? TOTPG : matchup.TOT.toLocaleString()}
+                            {perStat ? TOTPG : matchup.tot.toLocaleString()}
                           </SC.textOnBgColor>
                           <div
                             className={`medal-small ${
@@ -581,7 +565,7 @@ export default function Matchups({
                         </div>
                         <div className="standings-total-points">
                           <SC.subtextOnBgColor>
-                            {perStat ? matchup.TOT.toLocaleString() : TOTPG}
+                            {perStat ? matchup.tot.toLocaleString() : TOTPG}
                           </SC.subtextOnBgColor>
                         </div>
                       </div>

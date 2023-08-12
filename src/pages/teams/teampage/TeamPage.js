@@ -4,11 +4,10 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router";
 import Helmet from "../../../components/helmet/Helmet";
 import Loader from "../../../components/loader/Loader";
-import { getTeamStats } from "../../../helpers/apiCalls";
+import { getTeamStats, getTeamStats2 } from "../../../helpers/apiCalls";
 import SC from "../../../themes/styledComponents";
 import Awards from "./components/Awards";
 import Head2Head from "./components/Head2Head";
-import PlayoffStats from "./components/PlayoffStats";
 import RegularSeasonStats from "./components/RegularSeasonStats";
 import Seasons from "./components/Seasons";
 import WeeklyAwards from "./components/WeeklyAwards";
@@ -57,7 +56,7 @@ export default function TeamPage({
 
   const getTeam = async () => {
     let fetchedTeam = await getTeamStats(teamParam.team);
-    setTeam(...fetchedTeam);
+    setTeam(fetchedTeam);
     setTimeout(() => {
       setLoaded(true);
     }, 500);

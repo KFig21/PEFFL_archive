@@ -1,7 +1,7 @@
 import axios from "axios";
 
-// export const url = "http://localhost:3000/peffl"; // local
-export const url = "https://peffl-api.herokuapp.com/peffl"; // api
+export const url = "http://localhost:3000/peffl"; // local
+// export const url = "https://peffl-api.herokuapp.com/peffl"; // api
 
 // ---------- MAIN ----------
 export const getStandings = async (column, order, table) => {
@@ -53,15 +53,8 @@ export const getTeams = async (column, order, table) => {
   return res.data;
 };
 export const getTeamStats = async (team) => {
-  if (team !== "Taylor") {
-    const res = await axios.get(`${url}/teams/stats/${team}`);
-    return res.data;
-  } else {
-    const res = await axios.get(
-      `${url}/teams/statsIfNeverMadePlayoffs/${team}`
-    );
-    return res.data;
-  }
+  const res = await axios.get(`${url}/teams/stats/${team}`);
+  return res.data;
 };
 export const getH2HmatchupsTeampage = async (team, column, order, table) => {
   const res = await axios.get(
@@ -87,15 +80,9 @@ export const getH2hMatchups = async (table, team1, team2) => {
   );
   return res.data;
 };
-export const getH2Hteam1 = async (_team1, _team2, table) => {
+export const getH2Hteams = async (_team1, _team2, table) => {
   const res = await axios.get(
     `${url}/matchups/h2h/${_team1}/${_team2}/${table}`
-  );
-  return res.data;
-};
-export const getH2Hteam2 = async (_team1, _team2, table) => {
-  const res = await axios.get(
-    `${url}/matchups/h2h/${_team2}/${_team1}/${table}`
   );
   return res.data;
 };
@@ -109,6 +96,10 @@ export const getAllMatchups = async (column, order, table) => {
 };
 export const getAllMatchupsMedals = async (table, column) => {
   const res = await axios.get(`${url}/matchups/medals/${table}/${column}`);
+  return res.data;
+};
+export const getAllMedalsForMatchups = async (table) => {
+  const res = await axios.get(`${url}/matchups/medals/${table}`);
   return res.data;
 };
 
@@ -151,6 +142,10 @@ export const getTeamWeeklyRecords = async (team) => {
 };
 
 // ---------- RANKS ----------
+export const getAllRanks = async (table) => {
+  const res = await axios.get(`${url}/allRanks/${table}`);
+  return res.data;
+};
 export const getWinPercentageRank = async (table) => {
   const res = await axios.get(`${url}/ranks/win/${table}`);
   return res.data;

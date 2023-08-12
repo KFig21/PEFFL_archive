@@ -1,9 +1,5 @@
 /* eslint-disable react/jsx-pascal-case */
 import React, { useEffect, useState } from "react";
-import {
-  getStandingsMedals,
-  getStandingsRank,
-} from "../../../../helpers/apiCalls";
 import SC from "../../../../themes/styledComponents";
 
 export default function RegularSeasonStats({
@@ -37,46 +33,46 @@ export default function RegularSeasonStats({
 }) {
   const [perStat, setPerStat] = useState(true);
   const [schedule, setSchedule] = useState("RS");
-
   // STAT VARIABLES
 
   // regular season
-  const rs_record = `${team.rs_W} - ${team.rs_L}`;
-  const rs_winP = (((team.rs_W / (team.rs_W + team.rs_L)) * 100) / 100)
+  const rs_record = `${team.rs_w} - ${team.rs_l}`;
+  const rs_winP = (((team.rs_w / (team.rs_w + team.rs_l)) * 100) / 100)
     .toFixed(3)
     .toString()
     .substring(1);
-  const rs_PF = team.rs_PF.toLocaleString();
-  const rs_PPG = (Math.round(team.rs_PPG * 100) / 100).toFixed(1);
-  const rs_PA = team.rs_PA.toLocaleString();
-  const rs_PAPG = (Math.round(team.rs_PAPG * 100) / 100).toFixed(1);
-  const rs_DIF = team.rs_DIF.toLocaleString();
-  const rs_DIFPG = (Math.round(team.rs_DIFPG * 100) / 100).toFixed(1);
+  const rs_PF = team.rs_pf.toLocaleString();
+  const rs_PPG = (Math.round(team.rs_ppg * 100) / 100).toFixed(1);
+  const rs_PA = team.rs_pa.toLocaleString();
+  const rs_PAPG = (Math.round(team.rs_papg * 100) / 100).toFixed(1);
+  const rs_DIF = team.rs_dif.toLocaleString();
+  const rs_DIFPG = (Math.round(team.rs_difpg * 100) / 100).toFixed(1);
 
   // PLAYOFFS
-  const playoff_record = `${team.playoffs_W} - ${team.playoffs_L}`;
-  const playoff_winP = (
-    ((team.playoffs_W / (team.playoffs_W + team.playoffs_L)) * 100) /
+  const p_win = team.playoffs_w ? team.playoffs_w : 0
+  const p_loss = team.playoffs_l ? team.playoffs_l : 0
+  const p_games = p_win + p_loss 
+  const playoff_record = `${p_win} - ${p_loss}`;
+  const playoff_winP = (p_win + p_loss) > 0 ? (
+    ((p_win / (p_win + p_loss)) * 100) /
     100
   )
     .toFixed(3)
     .toString()
-    .substring(1);
-  const playoff_PF = team.playoffs_PF.toLocaleString();
-  const playoff_PPG = (Math.round(team.playoffs_PPG * 100) / 100).toFixed(1);
-  const playoff_PA = team.playoffs_PA.toLocaleString();
-  const playoff_PAPG = (Math.round(team.playoffs_PAPG * 100) / 100).toFixed(1);
-  const playoff_DIF = team.playoffs_DIF.toLocaleString();
-  const playoff_DIFPG = (Math.round(team.playoffs_DIFPG * 100) / 100).toFixed(
-    1
-  );
+    .substring(1) : ".000"
+  const playoff_PF =  team.playoffs_pf ? team.playoffs_pf.toLocaleString() : 0;
+  const playoff_PPG = team.playoffs_ppg ? (Math.round(team.playoffs_ppg * 100) / 100).toFixed(1) : 0.0;
+  const playoff_PA = team.playoffs_pa ? team.playoffs_pa.toLocaleString() : 0;
+  const playoff_PAPG = team.playoffs_papg ? (Math.round(team.playoffs_papg * 100) / 100).toFixed(1) : 0.0;
+  const playoff_DIF = team.playoffs_dif ? team.playoffs_dif.toLocaleString() : 0;
+  const playoff_DIFPG = team.playoffs_difpg ? (Math.round(team.playoffs_difpg * 100) / 100).toFixed(1) : 0.0;
   // ALL GAMES
-  const total_W = team.rs_W + team.playoffs_W;
-  const total_L = team.rs_L + team.playoffs_L;
-  const total_PF = team.rs_PF + team.playoffs_PF;
-  const total_PA = team.rs_PA + team.playoffs_PA;
-  const total_DIF = team.rs_DIF + team.playoffs_DIF;
-  const total_Games = team.rs_W + team.playoffs_W + team.rs_L + team.playoffs_L;
+  const total_W = team.rs_w + team.playoffs_w;
+  const total_L = team.rs_l + team.playoffs_l;
+  const total_PF = team.rs_pf + team.playoffs_pf;
+  const total_PA = team.rs_pa + team.playoffs_pa;
+  const total_DIF = team.rs_dif + team.playoffs_dif;
+  const total_Games = team.rs_w + team.playoffs_w + team.rs_l + team.playoffs_l;
 
   const ag_record = `${total_W} - ${total_L}`;
   const ag_winP = (((total_W / total_Games) * 100) / 100)
@@ -114,16 +110,16 @@ export default function RegularSeasonStats({
       ? "medal" + rs_WinP.indexOf(rs_winP)
       : "nomedal";
   let rs_pfMedal =
-    rs_PFmedals.indexOf(team.rs_PF) > -1
-      ? "medal" + rs_PFmedals.indexOf(team.rs_PF)
+    rs_PFmedals.indexOf(team.rs_pf) > -1
+      ? "medal" + rs_PFmedals.indexOf(team.rs_pf)
       : "nomedal";
   let rs_paMedal =
-    rs_PAmedals.indexOf(team.rs_PA) > -1
-      ? "medal" + rs_PAmedals.indexOf(team.rs_PA)
+    rs_PAmedals.indexOf(team.rs_pa) > -1
+      ? "medal" + rs_PAmedals.indexOf(team.rs_pa)
       : "nomedal";
   let rs_difMedal =
-    rs_DIFmedals.indexOf(team.rs_DIF) > -1
-      ? "medal" + rs_DIFmedals.indexOf(team.rs_DIF)
+    rs_DIFmedals.indexOf(team.rs_dif) > -1
+      ? "medal" + rs_DIFmedals.indexOf(team.rs_dif)
       : "nomedal";
   let rs_ppgMedal =
     rs_PPGmedals.indexOf(rs_PPG) > -1
@@ -182,16 +178,16 @@ export default function RegularSeasonStats({
       ? "medal" + playoff_WinP.indexOf(playoff_winP)
       : "nomedal";
   let playoff_pfMedal =
-    playoff_PFmedals.indexOf(team.playoffs_PF) > -1
-      ? "medal" + playoff_PFmedals.indexOf(team.playoffs_PF)
+    playoff_PFmedals.indexOf(team.playoffs_pf) > -1
+      ? "medal" + playoff_PFmedals.indexOf(team.playoffs_pf)
       : "nomedal";
   let playoff_paMedal =
-    playoff_PAmedals.indexOf(team.playoffs_PA) > -1
-      ? "medal" + playoff_PAmedals.indexOf(team.playoffs_PA)
+    playoff_PAmedals.indexOf(team.playoffs_pa) > -1
+      ? "medal" + playoff_PAmedals.indexOf(team.playoffs_pa)
       : "nomedal";
   let playoff_difMedal =
-    playoff_DIFmedals.indexOf(team.playoffs_DIF) > -1
-      ? "medal" + playoff_DIFmedals.indexOf(team.playoffs_DIF)
+    playoff_DIFmedals.indexOf(team.playoffs_dif) > -1
+      ? "medal" + playoff_DIFmedals.indexOf(team.playoffs_dif)
       : "nomedal";
   let playoff_ppgMedal =
     playoff_PPGmedals.indexOf(playoff_PPG) > -1
@@ -285,11 +281,9 @@ export default function RegularSeasonStats({
             {schedule === "AG" && "ALL GAMES"}
             <span className="section-header-subtext">
               <SC.subtextOnBgColor>
-                {schedule === "RS" && `${team.rs_W + team.rs_L} GAMES`}
+                {schedule === "RS" && `${team.rs_w + team.rs_l} GAMES`}
                 {schedule === "playoffs" &&
-                  `${team.playoffs_A} APPEARANCES, ${
-                    team.playoffs_W + team.playoffs_L
-                  } GAMES`}
+                  `${team.playoffs_A || 0} APPEARANCES, ${p_games} GAMES`}
                 {schedule === "AG" && `${total_Games} GAMES`}
               </SC.subtextOnBgColor>
             </span>

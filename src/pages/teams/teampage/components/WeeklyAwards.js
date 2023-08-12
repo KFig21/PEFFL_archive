@@ -39,19 +39,19 @@ export default function WeeklyAwards({
               WEEKLY HIGHS
               <div
                 className={`medal-small teampage ${
-                  "medal" + weeksMostPFmedals.indexOf(team_.PF)
+                  "medal" + weeksMostPFmedals.indexOf(parseInt(team_.pf))
                 }`}
               ></div>
             </span>
           </SC.textOnBgColor>
           <SC.textOnBgColor>
-            <div className="stat-value">{team_.PF || 0}</div>
+            <div className="stat-value">{team_.pf || 0}</div>
           </SC.textOnBgColor>
           <SC.subtextOnBgColor>
             <div className="substat-value">
               <span className="rank-text">RANK</span>{" "}
               <strong className="rank-number">
-                {1 + weeksMostPFmedals.indexOf(team_.PF)}
+                {1 + weeksMostPFmedals.indexOf(parseInt(team_.pf))}
               </strong>
               of 10
             </div>
@@ -64,19 +64,19 @@ export default function WeeklyAwards({
               VS WEEKLY HIGHS
               <div
                 className={`medal-small teampage ${
-                  "medal" + weeksMostPAmedals.indexOf(team_.PA)
+                  "medal" + weeksMostPAmedals.indexOf(parseInt(team_.pa))
                 }`}
               ></div>
             </span>
           </SC.textOnBgColor>
           <SC.textOnBgColor>
-            <div className="stat-value">{team_.PA || 0}</div>
+            <div className="stat-value">{team_.pa || 0}</div>
           </SC.textOnBgColor>
           <SC.subtextOnBgColor>
             <div className="substat-value">
               <span className="rank-text">RANK</span>{" "}
               <strong className="rank-number">
-                {1 + weeksMostPAmedals.indexOf(team_.PA)}
+                {1 + weeksMostPAmedals.indexOf(parseInt(team_.pa))}
               </strong>
               of 10
             </div>
@@ -89,19 +89,19 @@ export default function WeeklyAwards({
               WEEKLY LOWS
               <div
                 className={`medal-small teampage ${
-                  "medal" + weeksLeastPFmedals.indexOf(team_.LeastPF)
+                  "medal" + weeksLeastPFmedals.indexOf(parseInt(team_.leastpf))
                 }`}
               ></div>
             </span>
           </SC.textOnBgColor>
           <SC.textOnBgColor>
-            <div className="stat-value">{team_.LeastPF}</div>
+            <div className="stat-value">{team_.leastpf || 0}</div>
           </SC.textOnBgColor>
           <SC.subtextOnBgColor>
             <div className="substat-value">
               <span className="rank-text">RANK</span>{" "}
               <strong className="rank-number">
-                {1 + weeksLeastPFmedals.indexOf(team_.LeastPF)}
+                {1 + weeksLeastPFmedals.indexOf(parseInt(team_.leastpf))}
               </strong>
               of 10
             </div>
@@ -114,19 +114,19 @@ export default function WeeklyAwards({
               VS WEEKLY LOWS
               <div
                 className={`medal-small teampage ${
-                  "medal" + weeksLeastPAmedals.indexOf(team_.LeastPA)
+                  "medal" + weeksLeastPAmedals.indexOf(team_.leastpa)
                 }`}
               ></div>
             </span>
           </SC.textOnBgColor>
           <SC.textOnBgColor>
-            <div className="stat-value">{team_.LeastPA}</div>
+            <div className="stat-value">{team_.leastpa || 0}</div>
           </SC.textOnBgColor>
           <SC.subtextOnBgColor>
             <div className="substat-value">
               <span className="rank-text">RANK</span>{" "}
               <strong className="rank-number">
-                {1 + weeksLeastPAmedals.indexOf(team_.LeastPA)}
+                {1 + weeksLeastPAmedals.indexOf(team_.leastpa)}
               </strong>
               of 10
             </div>

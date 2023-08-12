@@ -351,40 +351,42 @@ export default function Standings({
             </thead>
             <tbody>
               {teams.map((team, i) => {
-                let PPG = (Math.round(team.PPG * 100) / 100).toFixed(1);
-                let PAPG = (Math.round(team.PAPG * 100) / 100).toFixed(1);
-                let DIFPG = (Math.round(team.DIFPG * 100) / 100).toFixed(1);
-                let TOTPG = (Math.round(team.TOTPG * 100) / 100).toFixed(1);
+                let PPG = (Math.round(team.ppg * 100) / 100).toFixed(1);
+                let PAPG = (Math.round(team.papg * 100) / 100).toFixed(1);
+                let DIFPG = (Math.round(team.difpg * 100) / 100).toFixed(1);
+                let TOTPG = (Math.round(team.totpg * 100) / 100).toFixed(1);
+                team.w = parseInt(team.w)
+                team.l = parseInt(team.l)
 
                 let difFormat =
-                  team.DIF > 0 ? "green" : team.DIF < 0 ? "crimson" : null;
+                  team.dif > 0 ? "green" : team.dif < 0 ? "crimson" : null;
 
-                if (team.W > mostWins) {
-                  setMostWins(team.W);
+                if (team.w > mostWins) {
+                  setMostWins(team.w);
                 }
 
-                let GB = mostWins - team.W > 0 ? mostWins - team.W : "-";
+                let GB = mostWins - team.w > 0 ? mostWins - team.w : "-";
 
-                let winPercentage = (((team.W / (team.W + team.L)) * 100) / 100)
+                let winPercentage = (((team.w / (team.w + team.l)) * 100) / 100)
                   .toFixed(3)
                   .toString()
                   .substring(1);
 
                 let pfMedal =
-                  PFmedals.indexOf(team.PF) > -1
-                    ? "medal" + PFmedals.indexOf(team.PF)
+                  PFmedals.indexOf(team.pf) > -1
+                    ? "medal" + PFmedals.indexOf(team.pf)
                     : "nomedal";
                 let paMedal =
-                  PAmedals.indexOf(team.PA) > -1
-                    ? "medal" + PAmedals.indexOf(team.PA)
+                  PAmedals.indexOf(team.pa) > -1
+                    ? "medal" + PAmedals.indexOf(team.pa)
                     : "nomedal";
                 let difMedal =
-                  DIFmedals.indexOf(team.DIF) > -1
-                    ? "medal" + DIFmedals.indexOf(team.DIF)
+                  DIFmedals.indexOf(team.dif) > -1
+                    ? "medal" + DIFmedals.indexOf(team.dif)
                     : "nomedal";
                 let totMedal =
-                  TOTmedals.indexOf(team.TOT) > -1
-                    ? "medal" + TOTmedals.indexOf(team.TOT)
+                  TOTmedals.indexOf(team.tot) > -1
+                    ? "medal" + TOTmedals.indexOf(team.tot)
                     : "nomedal";
                 let ppgMedal =
                   PPGmedals.indexOf(PPG) > -1
@@ -440,7 +442,7 @@ export default function Standings({
                             {team.team}
                           </SC.textOnBgColor>
                           <SC.subtextOnBgColor className="standings-team-subtext">
-                            {team.G} {team.G !== 1 ? "games" : "game"},{" "}
+                            {team.g} {team.g !== '1' ? "games" : "game"},{" "}
                             {winPercentage} win%
                           </SC.subtextOnBgColor>
                         </div>
@@ -449,7 +451,7 @@ export default function Standings({
                     </Link>
                     {/* WINS */}
                     <td className="standings-col record-col">
-                      <SC.textOnBgColor>{team.W}</SC.textOnBgColor>
+                      <SC.textOnBgColor>{team.w}</SC.textOnBgColor>
                     </td>
                     {/* DASH */}
                     <td className="standings-col record-col dash-col">
@@ -457,7 +459,7 @@ export default function Standings({
                     </td>
                     {/* LOSSES */}
                     <td className="standings-col record-col">
-                      <SC.textOnBgColor>{team.L}</SC.textOnBgColor>
+                      <SC.textOnBgColor>{team.l}</SC.textOnBgColor>
                     </td>
                     <SC.tableBorderColorTD className="standings-col gb-col">
                       <SC.subtextOnBgColor>
@@ -475,7 +477,7 @@ export default function Standings({
                       <div className="standings-points">
                         <div className="standings-ppg">
                           <SC.textOnBgColor>
-                            {perStat ? PPG : team.PF.toLocaleString()}
+                            {perStat ? PPG : team.pf.toLocaleString()}
                           </SC.textOnBgColor>
                           <div
                             className={`medal-small ${
@@ -485,7 +487,7 @@ export default function Standings({
                         </div>
                         <div className="standings-total-points">
                           <SC.subtextOnBgColor>
-                            {perStat ? team.PF.toLocaleString() : PPG}
+                            {perStat ? team.pf.toLocaleString() : PPG}
                           </SC.subtextOnBgColor>
                         </div>
                       </div>
@@ -501,7 +503,7 @@ export default function Standings({
                       <div className="standings-points ">
                         <div className="standings-ppg">
                           <SC.textOnBgColor>
-                            {perStat ? PAPG : team.PA.toLocaleString()}
+                            {perStat ? PAPG : team.pa.toLocaleString()}
                           </SC.textOnBgColor>
                           <div
                             className={`medal-small ${
@@ -511,7 +513,7 @@ export default function Standings({
                         </div>
                         <div className="standings-total-points">
                           <SC.subtextOnBgColor>
-                            {perStat ? team.PA.toLocaleString() : PAPG}
+                            {perStat ? team.pa.toLocaleString() : PAPG}
                           </SC.subtextOnBgColor>
                         </div>
                       </div>
@@ -529,8 +531,8 @@ export default function Standings({
                           className="standings-ppg"
                           style={{ color: `${difFormat}` }}
                         >
-                          {team.DIF > 0 ? "+" : ""}
-                          {perStat ? DIFPG : team.DIF}
+                          {team.dif > 0 ? "+" : ""}
+                          {perStat ? DIFPG : team.dif}
                           <div
                             className={`medal-small ${
                               perStat ? difpgMedal : difMedal
@@ -539,8 +541,8 @@ export default function Standings({
                         </div>
                         <div className="standings-total-points">
                           <SC.subtextOnBgColor>
-                            {team.DIF > 0 ? "+" : ""}
-                            {perStat ? team.DIF : DIFPG}
+                            {team.dif > 0 ? "+" : ""}
+                            {perStat ? team.dif : DIFPG}
                           </SC.subtextOnBgColor>
                         </div>
                       </div>
@@ -556,7 +558,7 @@ export default function Standings({
                       <div className="standings-points ">
                         <div className="standings-ppg">
                           <SC.textOnBgColor>
-                            {perStat ? TOTPG : team.TOT.toLocaleString()}
+                            {perStat ? TOTPG : team.tot.toLocaleString()}
                           </SC.textOnBgColor>
                           <div
                             className={`medal-small ${
@@ -566,7 +568,7 @@ export default function Standings({
                         </div>
                         <div className="standings-total-points">
                           <SC.subtextOnBgColor>
-                            {perStat ? team.TOT.toLocaleString() : TOTPG}
+                            {perStat ? team.tot.toLocaleString() : TOTPG}
                           </SC.subtextOnBgColor>
                         </div>
                       </div>

@@ -10,18 +10,18 @@ export default function TeamH2H({
   difRank_h2h,
   difpgRank_h2h,
 }) {
-  let winsRank = winsRank_h2h.indexOf(team.W_h2h);
-  let ppgRank = ppgRank_h2h.indexOf(parseFloat(team.PPG_h2h));
-  let pfRank = pfRank_h2h.indexOf(parseFloat(team.PF_h2h));
-  let difpgRank = difpgRank_h2h.indexOf(parseFloat(team.DIFPG_h2h));
-  let difRank = difRank_h2h.indexOf(parseFloat(team.DIF_h2h));
+  let winsRank = winsRank_h2h.indexOf(team.w);
+  let ppgRank = ppgRank_h2h.indexOf(parseFloat(team.ppg));
+  let pfRank = pfRank_h2h.indexOf(parseFloat(team.pf));
+  let difpgRank = difpgRank_h2h.indexOf(parseFloat(team.difpg));
+  let difRank = difRank_h2h.indexOf(parseFloat(team.dif));
 
   return (
     <div className="h2h-team-stats">
       {/* WINS */}
       <div className="h2h-team-stat-cell-with-subtext">
         <div className="h2h-team-stat-main">
-          <SC.textOnBgColor>{team.W_h2h}</SC.textOnBgColor>
+          <SC.textOnBgColor>{team.w}</SC.textOnBgColor>
           <div className={`h2h-medal medal-small medal${winsRank}`}></div>
         </div>
         <div className="h2h-team-stat-sub">
@@ -37,7 +37,7 @@ export default function TeamH2H({
       <div className="h2h-team-stat-cell-with-subtext">
         <div className="h2h-team-stat-main">
           <SC.textOnBgColor>
-            {(Math.round(team.PPG_h2h * 100) / 100).toFixed(1)}
+            {(Math.round(team.ppg * 100) / 100).toFixed(1)}
           </SC.textOnBgColor>
           <div className={`h2h-medal medal-small medal${ppgRank}`}></div>
         </div>
@@ -53,7 +53,7 @@ export default function TeamH2H({
       {/* POINTS */}
       <div className="h2h-team-stat-cell-with-subtext">
         <div className="h2h-team-stat-main">
-          <SC.textOnBgColor>{team.PF_h2h.toLocaleString()}</SC.textOnBgColor>
+          <SC.textOnBgColor>{team.pf.toLocaleString()}</SC.textOnBgColor>
           <div className={`h2h-medal medal-small medal${pfRank}`}></div>
         </div>
         <div className="h2h-team-stat-sub">
@@ -71,15 +71,15 @@ export default function TeamH2H({
           <div
             className="h2h-team-stat-main"
             style={
-              team.DIFPG_h2h > 0
+              team.difpg > 0
                 ? { color: "green" }
-                : team.DIFPG_h2h < 0
+                : team.difpg < 0
                 ? { color: "crimson" }
                 : null
             }
           >
-            {team.DIFPG_h2h > 0 ? "+" : ""}
-            {(Math.round(team.DIFPG_h2h * 100) / 100).toFixed(1)}
+            {team.difpg > 0 ? "+" : ""}
+            {(Math.round(team.difpg * 100) / 100).toFixed(1)}
             <div className={`h2h-medal medal-small medal${difpgRank}`}></div>
           </div>
         </SC.textOnBgColor>
@@ -98,15 +98,15 @@ export default function TeamH2H({
           <div
             className="h2h-team-stat-main"
             style={
-              team.DIF_h2h > 0
+              team.dif > 0
                 ? { color: "green" }
-                : team.DIF_h2h < 0
+                : team.dif < 0
                 ? { color: "crimson" }
                 : null
             }
           >
-            {team.DIF_h2h > 0 ? "+" : ""}
-            {team.DIF_h2h.toLocaleString()}
+            {team.dif > 0 ? "+" : ""}
+            {team.dif.toLocaleString()}
             <div className={`h2h-medal medal-small medal${difRank}`}></div>
           </div>
         </SC.textOnBgColor>

@@ -14,11 +14,13 @@ export default function Countdown({ year, month, day, message, title }) {
       };
     
       const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+      const [timesUp, setTimesUp] = useState(false);
     
       useEffect(() => {
         setTimeout(() => {
           setTimeLeft(calculateTimeLeft());
         }, 1000);
+        if(timeLeft.days === 0 && timeLeft.hours === 0 && timeLeft.minutes === 0 && timeLeft.seconds === 0) setTimesUp(true)
       });
     
       const timerComponents = [];
@@ -45,7 +47,7 @@ export default function Countdown({ year, month, day, message, title }) {
             <SC.primaryColorUnderline className="home-section-header-container">
                 <h1 className="home-section-header">{title}</h1>
             </SC.primaryColorUnderline>
-          {timerComponents.length ? <div className="timer">{timerComponents}</div> : <h3>{message}</h3>}
+          {timesUp ? <h3>{message}</h3> : <div className="timer">{timerComponents}</div>}
         </SC.countdownContainer>
       );
 }

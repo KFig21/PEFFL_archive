@@ -195,7 +195,7 @@ export default function Sidebar({
               </SC.SidebarLink>
             </Link>
             {/* H2H */}
-            <Link to={`/h2h/DenR/The Boo`}>
+            <Link to={`/h2h/Frankie/The Boo`}>
               <SC.SidebarLink
                 className={
                   "sidebar-link " +

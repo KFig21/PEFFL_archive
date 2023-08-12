@@ -295,17 +295,15 @@ export default function Head2Head({ team, j_Division, helmetStyle }) {
             </thead>
             <tbody>
               {teams.map((team, i) => {
-                let PPG = (Math.round(team.PPG * 100) / 100).toFixed(1);
-                let PAPG = (Math.round(team.PAPG * 100) / 100).toFixed(1);
-                let DIFPG = (Math.round(team.DIFPG * 100) / 100).toFixed(1);
-                let TOTPG = (Math.round(team.TOTPG * 100) / 100).toFixed(1);
-                let totalDif = (
-                  Math.round((team.PF - team.PA) * 100) / 100
-                ).toFixed(0);
+                let PPG = (Math.round(team.ppg * 100) / 100).toFixed(1);
+                let PAPG = (Math.round(team.papg * 100) / 100).toFixed(1);
+                let DIFPG = (Math.round(team.difpg * 100) / 100).toFixed(1);
+                let TOTPG = (Math.round(team.totpg * 100) / 100).toFixed(1);
+
                 let winPercentage =
-                  team.W === team.G && team.G > 0
+                  team.w === team.g && team.g > 0
                     ? "1.000"
-                    : (((team.W / (team.W + team.L)) * 100) / 100)
+                    : (((team.w / (team.w + team.l)) * 100) / 100)
                         .toFixed(3)
                         .toString()
                         .substring(1);
@@ -315,20 +313,20 @@ export default function Head2Head({ team, j_Division, helmetStyle }) {
                     ? "medal" + allMatchupsWINPmedals.indexOf(winPercentage)
                     : "nomedal";
                 let pfMedal =
-                  allMatchupsPFmedals.indexOf(team.PF) > -1
-                    ? "medal" + allMatchupsPFmedals.indexOf(team.PF)
+                  allMatchupsPFmedals.indexOf(team.pf) > -1
+                    ? "medal" + allMatchupsPFmedals.indexOf(team.pf)
                     : "nomedal";
                 let paMedal =
-                  allMatchupsPAmedals.indexOf(team.PA) > -1
-                    ? "medal" + allMatchupsPAmedals.indexOf(team.PA)
+                  allMatchupsPAmedals.indexOf(team.pa) > -1
+                    ? "medal" + allMatchupsPAmedals.indexOf(team.pa)
                     : "nomedal";
                 let difMedal =
-                  allMatchupsDIFmedals.indexOf(team.DIF) > -1
-                    ? "medal" + allMatchupsDIFmedals.indexOf(team.DIF)
+                  allMatchupsDIFmedals.indexOf(team.dif) > -1
+                    ? "medal" + allMatchupsDIFmedals.indexOf(team.dif)
                     : "nomedal";
                 let totMedal =
-                  allMatchupsTOTmedals.indexOf(team.TOT) > -1
-                    ? "medal" + allMatchupsTOTmedals.indexOf(team.TOT)
+                  allMatchupsTOTmedals.indexOf(team.tot) > -1
+                    ? "medal" + allMatchupsTOTmedals.indexOf(team.tot)
                     : "nomedal";
                 let ppgMedal =
                   allMatchupsPPGmedals.indexOf(PPG) > -1
@@ -351,7 +349,7 @@ export default function Head2Head({ team, j_Division, helmetStyle }) {
                   ? "j_Division"
                   : "f_Division";
                 let difFormat =
-                  team.DIF > 0 ? "green" : team.DIF < 0 ? "crimson" : null;
+                  team.dif > 0 ? "green" : team.dif < 0 ? "crimson" : null;
 
                 return (
                   <SC.tableBorderColorTR className="h2h-team-row" key={i}>
@@ -388,7 +386,7 @@ export default function Head2Head({ team, j_Division, helmetStyle }) {
                     </td>
                     {/* WINS */}
                     <td className="standings-col record-col">
-                      <SC.textOnBgColor>{team.W}</SC.textOnBgColor>
+                      <SC.textOnBgColor>{team.w}</SC.textOnBgColor>
                     </td>
                     {/* DASH */}
                     <td className="standings-col record-col dash-col">
@@ -396,11 +394,11 @@ export default function Head2Head({ team, j_Division, helmetStyle }) {
                     </td>
                     {/* LOSSES */}
                     <td className="standings-col record-col">
-                      <SC.textOnBgColor>{team.L}</SC.textOnBgColor>
+                      <SC.textOnBgColor>{team.l}</SC.textOnBgColor>
                     </td>
                     {/* GAMES BACK */}
                     <SC.tableBorderColorTD className="standings-col gb-col">
-                      <SC.subtextOnBgColor>{team.G}</SC.subtextOnBgColor>
+                      <SC.subtextOnBgColor>{team.g}</SC.subtextOnBgColor>
                     </SC.tableBorderColorTD>
                     {/* link to H2H */}
                     <td className="standings-col h2h-link-col">
@@ -440,7 +438,7 @@ export default function Head2Head({ team, j_Division, helmetStyle }) {
                       <div className="standings-points">
                         <div className="standings-ppg">
                           <SC.textOnBgColor>
-                            {perStat ? PPG : team.PF.toLocaleString()}
+                            {perStat ? PPG : team.pf.toLocaleString()}
                           </SC.textOnBgColor>
                           <div
                             className={`medal-small ${
@@ -450,7 +448,7 @@ export default function Head2Head({ team, j_Division, helmetStyle }) {
                         </div>
                         <div className="standings-total-points">
                           <SC.subtextOnBgColor>
-                            {perStat ? team.PF.toLocaleString() : PPG}
+                            {perStat ? team.pf.toLocaleString() : PPG}
                           </SC.subtextOnBgColor>
                         </div>
                       </div>
@@ -466,7 +464,7 @@ export default function Head2Head({ team, j_Division, helmetStyle }) {
                       <div className="standings-points ">
                         <div className="standings-ppg">
                           <SC.textOnBgColor>
-                            {perStat ? PAPG : team.PA.toLocaleString()}
+                            {perStat ? PAPG : team.pa.toLocaleString()}
                           </SC.textOnBgColor>
                           <div
                             className={`medal-small ${
@@ -476,7 +474,7 @@ export default function Head2Head({ team, j_Division, helmetStyle }) {
                         </div>
                         <div className="standings-total-points">
                           <SC.subtextOnBgColor>
-                            {perStat ? team.PA.toLocaleString() : PAPG}
+                            {perStat ? team.pa.toLocaleString() : PAPG}
                           </SC.subtextOnBgColor>
                         </div>
                       </div>
@@ -494,7 +492,7 @@ export default function Head2Head({ team, j_Division, helmetStyle }) {
                           className="standings-ppg"
                           style={{ color: `${difFormat}` }}
                         >
-                          {perStat ? DIFPG : team.DIF.toLocaleString()}
+                          {perStat ? DIFPG : team.dif.toLocaleString()}
                           <div
                             className={`medal-small ${
                               perStat ? difpgMedal : difMedal
@@ -503,7 +501,7 @@ export default function Head2Head({ team, j_Division, helmetStyle }) {
                         </div>
                         <div className="standings-total-points">
                           <SC.subtextOnBgColor>
-                            {perStat ? team.DIF.toLocaleString() : DIFPG}
+                            {perStat ? team.dif.toLocaleString() : DIFPG}
                           </SC.subtextOnBgColor>
                         </div>
                       </div>
@@ -519,7 +517,7 @@ export default function Head2Head({ team, j_Division, helmetStyle }) {
                       <div className="standings-points ">
                         <div className="standings-ppg">
                           <SC.textOnBgColor>
-                            {perStat ? TOTPG : team.TOT.toLocaleString()}
+                            {perStat ? TOTPG : team.tot.toLocaleString()}
                           </SC.textOnBgColor>
                           <div
                             className={`medal-small ${
@@ -529,7 +527,7 @@ export default function Head2Head({ team, j_Division, helmetStyle }) {
                         </div>
                         <div className="standings-total-points">
                           <SC.subtextOnBgColor>
-                            {perStat ? team.TOT.toLocaleString() : TOTPG}
+                            {perStat ? team.tot.toLocaleString() : TOTPG}
                           </SC.subtextOnBgColor>
                         </div>
                       </div>
