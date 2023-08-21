@@ -404,7 +404,7 @@ const SC = {
     z-index: 101;
 
     &.open {
-      transition: all ease 0.75s;
+      transition: all ease 0.5s;
       left: 0px;
       z-index: 100;
     }
@@ -431,7 +431,7 @@ const SC = {
     z-index: 2;
 
     &.open {
-      transition: all ease 0.75s;
+      transition: all ease 0.5s;
       background-color: ${(props) => props.theme.colors.modalBgColor};
     }
 
@@ -455,20 +455,22 @@ const SC = {
 
     &.open {
       bottom: 50%;
-      transition: all ease 1.45s;
+      transition: all ease 1.0s;
     }
 
     &.close {
-      transition: all ease 0.75s;
+      transition: all ease 0.5s;
       bottom: -2000px;
     }
 
     .modal-input-container {
       max-width: 100%;
       overflow: hidden;
+      min-width: 300px;
 
       .input-wrapper {
         display: flex;
+        justify-content: center;
       }
     }
 
@@ -590,7 +592,8 @@ const SC = {
     border-radius: 20px;
     padding: 20px 10px;
     flex-direction: column;
-    width: 100%;
+    max-width: 600px;
+    width: -webkit-fill-available;
     margin: 20px 0px;
 
     .timer{

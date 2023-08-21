@@ -8,6 +8,7 @@
   min-height: 100vh;
   position: relative;
   width: 100%;
+  margin-top: 95px;
 
   .page-header {
     display: flex;
@@ -19,8 +20,9 @@
     height: fit-content;
     padding: 9px 0px;
     margin-bottom: 20px;
-    position: sticky;
+    position: fixed;
     top: 0px;
+    right: 0px;
     backdrop-filter: blur(12px);
     z-index: 10;
     transition: all ease 0.35s;
