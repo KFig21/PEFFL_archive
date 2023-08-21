@@ -17,6 +17,7 @@ import {
   espnIds,
 } from "../../../../helpers/hardStats.js";
 import { useSelector } from "react-redux";
+import { numberWithCommas } from "../../../../helpers/utils";
 
 export default function Seasons({ team, j_Division }) {
   const [seasons, setSeasons] = useState([]);
@@ -498,7 +499,7 @@ export default function Seasons({ team, j_Division }) {
                       <div className="standings-points">
                         <div className="standings-ppg">
                           <SC.textOnBgColor>
-                            {perStat ? PPG : season.pf.toLocaleString()}
+                            {perStat ? PPG : numberWithCommas(season.pf)}
                           </SC.textOnBgColor>
                           <div
                             className={`medal-small ${
@@ -508,7 +509,7 @@ export default function Seasons({ team, j_Division }) {
                         </div>
                         <div className="standings-total-points">
                           <SC.subtextOnBgColor>
-                            {perStat ? season.pf.toLocaleString() : PPG}
+                            {perStat ? numberWithCommas(season.pf) : PPG}
                           </SC.subtextOnBgColor>
                         </div>
                       </div>
@@ -524,7 +525,7 @@ export default function Seasons({ team, j_Division }) {
                       <div className="standings-points ">
                         <div className="standings-ppg">
                           <SC.textOnBgColor>
-                            {perStat ? PAPG : season.pa.toLocaleString()}
+                            {perStat ? PAPG : numberWithCommas(season.pa)}
                           </SC.textOnBgColor>
                           <div
                             className={`medal-small ${
@@ -534,7 +535,7 @@ export default function Seasons({ team, j_Division }) {
                         </div>
                         <div className="standings-total-points">
                           <SC.subtextOnBgColor>
-                            {perStat ? season.pa.toLocaleString() : PAPG}
+                            {perStat ? numberWithCommas(season.pa) : PAPG}
                           </SC.subtextOnBgColor>
                         </div>
                       </div>
@@ -552,7 +553,7 @@ export default function Seasons({ team, j_Division }) {
                           className="standings-ppg"
                           style={{ color: `${difFormat}` }}
                         >
-                          {perStat ? DIFPG : season.dif.toLocaleString()}
+                          {perStat ? DIFPG : numberWithCommas(season.dif)}
                           <div
                             className={`medal-small ${
                               perStat ? difpgMedal : difMedal
@@ -561,7 +562,7 @@ export default function Seasons({ team, j_Division }) {
                         </div>
                         <div className="standings-total-points">
                           <SC.subtextOnBgColor>
-                            {perStat ? season.dif.toLocaleString() : DIFPG}
+                            {perStat ? numberWithCommas(season.dif) : DIFPG}
                           </SC.subtextOnBgColor>
                         </div>
                       </div>
@@ -577,7 +578,7 @@ export default function Seasons({ team, j_Division }) {
                       <div className="standings-points ">
                         <div className="standings-ppg">
                           <SC.textOnBgColor>
-                            {perStat ? TOTPG : season.tot.toLocaleString()}
+                            {perStat ? TOTPG : numberWithCommas(season.tot)}
                           </SC.textOnBgColor>
                           <div
                             className={`medal-small ${
@@ -587,7 +588,7 @@ export default function Seasons({ team, j_Division }) {
                         </div>
                         <div className="standings-total-points">
                           <SC.subtextOnBgColor>
-                            {perStat ? season.tot.toLocaleString() : TOTPG}
+                            {perStat ? numberWithCommas(season.tot) : TOTPG}
                           </SC.subtextOnBgColor>
                         </div>
                       </div>

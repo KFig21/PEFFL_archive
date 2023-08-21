@@ -75,7 +75,7 @@ export default function TeamPage({
   }, [team]);
 
   return (
-    <div className="teampage-page">
+    <div style={{maxHeight: "inherit", overflowY: "hidden"}}>
       <SC.teampageHeader className="page-header" id="header">
         <div className="header-wrapper" id="wrapper">
           {loaded ? (
@@ -111,63 +111,65 @@ export default function TeamPage({
           )}
         </div>
       </SC.teampageHeader>
-      {loaded ? (
-        <div className="teampage-content">
-          <RegularSeasonStats
-            team={team}
-            rs_Standings={rs_Standings}
-            rs_WinP={rs_WinP}
-            rs_PFmedals={rs_PFmedals}
-            rs_PAmedals={rs_PAmedals}
-            rs_PPGmedals={rs_PPGmedals}
-            rs_PAPGmedals={rs_PAPGmedals}
-            rs_DIFmedals={rs_DIFmedals}
-            rs_DIFPGmedals={rs_DIFPGmedals}
-            playoff_Standings={playoff_Standings}
-            playoff_Wins={playoff_Wins}
-            playoff_WinP={playoff_WinP}
-            playoff_PFmedals={playoff_PFmedals}
-            playoff_PAmedals={playoff_PAmedals}
-            playoff_PPGmedals={playoff_PPGmedals}
-            playoff_PAPGmedals={playoff_PAPGmedals}
-            playoff_DIFmedals={playoff_DIFmedals}
-            playoff_DIFPGmedals={playoff_DIFPGmedals}
-            ag_Standings={ag_Standings}
-            ag_Wins={ag_Wins}
-            ag_WinP={ag_WinP}
-            ag_PFmedals={ag_PFmedals}
-            ag_PAmedals={ag_PAmedals}
-            ag_PPGmedals={ag_PPGmedals}
-            ag_PAPGmedals={ag_PAPGmedals}
-            ag_DIFmedals={ag_DIFmedals}
-            ag_DIFPGmedals={ag_DIFPGmedals}
-          />
-          <br />
-          <Awards team={team} j_Division={j_Division} />
-          <br />
-          <WeeklyAwards
-            team={team}
-            weeksMostPFmedals={weeksMostPFmedals}
-            weeksMostPAmedals={weeksMostPAmedals}
-            weeksLeastPFmedals={weeksLeastPFmedals}
-            weeksLeastPAmedals={weeksLeastPAmedals}
-          />
-          <br />
-          <br />
-          <Seasons team={team} j_Division={j_Division} />
-          <br />
-          <br />
-          <Head2Head
-            team={team}
-            j_Division={j_Division}
-            helmetStyle={helmetStyle}
-          />
-          <br />
-          <br />
-        </div>
-      ) : (
-        <Loader />
-      )}
+      <SC.PageWrapper className="teampage-page">
+        {loaded ? (
+          <div className="teampage-content">
+            <RegularSeasonStats
+              team={team}
+              rs_Standings={rs_Standings}
+              rs_WinP={rs_WinP}
+              rs_PFmedals={rs_PFmedals}
+              rs_PAmedals={rs_PAmedals}
+              rs_PPGmedals={rs_PPGmedals}
+              rs_PAPGmedals={rs_PAPGmedals}
+              rs_DIFmedals={rs_DIFmedals}
+              rs_DIFPGmedals={rs_DIFPGmedals}
+              playoff_Standings={playoff_Standings}
+              playoff_Wins={playoff_Wins}
+              playoff_WinP={playoff_WinP}
+              playoff_PFmedals={playoff_PFmedals}
+              playoff_PAmedals={playoff_PAmedals}
+              playoff_PPGmedals={playoff_PPGmedals}
+              playoff_PAPGmedals={playoff_PAPGmedals}
+              playoff_DIFmedals={playoff_DIFmedals}
+              playoff_DIFPGmedals={playoff_DIFPGmedals}
+              ag_Standings={ag_Standings}
+              ag_Wins={ag_Wins}
+              ag_WinP={ag_WinP}
+              ag_PFmedals={ag_PFmedals}
+              ag_PAmedals={ag_PAmedals}
+              ag_PPGmedals={ag_PPGmedals}
+              ag_PAPGmedals={ag_PAPGmedals}
+              ag_DIFmedals={ag_DIFmedals}
+              ag_DIFPGmedals={ag_DIFPGmedals}
+            />
+            <br />
+            <Awards team={team} j_Division={j_Division} />
+            <br />
+            <WeeklyAwards
+              team={team}
+              weeksMostPFmedals={weeksMostPFmedals}
+              weeksMostPAmedals={weeksMostPAmedals}
+              weeksLeastPFmedals={weeksLeastPFmedals}
+              weeksLeastPAmedals={weeksLeastPAmedals}
+            />
+            <br />
+            <br />
+            <Seasons team={team} j_Division={j_Division} />
+            <br />
+            <br />
+            <Head2Head
+              team={team}
+              j_Division={j_Division}
+              helmetStyle={helmetStyle}
+            />
+            <br />
+            <br />
+          </div>
+        ) : (
+          <Loader />
+        )}
+      </SC.PageWrapper>
     </div>
   );
 }

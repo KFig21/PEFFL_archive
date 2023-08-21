@@ -11,10 +11,10 @@ import "./AllTeams.scss";
 import { useSelector } from "react-redux";
 import { getAllTeamsMedals, getTeams } from "../../../helpers/apiCalls";
 import { espnIds } from "../../../helpers/hardStats";
+import { numberWithCommas } from "../../../helpers/utils";
 
-export default function AllTeams({ j_Division, helmetStyle, helmetView }) {
+export default function AllTeams({ j_Division, helmetStyle, helmetView, perStat, setPerStat }) {
   const [teams, setTeams] = useState([]);
-  const [perStat, setPerStat] = useState(true);
   const [sortBy, setSortBy] = useState("PPG");
   const [sortOrder, setSortOrder] = useState("DESC");
   const [schedule, setSchedule] = useState("RS");
@@ -75,15 +75,15 @@ export default function AllTeams({ j_Division, helmetStyle, helmetView }) {
   }, []);
 
   return (
-    <div className="allteams-container">
-      <SC.teampageHeader className="page-header">
+    <SC.PageWrapper className="allteams-container">
+      {/* <SC.teampageHeader className="page-header">
         <div className="teampage-section-header">
           All Teams
           <SC.primaryColorButton onClick={() => setPerStat(!perStat)}>
             {perStat ? "total" : "game"}
           </SC.primaryColorButton>
         </div>
-      </SC.teampageHeader>
+      </SC.teampageHeader> */}
       <SC.teampageHeader className="schedule-buttons-container desktop">
         <SC.primaryColorAnchorInverse
           className={
@@ -290,7 +290,7 @@ export default function AllTeams({ j_Division, helmetStyle, helmetView }) {
                 ).toFixed(0);
                 let difFormat =
                   totalDif > 0 ? "green" : totalDif < 0 ? "crimson" : null;
-                let winPercentage = (((team.w / (team.w + team.l)) * 100) / 100)
+                let winPercentage = (((parseInt(team.w) / (parseInt(team.w) + parseInt(team.l))) * 100) / 100)
                   .toFixed(3)
                   .toString()
                   .substring(1);
@@ -411,7 +411,7 @@ export default function AllTeams({ j_Division, helmetStyle, helmetView }) {
                       <div className="standings-points">
                         <div className="standings-ppg">
                           <SC.textOnBgColor>
-                            {perStat ? PPG : team.pf.toLocaleString()}
+                            {perStat ? PPG : numberWithCommas(team.pf)}
                           </SC.textOnBgColor>
                           <div
                             className={`medal-small ${
@@ -421,7 +421,7 @@ export default function AllTeams({ j_Division, helmetStyle, helmetView }) {
                         </div>
                         <div className="standings-total-points">
                           <SC.subtextOnBgColor>
-                            {perStat ? team.pf.toLocaleString() : PPG}
+                            {perStat ? numberWithCommas(team.pf) : PPG}
                           </SC.subtextOnBgColor>
                         </div>
                       </div>
@@ -437,7 +437,7 @@ export default function AllTeams({ j_Division, helmetStyle, helmetView }) {
                       <div className="standings-points ">
                         <div className="standings-ppg">
                           <SC.textOnBgColor>
-                            {perStat ? PAPG : team.pa.toLocaleString()}
+                            {perStat ? PAPG : numberWithCommas(team.pa)}
                           </SC.textOnBgColor>
                           <div
                             className={`medal-small ${
@@ -447,7 +447,7 @@ export default function AllTeams({ j_Division, helmetStyle, helmetView }) {
                         </div>
                         <div className="standings-total-points">
                           <SC.subtextOnBgColor>
-                            {perStat ? team.pa.toLocaleString() : PAPG}
+                            {perStat ? numberWithCommas(team.pa) : PAPG}
                           </SC.subtextOnBgColor>
                         </div>
                       </div>
@@ -466,7 +466,7 @@ export default function AllTeams({ j_Division, helmetStyle, helmetView }) {
                           style={{ color: `${difFormat}` }}
                         >
                           {totalDif > 0 ? "+" : ""}
-                          {perStat ? DIFPG : totalDif.toLocaleString()}
+                          {perStat ? DIFPG : numberWithCommas(totalDif)}
                           <div
                             className={`medal-small ${
                               perStat ? difpgMedal : difMedal
@@ -476,7 +476,7 @@ export default function AllTeams({ j_Division, helmetStyle, helmetView }) {
                         <div className="standings-total-points">
                           <SC.subtextOnBgColor>
                             {totalDif > 0 ? "+" : ""}
-                            {perStat ? totalDif.toLocaleString() : DIFPG}
+                            {perStat ? numberWithCommas(totalDif) : DIFPG}
                           </SC.subtextOnBgColor>
                         </div>
                       </div>
@@ -492,7 +492,7 @@ export default function AllTeams({ j_Division, helmetStyle, helmetView }) {
                       <div className="standings-points ">
                         <div className="standings-ppg">
                           <SC.textOnBgColor>
-                            {perStat ? TOTPG : team.tot.toLocaleString()}
+                            {perStat ? TOTPG : numberWithCommas(team.tot)}
                           </SC.textOnBgColor>
                           <div
                             className={`medal-small ${
@@ -502,7 +502,7 @@ export default function AllTeams({ j_Division, helmetStyle, helmetView }) {
                         </div>
                         <div className="standings-total-points">
                           <SC.subtextOnBgColor>
-                            {perStat ? team.tot.toLocaleString() : TOTPG}
+                            {perStat ? numberWithCommas(team.tot) : TOTPG}
                           </SC.subtextOnBgColor>
                         </div>
                       </div>
@@ -516,6 +516,6 @@ export default function AllTeams({ j_Division, helmetStyle, helmetView }) {
       ) : (
         <Loader type={"full-screen"} />
       )}
-    </div>
+    </SC.PageWrapper>
   );
 }

@@ -1,5 +1,66 @@
 @import "../../../global.scss";
 
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  max-width: 100%;
+  min-width: 100%;
+  height: fit-content;
+  padding: 9px 0px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  backdrop-filter: blur(12px);
+  z-index: 10;
+  transition: all ease 0.35s;
+
+  @include mobile {
+    max-height: 57px;
+    min-height: 57px;
+  }
+
+  .header-wrapper {
+    position: relative;
+    height: fit-content;
+    transition: all ease 0.35s;
+
+    @include mobile {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    span {
+      font-size: 40px;
+      font-weight: 700;
+      text-align: center;
+      color: $lightTextDarkBG;
+
+      @include mobile {
+        font-size: 30px;
+      }
+    }
+
+    .helmet-header-container {
+      position: absolute;
+      left: -70px;
+
+      @include mobile {
+        position: relative;
+        left: 0px;
+        margin-right: 10px;
+      }
+    }
+    &:hover {
+      .active-helmet {
+        transform: rotate(10deg);
+      }
+    }
+  }
+}
+
 .teampage-page {
   display: flex;
   align-items: center;
@@ -8,69 +69,8 @@
   min-height: 100vh;
   position: relative;
   width: 100%;
-  margin-top: 95px;
-
-  .page-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    max-width: 100%;
-    min-width: 100%;
-    height: fit-content;
-    padding: 9px 0px;
-    margin-bottom: 20px;
-    position: fixed;
-    top: 0px;
-    right: 0px;
-    backdrop-filter: blur(12px);
-    z-index: 10;
-    transition: all ease 0.35s;
-
-    @include mobile {
-      max-height: 57px;
-      min-height: 57px;
-    }
-
-    .header-wrapper {
-      position: relative;
-      height: fit-content;
-      transition: all ease 0.35s;
-
-      @include mobile {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      span {
-        font-size: 40px;
-        font-weight: 700;
-        text-align: center;
-        color: $lightTextDarkBG;
-
-        @include mobile {
-          font-size: 30px;
-        }
-      }
-
-      .helmet-header-container {
-        position: absolute;
-        left: -70px;
-
-        @include mobile {
-          position: relative;
-          left: 0px;
-          margin-right: 10px;
-        }
-      }
-      &:hover {
-        .active-helmet {
-          transform: rotate(10deg);
-        }
-      }
-    }
-  }
+  overflow-y: overlay;
+  max-height: inherit;
 
   .teampage-content {
     display: flex;
@@ -78,6 +78,7 @@
     justify-content: center;
     flex-direction: column;
     width: 1000px;
+    margin-top: 95px;  
 
     @include mobile {
       max-width: 90vw;

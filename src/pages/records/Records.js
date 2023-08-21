@@ -73,104 +73,106 @@ export default function Records({
   }, []);
 
   return (
-    <div className="records-page">
+    <div style={{maxHeight: "inherit", overflowY: "hidden"}}>
       <SC.teampageHeader className="page-header">
         <div className="records-header">Records</div>
       </SC.teampageHeader>
-      {/* <div className="top-of-page" id="records-page"></div> */}
+      <SC.PageWrapper className="records-page">
+        {/* <div className="top-of-page" id="records-page"></div> */}
 
-      {/* CANNOT USE REFERENCES WITH HASHROUTER
-CANNOUT REFRESH PAGE WITH BROWSER ROUTER
-DECIDED TO STICK WITH BROWSER ROUTER */}
+        {/* CANNOT USE REFERENCES WITH HASHROUTER
+  CANNOUT REFRESH PAGE WITH BROWSER ROUTER
+  DECIDED TO STICK WITH BROWSER ROUTER */}
 
-      {/* <div className="records-references">
-        <SC.primaryColorAnchorInverse
-          className="records-references-links"
-          href="#single-game-most-pf"
-        >
-          Single Game Most PF
-        </SC.primaryColorAnchorInverse>
-        <SC.primaryColorAnchorInverse
-          className="records-references-links"
-          href="#single-season-most-pf"
-        >
-          Single Season Most PF
-        </SC.primaryColorAnchorInverse>
-        <SC.primaryColorAnchorInverse
-          className="records-references-links"
-          href="#highest-scoring-game"
-        >
-          Highest Scoring Game
-        </SC.primaryColorAnchorInverse>
-        <SC.primaryColorAnchorInverse
-          className="records-references-links"
-          href="#highest-margin-of-victory"
-        >
-          Highest Margin Of Victory
-        </SC.primaryColorAnchorInverse>
-        <SC.primaryColorAnchorInverse
-          className="records-references-links"
-          href="#weekly-records"
-        >
-          Weekly Records
-        </SC.primaryColorAnchorInverse>
-      </div> */}
-      <div className="record-tables-container">
-        <SingleGameMostPF
-          j_Division={j_Division}
-          helmetStyle={helmetStyle}
-          helmetView={helmetView}
-        />
-        <SingleSeasonMostPF
-          j_Division={j_Division}
-          helmetStyle={helmetStyle}
-          helmetView={helmetView}
-        />
-        <HighestScoringGame
-          j_Division={j_Division}
-          helmetStyle={helmetStyle}
-          helmetView={helmetView}
-        />
-        <HighestMarginOfVictory
-          j_Division={j_Division}
-          helmetStyle={helmetStyle}
-          helmetView={helmetView}
-        />
-        <WeeklyRecords
-          j_Division={j_Division}
-          weeksMostPFmedals={weeksMostPFmedals}
-          weeksMostPAmedals={weeksMostPAmedals}
-          weeksLeastPFmedals={weeksLeastPFmedals}
-          weeksLeastPAmedals={weeksLeastPAmedals}
-          helmetStyle={helmetStyle}
-          helmetView={helmetView}
-        />
-        <br />
-      </div>
-      {/* <div className="arrows-container">
-        <div className="prev-next-button-container">
-          <SC.primaryColorAnchor
-            className="prev-record-button"
-            href={`#${list[upButton]}`}
+        {/* <div className="records-references">
+          <SC.primaryColorAnchorInverse
+            className="records-references-links"
+            href="#single-game-most-pf"
           >
-            <KeyboardArrowUpIcon />
-          </SC.primaryColorAnchor>
-        </div>
-        <div className="prev-next-button-container">
-          <SC.primaryColorAnchor
-            className="next-record-button"
-            href={`#${list[downButton]}`}
+            Single Game Most PF
+          </SC.primaryColorAnchorInverse>
+          <SC.primaryColorAnchorInverse
+            className="records-references-links"
+            href="#single-season-most-pf"
           >
-            <KeyboardArrowDownIcon />
-          </SC.primaryColorAnchor>
+            Single Season Most PF
+          </SC.primaryColorAnchorInverse>
+          <SC.primaryColorAnchorInverse
+            className="records-references-links"
+            href="#highest-scoring-game"
+          >
+            Highest Scoring Game
+          </SC.primaryColorAnchorInverse>
+          <SC.primaryColorAnchorInverse
+            className="records-references-links"
+            href="#highest-margin-of-victory"
+          >
+            Highest Margin Of Victory
+          </SC.primaryColorAnchorInverse>
+          <SC.primaryColorAnchorInverse
+            className="records-references-links"
+            href="#weekly-records"
+          >
+            Weekly Records
+          </SC.primaryColorAnchorInverse>
+        </div> */}
+        <div className="record-tables-container">
+          <SingleGameMostPF
+            j_Division={j_Division}
+            helmetStyle={helmetStyle}
+            helmetView={helmetView}
+          />
+          <SingleSeasonMostPF
+            j_Division={j_Division}
+            helmetStyle={helmetStyle}
+            helmetView={helmetView}
+          />
+          <HighestScoringGame
+            j_Division={j_Division}
+            helmetStyle={helmetStyle}
+            helmetView={helmetView}
+          />
+          <HighestMarginOfVictory
+            j_Division={j_Division}
+            helmetStyle={helmetStyle}
+            helmetView={helmetView}
+          />
+          <WeeklyRecords
+            j_Division={j_Division}
+            weeksMostPFmedals={weeksMostPFmedals}
+            weeksMostPAmedals={weeksMostPAmedals}
+            weeksLeastPFmedals={weeksLeastPFmedals}
+            weeksLeastPAmedals={weeksLeastPAmedals}
+            helmetStyle={helmetStyle}
+            helmetView={helmetView}
+          />
+          <br />
         </div>
-        <SC.primaryColorAnchor
-          className="return-to-top-button"
-          href="#records-page"
-        >
-          <KeyboardDoubleArrowUpIcon />
-        </SC.primaryColorAnchor>
-      </div> */}
+        {/* <div className="arrows-container">
+          <div className="prev-next-button-container">
+            <SC.primaryColorAnchor
+              className="prev-record-button"
+              href={`#${list[upButton]}`}
+            >
+              <KeyboardArrowUpIcon />
+            </SC.primaryColorAnchor>
+          </div>
+          <div className="prev-next-button-container">
+            <SC.primaryColorAnchor
+              className="next-record-button"
+              href={`#${list[downButton]}`}
+            >
+              <KeyboardArrowDownIcon />
+            </SC.primaryColorAnchor>
+          </div>
+          <SC.primaryColorAnchor
+            className="return-to-top-button"
+            href="#records-page"
+          >
+            <KeyboardDoubleArrowUpIcon />
+          </SC.primaryColorAnchor>
+        </div> */}
+      </SC.PageWrapper>
     </div>
   );
 }

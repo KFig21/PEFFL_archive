@@ -11,6 +11,7 @@ import ArrowDropDownRoundedIcon from "@mui/icons-material/ArrowDropDownRounded";
 import "./Matchups.scss";
 import { useSelector } from "react-redux";
 import { getAllMatchups, getAllMatchupsMedals, getAllMedalsForMatchups } from "../../helpers/apiCalls";
+import { numberWithCommas } from "../../helpers/utils";
 
 export default function Matchups({
   setCurrentPage,
@@ -68,7 +69,7 @@ export default function Matchups({
   }, []);
 
   return (
-    <div className="allmatchups-container">
+    <div style={{maxHeight: "inherit", overflowY: "hidden"}}>
       <SC.teampageHeader className="page-header">
         <div className="teampage-section-header">
           All Matchups
@@ -77,6 +78,7 @@ export default function Matchups({
           </SC.primaryColorButton>
         </div>
       </SC.teampageHeader>
+    <SC.PageWrapper className="allmatchups-container">
       {/* DESKTOP BUTTONS */}
       <SC.teampageHeader className="schedule-buttons-container desktop">
         <SC.primaryColorAnchorInverse
@@ -474,7 +476,7 @@ export default function Matchups({
                       <div className="standings-points">
                         <div className="standings-ppg">
                           <SC.textOnBgColor>
-                            {perStat ? PPG : matchup.pf.toLocaleString()}
+                            {perStat ? PPG : numberWithCommas(matchup.pf)}
                           </SC.textOnBgColor>
                           <div
                             className={`medal-small ${
@@ -484,7 +486,7 @@ export default function Matchups({
                         </div>
                         <div className="standings-total-points">
                           <SC.subtextOnBgColor>
-                            {perStat ? matchup.pf.toLocaleString() : PPG}
+                            {perStat ? numberWithCommas(matchup.pf) : PPG}
                           </SC.subtextOnBgColor>
                         </div>
                       </div>
@@ -500,7 +502,7 @@ export default function Matchups({
                       <div className="standings-points ">
                         <div className="standings-ppg">
                           <SC.textOnBgColor>
-                            {perStat ? PAPG : matchup.pa.toLocaleString()}
+                            {perStat ? PAPG : numberWithCommas(matchup.pa)}
                           </SC.textOnBgColor>
                           <div
                             className={`medal-small ${
@@ -510,7 +512,7 @@ export default function Matchups({
                         </div>
                         <div className="standings-total-points">
                           <SC.subtextOnBgColor>
-                            {perStat ? matchup.pa.toLocaleString() : PAPG}
+                            {perStat ? numberWithCommas(matchup.pa) : PAPG}
                           </SC.subtextOnBgColor>
                         </div>
                       </div>
@@ -529,7 +531,7 @@ export default function Matchups({
                           style={{ color: `${difFormat}` }}
                         >
                           {matchup.dif > 0 ? "+" : ""}
-                          {perStat ? DIFPG : matchup.dif.toLocaleString()}
+                          {perStat ? DIFPG : numberWithCommas(matchup.dif)}
                           <div
                             className={`medal-small ${
                               perStat ? difpgMedal : difMedal
@@ -539,7 +541,7 @@ export default function Matchups({
                         <div className="standings-total-points">
                           <SC.subtextOnBgColor>
                             {matchup.dif > 0 ? "+" : ""}
-                            {perStat ? matchup.dif.toLocaleString() : DIFPG}
+                            {perStat ? numberWithCommas(matchup.dif) : DIFPG}
                           </SC.subtextOnBgColor>
                         </div>
                       </div>
@@ -555,7 +557,7 @@ export default function Matchups({
                       <div className="standings-points ">
                         <div className="standings-ppg">
                           <SC.textOnBgColor>
-                            {perStat ? TOTPG : matchup.tot.toLocaleString()}
+                            {perStat ? TOTPG : numberWithCommas(matchup.tot)}
                           </SC.textOnBgColor>
                           <div
                             className={`medal-small ${
@@ -565,7 +567,7 @@ export default function Matchups({
                         </div>
                         <div className="standings-total-points">
                           <SC.subtextOnBgColor>
-                            {perStat ? matchup.tot.toLocaleString() : TOTPG}
+                            {perStat ? numberWithCommas(matchup.tot) : TOTPG}
                           </SC.subtextOnBgColor>
                         </div>
                       </div>
@@ -579,6 +581,7 @@ export default function Matchups({
       ) : (
         <Loader type={"full-screen"} />
       )}
-    </div>
+    </SC.PageWrapper>
+    </ div>
   );
 }

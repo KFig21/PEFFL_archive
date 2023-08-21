@@ -8,6 +8,7 @@ import "../Records.scss";
 import Helmet from "../../../components/helmet/Helmet";
 import { useSelector } from "react-redux";
 import { getSingleSeasonMostPF } from "../../../helpers/apiCalls";
+import { numberWithCommas } from "../../../helpers/utils";
 
 export default function SingleSeasonMostPF({
   j_Division,
@@ -105,7 +106,7 @@ export default function SingleSeasonMostPF({
                     </td>
                     {/* PF */}
                     <td className="points-col">
-                      <SC.textOnBgColor>{team.pf}</SC.textOnBgColor>
+                      <SC.textOnBgColor>{numberWithCommas(team.pf)}</SC.textOnBgColor>
                     </td>
                     <td className="record-col wl-col">
                       <SC.textOnBgColor>{team.w}</SC.textOnBgColor>

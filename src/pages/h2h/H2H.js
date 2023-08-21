@@ -175,7 +175,7 @@ export default function H2H({
   }, []);
 
   return (
-    <div className="h2h-page">
+    <div style={{maxHeight: "inherit", overflowY: "hidden"}}>
       <SC.teampageHeader className="page-header">
         <SC.textOnBgColor>
           <div className="h2h-section-header">
@@ -263,197 +263,199 @@ export default function H2H({
           </div>
         </SC.textOnBgColor>
       </SC.teampageHeader>
-      <div className="h2h-inputs-container">
-        <SC.h2hSelect
-          className="h2h-team-input"
-          name="team1input"
-          onChange={handleChangeTeam1}
-        >
-          {teamnames.map((name, i) => {
-            return (
-              <SC.h2hSelectOption
-                value={name}
-                key={i}
-                selected={name === team1input}
-              >
-                {name}
-              </SC.h2hSelectOption>
-            );
-          })}
-        </SC.h2hSelect>
-        <SC.textOnBgColor>
-          <span>vs</span>
-        </SC.textOnBgColor>
-        <SC.h2hSelect
-          className="h2h-team-input"
-          name="team2input"
-          onChange={handleChangeTeam2}
-        >
-          {teamnames.map((name, i) => {
-            return (
-              <SC.h2hSelectOption
-                value={name}
-                key={i}
-                selected={name === team2input}
-              >
-                {name}
-              </SC.h2hSelectOption>
-            );
-          })}
-        </SC.h2hSelect>
-        <SC.primaryColorAnchorInverse
-          className="h2h-button"
-          onClick={isInvalid ? null : () => handleSubmit()}
-        >
-          view
-        </SC.primaryColorAnchorInverse>
-      </div>
+      <SC.PageWrapper className="h2h-page">
+        <div className="h2h-inputs-container">
+          <SC.h2hSelect
+            className="h2h-team-input"
+            name="team1input"
+            onChange={handleChangeTeam1}
+          >
+            {teamnames.map((name, i) => {
+              return (
+                <SC.h2hSelectOption
+                  value={name}
+                  key={i}
+                  selected={name === team1input}
+                >
+                  {name}
+                </SC.h2hSelectOption>
+              );
+            })}
+          </SC.h2hSelect>
+          <SC.textOnBgColor>
+            <span>vs</span>
+          </SC.textOnBgColor>
+          <SC.h2hSelect
+            className="h2h-team-input"
+            name="team2input"
+            onChange={handleChangeTeam2}
+          >
+            {teamnames.map((name, i) => {
+              return (
+                <SC.h2hSelectOption
+                  value={name}
+                  key={i}
+                  selected={name === team2input}
+                >
+                  {name}
+                </SC.h2hSelectOption>
+              );
+            })}
+          </SC.h2hSelect>
+          <SC.primaryColorAnchorInverse
+            className="h2h-button"
+            onClick={isInvalid ? null : () => handleSubmit()}
+          >
+            view
+          </SC.primaryColorAnchorInverse>
+        </div>
 
-      {loaded ? (
-        <div className="h2h-content">
-          {/* TEAM NAMES */}
-          <div className="h2h-teams">
-            {/* TEAM 1 NAME AND HELMET */}
-            <div className="h2h-team-name-container">
-              <Link to={`/teams/${team1data.team}`}>
-                <div className=" active-helmet">
-                  <Helmet
-                    team={team1data.team}
-                    size={"h2h"}
-                    helmetStyle={helmetStyle}
-                    helmetView={helmetView}
-                  />
-                </div>
-                <SC.textOnBgColor>
-                  <span className="h2h-team-name">{team1data.team}</span>
-                </SC.textOnBgColor>
-              </Link>
-            </div>
-            {/* VS COLUMN */}
-            <div className="h2h-vs-col">
-              <div className="h2h-name-vs">
-                <SC.textOnBgColor>⠀</SC.textOnBgColor>
+        {loaded ? (
+          <div className="h2h-content">
+            {/* TEAM NAMES */}
+            <div className="h2h-teams">
+              {/* TEAM 1 NAME AND HELMET */}
+              <div className="h2h-team-name-container">
+                <Link to={`/teams/${team1data.team}`}>
+                  <div className=" active-helmet">
+                    <Helmet
+                      team={team1data.team}
+                      size={"h2h"}
+                      helmetStyle={helmetStyle}
+                      helmetView={helmetView}
+                    />
+                  </div>
+                  <SC.textOnBgColor>
+                    <span className="h2h-team-name">{team1data.team}</span>
+                  </SC.textOnBgColor>
+                </Link>
               </div>
-              <div className="h2h-name-vs">
-                <SC.textOnBgColor>vs</SC.textOnBgColor>
+              {/* VS COLUMN */}
+              <div className="h2h-vs-col">
+                <div className="h2h-name-vs">
+                  <SC.textOnBgColor>⠀</SC.textOnBgColor>
+                </div>
+                <div className="h2h-name-vs">
+                  <SC.textOnBgColor>vs</SC.textOnBgColor>
+                </div>
+              </div>
+              {/* TEAM 2 NAME AND HELMET */}
+              <div className="h2h-team-name-container">
+                <Link to={`/teams/${team2data.team}`}>
+                  <div className="mirror-helmet ">
+                    <Helmet
+                      team={team2data.team}
+                      size={"h2h"}
+                      helmetStyle={helmetStyle}
+                      helmetView={helmetView}
+                    />
+                  </div>
+                  <SC.textOnBgColor>
+                    <span className="h2h-team-name">{team2data.team}</span>
+                  </SC.textOnBgColor>
+                </Link>
               </div>
             </div>
-            {/* TEAM 2 NAME AND HELMET */}
-            <div className="h2h-team-name-container">
-              <Link to={`/teams/${team2data.team}`}>
-                <div className="mirror-helmet ">
-                  <Helmet
-                    team={team2data.team}
-                    size={"h2h"}
-                    helmetStyle={helmetStyle}
-                    helmetView={helmetView}
-                  />
-                </div>
-                <SC.textOnBgColor>
-                  <span className="h2h-team-name">{team2data.team}</span>
-                </SC.textOnBgColor>
-              </Link>
-            </div>
-          </div>
 
-          {/* TEAM STATS */}
-          <div className="h2h-all-stats-container">
-            {/* H2H SECTION */}
-            <H2H_Section
-              team1data={team1data}
-              team2data={team2data}
-              winsRank_h2h={winsRank_h2h}
-              ppgRank_h2h={ppgRank_h2h}
-              pfRank_h2h={pfRank_h2h}
-              difRank_h2h={difRank_h2h}
-              difpgRank_h2h={difpgRank_h2h}
-              winStreak={winStreak}
-              winner={winner}
+            {/* TEAM STATS */}
+            <div className="h2h-all-stats-container">
+              {/* H2H SECTION */}
+              <H2H_Section
+                team1data={team1data}
+                team2data={team2data}
+                winsRank_h2h={winsRank_h2h}
+                ppgRank_h2h={ppgRank_h2h}
+                pfRank_h2h={pfRank_h2h}
+                difRank_h2h={difRank_h2h}
+                difpgRank_h2h={difpgRank_h2h}
+                winStreak={winStreak}
+                winner={winner}
+                helmetStyle={helmetStyle}
+                helmetView={helmetView}
+              />
+              {/* OVERALL SECTION */}
+              <Overall_Section
+                team1data={team1data}
+                team2data={team2data}
+                winPercentageRank={winPercentageRank}
+                ppgRank_overall={ppgRank_overall}
+                papgRank_overall={papgRank_overall}
+                difpgRank_overall={difpgRank_overall}
+                pfRank_overall={pfRank_overall}
+                paRank_overall={paRank_overall}
+                difRank_overall={difRank_overall}
+              />
+            </div>
+            {/* MATCHUPS */}
+            <Matchups
+              matchups={matchups}
+              j_Division={j_Division}
+              schedule={schedule}
+              loaded={loaded}
               helmetStyle={helmetStyle}
               helmetView={helmetView}
             />
-            {/* OVERALL SECTION */}
-            <Overall_Section
-              team1data={team1data}
-              team2data={team2data}
-              winPercentageRank={winPercentageRank}
-              ppgRank_overall={ppgRank_overall}
-              papgRank_overall={papgRank_overall}
-              difpgRank_overall={difpgRank_overall}
-              pfRank_overall={pfRank_overall}
-              paRank_overall={paRank_overall}
-              difRank_overall={difRank_overall}
-            />
           </div>
-          {/* MATCHUPS */}
-          <Matchups
-            matchups={matchups}
-            j_Division={j_Division}
-            schedule={schedule}
-            loaded={loaded}
-            helmetStyle={helmetStyle}
-            helmetView={helmetView}
-          />
-        </div>
-      ) : (
-        <Loader type={"full-screen"} />
-      )}
-      <SC.teampageHeader className="schedule-buttons-container desktop">
-        <SC.primaryColorAnchorInverse
-          className={
-            schedule === "RS" ? "schedule-button active" : "schedule-button"
-          }
-          onClick={() => changeSchedule("RS")}
-        >
-          Regular Season
-        </SC.primaryColorAnchorInverse>
-        <SC.primaryColorAnchorInverse
-          className={
-            schedule === "playoffs"
-              ? "schedule-button active"
-              : "schedule-button"
-          }
-          onClick={() => changeSchedule("playoffs")}
-        >
-          Playoffs
-        </SC.primaryColorAnchorInverse>
-        <SC.primaryColorAnchorInverse
-          className={
-            schedule === "AG" ? "schedule-button active" : "schedule-button"
-          }
-          onClick={() => changeSchedule("AG")}
-        >
-          All Games
-        </SC.primaryColorAnchorInverse>
-      </SC.teampageHeader>
-      <SC.teampageHeader className="schedule-buttons-container mobile">
-        <SC.primaryColorAnchorInverse
-          className={
-            schedule === "RS" ? "schedule-button active" : "schedule-button"
-          }
-          onClick={() => changeSchedule("RS")}
-        >
-          Season
-        </SC.primaryColorAnchorInverse>
-        <SC.primaryColorAnchorInverse
-          className={
-            schedule === "playoffs"
-              ? "schedule-button active"
-              : "schedule-button"
-          }
-          onClick={() => changeSchedule("playoffs")}
-        >
-          Playoffs
-        </SC.primaryColorAnchorInverse>
-        <SC.primaryColorAnchorInverse
-          className={
-            schedule === "AG" ? "schedule-button active" : "schedule-button"
-          }
-          onClick={() => changeSchedule("AG")}
-        >
-          All
-        </SC.primaryColorAnchorInverse>
-      </SC.teampageHeader>
+        ) : (
+          <Loader type={"full-screen"} />
+        )}
+        <SC.teampageHeader className="schedule-buttons-container desktop">
+          <SC.primaryColorAnchorInverse
+            className={
+              schedule === "RS" ? "schedule-button active" : "schedule-button"
+            }
+            onClick={() => changeSchedule("RS")}
+          >
+            Regular Season
+          </SC.primaryColorAnchorInverse>
+          <SC.primaryColorAnchorInverse
+            className={
+              schedule === "playoffs"
+                ? "schedule-button active"
+                : "schedule-button"
+            }
+            onClick={() => changeSchedule("playoffs")}
+          >
+            Playoffs
+          </SC.primaryColorAnchorInverse>
+          <SC.primaryColorAnchorInverse
+            className={
+              schedule === "AG" ? "schedule-button active" : "schedule-button"
+            }
+            onClick={() => changeSchedule("AG")}
+          >
+            All Games
+          </SC.primaryColorAnchorInverse>
+        </SC.teampageHeader>
+        <SC.teampageHeader className="schedule-buttons-container mobile">
+          <SC.primaryColorAnchorInverse
+            className={
+              schedule === "RS" ? "schedule-button active" : "schedule-button"
+            }
+            onClick={() => changeSchedule("RS")}
+          >
+            Season
+          </SC.primaryColorAnchorInverse>
+          <SC.primaryColorAnchorInverse
+            className={
+              schedule === "playoffs"
+                ? "schedule-button active"
+                : "schedule-button"
+            }
+            onClick={() => changeSchedule("playoffs")}
+          >
+            Playoffs
+          </SC.primaryColorAnchorInverse>
+          <SC.primaryColorAnchorInverse
+            className={
+              schedule === "AG" ? "schedule-button active" : "schedule-button"
+            }
+            onClick={() => changeSchedule("AG")}
+          >
+            All
+          </SC.primaryColorAnchorInverse>
+        </SC.teampageHeader>
+      </SC.PageWrapper>
     </div>
   );
 }

@@ -84,8 +84,7 @@
     flex: 9;
     position: relative;
     max-height: 100vh;
-    overflow-y: scroll;
-    overflow: overlay;
+    overflow-y: hidden;
 
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
@@ -96,6 +95,7 @@
 
     .content {
       width: 100%;
+      max-height: inherit;
       // overflow-x: hidden;
     }
   }

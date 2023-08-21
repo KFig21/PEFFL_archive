@@ -1,4 +1,31 @@
 @import "../../global.scss";
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  min-width: 100%;
+  height: fit-content;
+  padding: 15px 0px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  backdrop-filter: blur(12px);
+  z-index: 10;
+  transition: all ease 0.35s;
+
+  .standings-header {
+    font-size: 30px;
+    font-weight: 700;
+    text-align: left;
+    position: relative;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 45px;
+  }
+}
 
 .home-page {
   display: flex;
@@ -6,43 +33,16 @@
   justify-content: flex-start;
   flex-direction: column;
   min-height: 100vh;
-  margin-top: 80px;
-
-  .page-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    max-width: 100%;
-    min-width: 100%;
-    height: fit-content;
-    padding: 15px 0px;
-    position: fixed;
-    top: 0px;
-    right: 0px;
-    backdrop-filter: blur(12px);
-    z-index: 10;
-    transition: all ease 0.35s;
-    margin-bottom: 15px;
-
-    .standings-header {
-      font-size: 30px;
-      font-weight: 700;
-      text-align: left;
-      position: relative;
-      width: fit-content;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 45px;
-    }
-  }
-
+  overflow-y: overlay;
+  max-height: inherit;
+  
+  
   .home-container {
     display: flex;
     align-items: flex-start;
     justify-content: center;
     flex-direction: column;
+    margin-top: 80px;
     margin-bottom: 80px;
     width: 90%;
     max-width: 600px;

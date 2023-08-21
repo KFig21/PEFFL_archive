@@ -14,6 +14,7 @@ import {
   getAllMatchupsMedals,
   getH2HmatchupsTeampage,
 } from "../../../../helpers/apiCalls";
+import { numberWithCommas } from "../../../../helpers/utils";
 
 export default function Head2Head({ team, j_Division, helmetStyle }) {
   const [teams, setTeams] = useState([]);
@@ -301,9 +302,9 @@ export default function Head2Head({ team, j_Division, helmetStyle }) {
                 let TOTPG = (Math.round(team.totpg * 100) / 100).toFixed(1);
 
                 let winPercentage =
-                  team.w === team.g && team.g > 0
+                  parseInt(team.w) === parseInt(team.g) && parseInt(team.g) > 0
                     ? "1.000"
-                    : (((team.w / (team.w + team.l)) * 100) / 100)
+                    : (((parseInt(team.w) / (parseInt(team.w) + parseInt(team.l))) * 100) / 100)
                         .toFixed(3)
                         .toString()
                         .substring(1);
@@ -438,7 +439,7 @@ export default function Head2Head({ team, j_Division, helmetStyle }) {
                       <div className="standings-points">
                         <div className="standings-ppg">
                           <SC.textOnBgColor>
-                            {perStat ? PPG : team.pf.toLocaleString()}
+                            {perStat ? PPG : numberWithCommas(team.pf)}
                           </SC.textOnBgColor>
                           <div
                             className={`medal-small ${
@@ -448,7 +449,7 @@ export default function Head2Head({ team, j_Division, helmetStyle }) {
                         </div>
                         <div className="standings-total-points">
                           <SC.subtextOnBgColor>
-                            {perStat ? team.pf.toLocaleString() : PPG}
+                            {perStat ? numberWithCommas(team.pf) : PPG}
                           </SC.subtextOnBgColor>
                         </div>
                       </div>
@@ -464,7 +465,7 @@ export default function Head2Head({ team, j_Division, helmetStyle }) {
                       <div className="standings-points ">
                         <div className="standings-ppg">
                           <SC.textOnBgColor>
-                            {perStat ? PAPG : team.pa.toLocaleString()}
+                            {perStat ? PAPG : numberWithCommas(team.pa)}
                           </SC.textOnBgColor>
                           <div
                             className={`medal-small ${
@@ -474,7 +475,7 @@ export default function Head2Head({ team, j_Division, helmetStyle }) {
                         </div>
                         <div className="standings-total-points">
                           <SC.subtextOnBgColor>
-                            {perStat ? team.pa.toLocaleString() : PAPG}
+                            {perStat ? numberWithCommas(team.pa) : PAPG}
                           </SC.subtextOnBgColor>
                         </div>
                       </div>
@@ -492,7 +493,7 @@ export default function Head2Head({ team, j_Division, helmetStyle }) {
                           className="standings-ppg"
                           style={{ color: `${difFormat}` }}
                         >
-                          {perStat ? DIFPG : team.dif.toLocaleString()}
+                          {perStat ? DIFPG : numberWithCommas(team.dif)}
                           <div
                             className={`medal-small ${
                               perStat ? difpgMedal : difMedal
@@ -501,7 +502,7 @@ export default function Head2Head({ team, j_Division, helmetStyle }) {
                         </div>
                         <div className="standings-total-points">
                           <SC.subtextOnBgColor>
-                            {perStat ? team.dif.toLocaleString() : DIFPG}
+                            {perStat ? numberWithCommas(team.dif) : DIFPG}
                           </SC.subtextOnBgColor>
                         </div>
                       </div>
@@ -517,7 +518,7 @@ export default function Head2Head({ team, j_Division, helmetStyle }) {
                       <div className="standings-points ">
                         <div className="standings-ppg">
                           <SC.textOnBgColor>
-                            {perStat ? TOTPG : team.tot.toLocaleString()}
+                            {perStat ? TOTPG : numberWithCommas(team.tot)}
                           </SC.textOnBgColor>
                           <div
                             className={`medal-small ${
@@ -527,7 +528,7 @@ export default function Head2Head({ team, j_Division, helmetStyle }) {
                         </div>
                         <div className="standings-total-points">
                           <SC.subtextOnBgColor>
-                            {perStat ? team.tot.toLocaleString() : TOTPG}
+                            {perStat ? numberWithCommas(team.tot) : TOTPG}
                           </SC.subtextOnBgColor>
                         </div>
                       </div>

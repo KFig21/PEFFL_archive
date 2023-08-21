@@ -1,15 +1,5 @@
 @import "../../global.scss";
 
-.allmatchups-container {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex-direction: column;
-  min-height: 100vh;
-  position: relative;
-  width: 100%;
-  margin-top: 90px;
-
   .page-header {
     display: flex;
     align-items: center;
@@ -19,13 +9,12 @@
     min-width: 100%;
     height: fit-content;
     padding: 15px 0px;
-    position: fixed;
+  position: absolute;
     top: 0px;
     right: 0px;
     backdrop-filter: blur(12px);
     z-index: 10;
     transition: all ease 0.35s;
-    margin-bottom: 20px;
 
     .teampage-section-header {
       font-size: 30px;
@@ -63,6 +52,17 @@
       }
     }
   }
+
+.allmatchups-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+  width: 100%;
+  overflow-y: overlay;
+  max-height: inherit;
 
   .schedule-buttons-container {
     height: 60px;
@@ -108,19 +108,18 @@
     justify-content: center;
     flex-direction: column;
     margin-bottom: 80px;
+    margin-top: 105px;
 
     @include mobile {
       align-items: flex-start;
       justify-content: flex-start;
       max-width: 90%;
-      overflow-x: scroll;
     }
 
     @include smallDesktop {
       align-items: flex-start;
       justify-content: flex-start;
       max-width: 90%;
-      overflow-x: scroll;
     }
 
     table {

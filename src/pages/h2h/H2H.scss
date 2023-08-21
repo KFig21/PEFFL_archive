@@ -1,4 +1,113 @@
 @import "../../global.scss";
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  max-width: 100%;
+  min-width: 100%;
+  height: fit-content;
+  padding: 7px 0px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  backdrop-filter: blur(12px);
+  z-index: 10;
+  transition: all ease 0.35s;
+  min-height: 55px;
+
+  .h2h-section-header {
+    font-size: 30px;
+    font-weight: 700;
+    text-align: left;
+    position: relative;
+    width: fit-content;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+
+    .header-wrapper {
+      position: relative;
+      height: fit-content;
+      transition: all ease 0.35s;
+      margin-bottom: -8px;
+
+      .h2h-header-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include mobile {
+          margin-left: 25px;
+        }
+
+        a {
+          text-decoration: none;
+        }
+        .h2h-header-team-left,
+        .h2h-header-team-right {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          span {
+            font-size: 40px;
+            font-weight: 700;
+            text-align: center;
+            color: $lightTextDarkBG;
+            white-space: nowrap;
+
+            @include mobile {
+              font-size: 20px;
+            }
+          }
+
+          .mirror-helmet{
+            left: unset;
+            right: -70px;
+          }
+        }
+        span {
+          font-size: 20px;
+          font-weight: 700;
+          padding: 0px 10px;
+          text-align: center;
+          color: $lightTextDarkBG;
+          @include mobile {
+            font-size: 16px;
+            padding: 0px 5px;
+          }
+        }
+      }
+    }
+
+    .section-header-subtext {
+      font-weight: 300;
+      font-size: 20px;
+      margin-left: 10px;
+    }
+
+    button {
+      position: absolute;
+      right: -72px;
+      top: 50%;
+      transform: translateY(
+        calc(-50% - 4px)
+      ); // -4 comes from the -8 in the header-wrapper margin-bottom
+      min-width: 60px;
+      font-size: 15px;
+      font-weight: 600;
+      border: none;
+      border-radius: 5px;
+      padding: 4px 10px;
+      cursor: pointer;
+      transition: all ease 0.25s;
+
+      &:active {
+        transform: scale(0.9) translateY(calc(-50% - 4px));
+      }
+    }
+  }
+}
 
 $cellHeight: 50px;
 $statsCellWidth: 150px;
@@ -12,112 +121,8 @@ $statsCellWidthMobile: 125px;
   min-height: 100vh;
   position: relative;
   width: 100%;
-  margin-bottom: 100px;
-  margin-top: 80px;
-
-  .page-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    max-width: 100%;
-    min-width: 100%;
-    height: fit-content;
-    padding: 7px 0px;
-    position: fixed;
-    top: 0px;
-    right: 0px;
-    backdrop-filter: blur(12px);
-    z-index: 10;
-    transition: all ease 0.35s;
-    min-height: 55px;
-
-    .h2h-section-header {
-      font-size: 30px;
-      font-weight: 700;
-      text-align: left;
-      position: relative;
-      width: fit-content;
-      display: flex;
-      align-items: baseline;
-      justify-content: center;
-
-      .header-wrapper {
-        position: relative;
-        height: fit-content;
-        transition: all ease 0.35s;
-        margin-bottom: -8px;
-
-        .h2h-header-container {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          @include mobile {
-            margin-left: 25px;
-          }
-
-          a {
-            text-decoration: none;
-          }
-          .h2h-header-team-left,
-          .h2h-header-team-right {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            span {
-              font-size: 40px;
-              font-weight: 700;
-              text-align: center;
-              color: $lightTextDarkBG;
-              white-space: nowrap;
-
-              @include mobile {
-                font-size: 20px;
-              }
-            }
-          }
-          span {
-            font-size: 20px;
-            font-weight: 700;
-            padding: 0px 10px;
-            text-align: center;
-            color: $lightTextDarkBG;
-            @include mobile {
-              font-size: 16px;
-              padding: 0px 5px;
-            }
-          }
-        }
-      }
-
-      .section-header-subtext {
-        font-weight: 300;
-        font-size: 20px;
-        margin-left: 10px;
-      }
-
-      button {
-        position: absolute;
-        right: -72px;
-        top: 50%;
-        transform: translateY(
-          calc(-50% - 4px)
-        ); // -4 comes from the -8 in the header-wrapper margin-bottom
-        min-width: 60px;
-        font-size: 15px;
-        font-weight: 600;
-        border: none;
-        border-radius: 5px;
-        padding: 4px 10px;
-        cursor: pointer;
-        transition: all ease 0.25s;
-
-        &:active {
-          transform: scale(0.9) translateY(calc(-50% - 4px));
-        }
-      }
-    }
-  }
+  overflow-y: overlay;
+  max-height: inherit;
 
   .h2h-inputs-container {
     display: flex;
@@ -127,10 +132,11 @@ $statsCellWidthMobile: 125px;
     border: 1px solid grey;
     border-radius: 20px;
     padding: 5px 12px;
-    margin-top: 10px;
-
+    margin-top: 100px;
+    
     @include mobile {
       padding: 5px 8px;
+      margin-top: 90px;
     }
 
     .h2h-team-input {
@@ -437,6 +443,7 @@ $statsCellWidthMobile: 125px;
   }
 
   .h2h-matchups-container {
+    margin-bottom: 80px;
     .h2h-section-header-container {
       width: 100%;
       text-align: center;

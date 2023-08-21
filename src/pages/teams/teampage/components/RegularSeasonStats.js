@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-pascal-case */
 import React, { useEffect, useState } from "react";
 import SC from "../../../../themes/styledComponents";
+import { numberWithCommas } from "../../../../helpers/utils";
 
 export default function RegularSeasonStats({
   team,
@@ -41,11 +42,11 @@ export default function RegularSeasonStats({
     .toFixed(3)
     .toString()
     .substring(1);
-  const rs_PF = parseInt(team.rs_pf).toLocaleString();
+  const rs_PF = numberWithCommas(parseInt(team.rs_pf));
   const rs_PPG = (Math.round(team.rs_ppg * 100) / 100).toFixed(1);
-  const rs_PA = parseInt(team.rs_pa).toLocaleString();
+  const rs_PA = numberWithCommas(parseInt(team.rs_pa));
   const rs_PAPG = (Math.round(team.rs_papg * 100) / 100).toFixed(1);
-  const rs_DIF = parseInt(team.rs_dif).toLocaleString();
+  const rs_DIF = numberWithCommas(parseInt(team.rs_dif));
   const rs_DIFPG = (Math.round(team.rs_difpg * 100) / 100).toFixed(1);
 
   // PLAYOFFS
@@ -60,18 +61,18 @@ export default function RegularSeasonStats({
     .toFixed(3)
     .toString()
     .substring(1) : ".000"
-  const playoff_PF =  team.playoffs_pf ? team.playoffs_pf.toLocaleString() : 0;
+  const playoff_PF =  team.playoffs_pf ? numberWithCommas(team.playoffs_pf) : 0;
   const playoff_PPG = team.playoffs_ppg ? (Math.round(team.playoffs_ppg * 100) / 100).toFixed(1) : 0.0;
-  const playoff_PA = team.playoffs_pa ? team.playoffs_pa.toLocaleString() : 0;
+  const playoff_PA = team.playoffs_pa ? numberWithCommas(team.playoffs_pa) : 0;
   const playoff_PAPG = team.playoffs_papg ? (Math.round(team.playoffs_papg * 100) / 100).toFixed(1) : 0.0;
-  const playoff_DIF = team.playoffs_dif ? team.playoffs_dif.toLocaleString() : 0;
+  const playoff_DIF = team.playoffs_dif ? numberWithCommas(team.playoffs_dif) : 0;
   const playoff_DIFPG = team.playoffs_difpg ? (Math.round(team.playoffs_difpg * 100) / 100).toFixed(1) : 0.0;
   // ALL GAMES
   const total_W = parseInt(team.rs_w) + parseInt(team.playoffs_w);
   const total_L = parseInt(team.rs_l) + parseInt(team.playoffs_l);
-  const total_PF = parseInt(team.rs_pf) + parseInt(team.playoffs_pf);
-  const total_PA = parseInt(team.rs_pa) + parseInt(team.playoffs_pa);
-  const total_DIF = parseInt(team.rs_dif) + parseInt(team.playoffs_dif);
+  const total_PF = numberWithCommas(parseInt(team.rs_pf) + parseInt(team.playoffs_pf));
+  const total_PA = numberWithCommas(parseInt(team.rs_pa) + parseInt(team.playoffs_pa));
+  const total_DIF = numberWithCommas(parseInt(team.rs_dif) + parseInt(team.playoffs_dif));
   const total_Games = parseInt(team.rs_w) + parseInt(team.playoffs_w) + parseInt(team.rs_l) + parseInt(team.playoffs_l);
 
   const ag_record = `${total_W} - ${total_L}`;

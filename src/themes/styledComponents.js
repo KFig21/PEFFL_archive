@@ -40,6 +40,18 @@ const SC = {
       }
     }
   `,
+
+  PageWrapper:styled.div`
+  ::-webkit-scrollbar-thumb {
+    background-color: ${(props) =>
+      props.theme.colors.primaryColorFaded} !important;
+    &:hover {
+      background-color: ${(props) =>
+        props.theme.colors.primaryColor} !important;
+    }
+  }
+`,
+
   textOnBgColor: styled.span`
     color: ${(props) => props.theme.colors.textOnBgColor} !important;
 
