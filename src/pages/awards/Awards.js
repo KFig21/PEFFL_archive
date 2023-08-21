@@ -205,7 +205,7 @@ export default function Awards({
                   let division = j_Division.includes(team.team)
                     ? "j_Division"
                     : "f_Division";
-                  let awards = team.c + team.r + team.rsc + team.p + team.dt;
+                  let awards = parseInt(team.c) + parseInt(team.r) + parseInt(team.rsc) + parseInt(team.p) + parseInt(team.dt);
                   let money = team.money.toLocaleString();
                   let titlesFormat = team.c > 0 ? "goldenrod" : "transparent";
                   let runnerUpsFormat = team.r > 0 ? "#a0a3a6" : "transparent";
