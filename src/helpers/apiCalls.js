@@ -53,8 +53,15 @@ export const getTeams = async (column, order, table) => {
   return res.data;
 };
 export const getTeamStats = async (team) => {
-  const res = await axios.get(`${url}/teams/stats/${team}`);
-  return res.data;
+  if (team !== "Taylor") {
+    const res = await axios.get(`${url}/teams/stats/${team}`);
+    return res.data;
+  } else {
+    const res = await axios.get(
+      `${url}/teams/statsIfNeverMadePlayoffs/${team}`
+    );
+    return res.data;
+  }
 };
 export const getH2HmatchupsTeampage = async (team, column, order, table) => {
   const res = await axios.get(

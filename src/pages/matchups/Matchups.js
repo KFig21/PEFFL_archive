@@ -318,13 +318,13 @@ export default function Matchups({
                 let difFormat =
                   totalDif > 0 ? "green" : totalDif < 0 ? "crimson" : null;
                 let winPercentage =
-                  matchup.w === matchup.g && matchup.g > 0
+                  parseInt(matchup.w) === parseInt(matchup.g) && parseInt(matchup.g) > 0
                     ? "1.000"
-                    : (((matchup.w / (matchup.w + matchup.l)) * 100) / 100)
+                    : (((parseInt(matchup.w) / (parseInt(matchup.w) + parseInt(matchup.l))) * 100) / 100)
                         .toFixed(3)
                         .toString()
                         .substring(1);
-
+                        
                 // MEDALS
                 let winpMedal =
                   allMatchupsMedals.winp.indexOf(winPercentage) > -1

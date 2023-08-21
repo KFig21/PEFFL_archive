@@ -359,7 +359,7 @@ export default function Standings({
                 team.l = parseInt(team.l)
 
                 let difFormat =
-                  team.dif > 0 ? "green" : team.dif < 0 ? "crimson" : null;
+                  team.dif > 0 ? "green" : team.dif < 0 ? "crimson" : "grey";
 
                 if (team.w > mostWins) {
                   setMostWins(team.w);
@@ -411,8 +411,8 @@ export default function Standings({
                   ? "j_Division"
                   : "f_Division";
 
-                let titlesFormat = team.C > 0 ? "goldenrod" : "transparent";
-                let runnerUpsFormat = team.R > 0 ? "#a0a3a6" : "transparent";
+                let titlesFormat = parseInt(team.c) > 0 ? "goldenrod" : "transparent";
+                let runnerUpsFormat = parseInt(team.r) > 0 ? "#a0a3a6" : "transparent";
 
                 return (
                   <SC.tableBorderColorTR
@@ -586,7 +586,7 @@ export default function Standings({
                           className="standings-ppg"
                           style={{ color: `${titlesFormat}` }}
                         >
-                          <strong>{team.C}</strong>
+                          <strong>{team.c}</strong>
                         </div>
                       </div>
                     </SC.tableSortableCol>
@@ -603,7 +603,7 @@ export default function Standings({
                           className="standings-ppg"
                           style={{ color: `${runnerUpsFormat}` }}
                         >
-                          <strong>{team.R}</strong>
+                          <strong>{team.r}</strong>
                         </div>
                       </div>
                     </SC.tableSortableCol>

@@ -17,9 +17,9 @@ import rscTrophy from "../../../../assets/rscTrophy.png";
 import rscTrophyEmpty from "../../../../assets/rscTrophyEmpty.png";
 import { Link } from "react-router-dom";
 
-export default function PlayoffStats({ team, j_Division }) {
+export default function Awards({ team, j_Division }) {
   const [teamTrophies, setTeamTrophies] = useState(awards[team.team]);
-
+  
   useEffect(() => {
     setTeamTrophies(awards[team.team]);
   }, [team]);
@@ -32,14 +32,14 @@ export default function PlayoffStats({ team, j_Division }) {
             TROPHY CASE
             <span className="section-header-subtext">
               <SC.subtextOnBgColor>
-                {team.awards_Championships +
-                  team.awards_RunnerUps +
-                  team.awards_RSC +
-                  team.awards_MostPoints +
-                  team.awards_DivisionTitles}{" "}
+                {parseInt(team.awards_Championships) +
+                  parseInt(team.awards_RunnerUps) +
+                  parseInt(team.awards_RSC) +
+                  parseInt(team.awards_MostPoints) +
+                  parseInt(team.awards_DivisionTitles)}{" "}
                 AWARDS -{" "}
-                <strong style={{ color: team.awards_Money > 0 ? "green" : "" }}>
-                  ${team.awards_Money.toLocaleString()}
+                <strong style={{ color: parseInt(team.awards_Money) > 0 ? "green" : "" }}>
+                  ${parseInt(team.awards_Money).toLocaleString()}
                 </strong>{" "}
                 won
               </SC.subtextOnBgColor>
@@ -59,7 +59,7 @@ export default function PlayoffStats({ team, j_Division }) {
             <SC.textOnBgColor>
               <span className="stat-title">
                 DENR CUPS{" "}
-                <span className="mobile">({teamTrophies.lc.length})</span>
+                <span className="mobile">({parseInt(teamTrophies.lc.length)})</span>
               </span>
             </SC.textOnBgColor>
             <SC.textOnBgColor>

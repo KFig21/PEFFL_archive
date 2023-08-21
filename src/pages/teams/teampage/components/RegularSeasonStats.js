@@ -37,20 +37,20 @@ export default function RegularSeasonStats({
 
   // regular season
   const rs_record = `${team.rs_w} - ${team.rs_l}`;
-  const rs_winP = (((team.rs_w / (team.rs_w + team.rs_l)) * 100) / 100)
+  const rs_winP = (((parseInt(team.rs_w) / (parseInt(team.rs_w) + parseInt(team.rs_l))) * 100) / 100)
     .toFixed(3)
     .toString()
     .substring(1);
-  const rs_PF = team.rs_pf.toLocaleString();
+  const rs_PF = parseInt(team.rs_pf).toLocaleString();
   const rs_PPG = (Math.round(team.rs_ppg * 100) / 100).toFixed(1);
-  const rs_PA = team.rs_pa.toLocaleString();
+  const rs_PA = parseInt(team.rs_pa).toLocaleString();
   const rs_PAPG = (Math.round(team.rs_papg * 100) / 100).toFixed(1);
-  const rs_DIF = team.rs_dif.toLocaleString();
+  const rs_DIF = parseInt(team.rs_dif).toLocaleString();
   const rs_DIFPG = (Math.round(team.rs_difpg * 100) / 100).toFixed(1);
 
   // PLAYOFFS
-  const p_win = team.playoffs_w ? team.playoffs_w : 0
-  const p_loss = team.playoffs_l ? team.playoffs_l : 0
+  const p_win = parseInt(team.playoffs_w) ? parseInt(team.playoffs_w) : 0
+  const p_loss = parseInt(team.playoffs_l) ? parseInt(team.playoffs_l) : 0
   const p_games = p_win + p_loss 
   const playoff_record = `${p_win} - ${p_loss}`;
   const playoff_winP = (p_win + p_loss) > 0 ? (
@@ -67,12 +67,12 @@ export default function RegularSeasonStats({
   const playoff_DIF = team.playoffs_dif ? team.playoffs_dif.toLocaleString() : 0;
   const playoff_DIFPG = team.playoffs_difpg ? (Math.round(team.playoffs_difpg * 100) / 100).toFixed(1) : 0.0;
   // ALL GAMES
-  const total_W = team.rs_w + team.playoffs_w;
-  const total_L = team.rs_l + team.playoffs_l;
-  const total_PF = team.rs_pf + team.playoffs_pf;
-  const total_PA = team.rs_pa + team.playoffs_pa;
-  const total_DIF = team.rs_dif + team.playoffs_dif;
-  const total_Games = team.rs_w + team.playoffs_w + team.rs_l + team.playoffs_l;
+  const total_W = parseInt(team.rs_w) + parseInt(team.playoffs_w);
+  const total_L = parseInt(team.rs_l) + parseInt(team.playoffs_l);
+  const total_PF = parseInt(team.rs_pf) + parseInt(team.playoffs_pf);
+  const total_PA = parseInt(team.rs_pa) + parseInt(team.playoffs_pa);
+  const total_DIF = parseInt(team.rs_dif) + parseInt(team.playoffs_dif);
+  const total_Games = parseInt(team.rs_w) + parseInt(team.playoffs_w) + parseInt(team.rs_l) + parseInt(team.playoffs_l);
 
   const ag_record = `${total_W} - ${total_L}`;
   const ag_winP = (((total_W / total_Games) * 100) / 100)
@@ -281,7 +281,7 @@ export default function RegularSeasonStats({
             {schedule === "AG" && "ALL GAMES"}
             <span className="section-header-subtext">
               <SC.subtextOnBgColor>
-                {schedule === "RS" && `${team.rs_w + team.rs_l} GAMES`}
+                {schedule === "RS" && `${parseInt(team.rs_w) + parseInt(team.rs_l)} GAMES`}
                 {schedule === "playoffs" &&
                   `${team.playoffs_A || 0} APPEARANCES, ${p_games} GAMES`}
                 {schedule === "AG" && `${total_Games} GAMES`}
