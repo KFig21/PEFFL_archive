@@ -63,6 +63,11 @@
 
           .mirror-helmet{
             left: unset;
+            right: -70px;
+            
+            @include mobile {
+              right: unset;
+            }
           }
         }
         span {
