@@ -33,6 +33,7 @@ export default function Seasons({
 }) {
   const params = useParams("year");
   const user = useSelector((state) => state.user);
+  const [seasonInProgress, setSeasonInProgress] = useState(true)
   const [yearInput, setYearInput] = useState(parseInt(params.year));
   const [seasonTableInfo, setSeasonTableInfo] = useState();
   const [loaded, setLoaded] = useState(false);
@@ -94,10 +95,12 @@ export default function Seasons({
 
   useEffect(() => {
     setCurrentPage("seasons");
+    (parseInt(yearInput) === currentYear) ? setSeasonInProgress(true) : setSeasonInProgress(false)
     handleGetSeasonTableInfo(yearInput, "W", "DESC", "RS");
   }, []);
 
   const handleChangeYear = (e) => {
+    (parseInt(e.target.value) === currentYear) ? setSeasonInProgress(true) : setSeasonInProgress(false)
     setYearInput(e.target.value);
     handleGetSeasonTableInfo(e.target.value, sortBy, sortOrder, schedule);
     setLoaded(false);
@@ -156,7 +159,7 @@ export default function Seasons({
         {loaded ? (
           <div className="season-all-content-container">
             {/* TROPHIES */}
-            <div className="season-trophies-section">
+            {!seasonInProgress && <div className="season-trophies-section">
               {/* SECTION HEADER */}
               <div className="teampage-section-header-container">
                 <SC.textOnBgColor>
@@ -291,7 +294,7 @@ export default function Seasons({
                   </Link>
                 </div>
               </div>
-            </div>
+            </div>}
 
             {/* STATS TABLE */}
             <div className="season-table-section-container">
@@ -691,8 +694,10 @@ export default function Seasons({
                             {/* WEEKS */}
                             {schedule !== "playoffs" &&
                               weeks.map((week, i) => {
+                                console.log('week.outcome', week.outcome)
                                 let minMax = handleCheckWeeklyMinMax(i, week.pts);
-                                let outcome = parseInt(week.outcome) === 1 ? "win" : "loss";
+                                let outcomeInt = parseInt(week.outcome)
+                                let outcome = outcomeInt === 1 ? "win" : outcomeInt === 0 ? "loss" : "na";
                                 return (
                                   <SC.tableSortableCol
                                     className={`season-week-col ${
@@ -706,7 +711,7 @@ export default function Seasons({
                                       title={`vs ${week.opp} - ${week.pa}`}
                                     >
                                       <SC.textOnBgColor>
-                                        {week.pts}
+                                      {(week.pts !== null && !isNaN(week.pts)) ? week.pts : "-"}
                                       </SC.textOnBgColor>
                                     </SC.seasonsTableWeekCell>
                                   </SC.tableSortableCol>

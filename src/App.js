@@ -88,8 +88,8 @@ function App() {
   const [currentPage, setCurrentPage] = useState("home");
   const j_Division = ["Fig", "Chad", "Rose", "Billy", "Big Boy", "Taylor"];
   // const f_Division = ["DenR", "The Boo", "Timmy", "Frankie", "Nordy", "AJ"];
-  const years = [2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022];
-  const currentYear = 2022;
+  const years = [2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023];
+  const currentYear = 2023;
   // STYLES
   const [theme, setTheme] = useState(darkThemeGreen);
   const [theme1, setTheme1] = useState("dark");

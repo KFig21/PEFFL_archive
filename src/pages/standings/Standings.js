@@ -560,7 +560,7 @@ export default function Standings({
                         <div className="standings-points ">
                           <div className="standings-ppg">
                             <SC.textOnBgColor>
-                              {perStat ? TOTPG : team.tot.toLocaleString()}
+                              {perStat ? TOTPG : numberWithCommas(team.tot)}
                             </SC.textOnBgColor>
                             <div
                               className={`medal-small ${
@@ -570,7 +570,7 @@ export default function Standings({
                           </div>
                           <div className="standings-total-points">
                             <SC.subtextOnBgColor>
-                              {perStat ? team.tot.toLocaleString() : TOTPG}
+                              {perStat ? numberWithCommas(team.tot) : TOTPG}
                             </SC.subtextOnBgColor>
                           </div>
                         </div>

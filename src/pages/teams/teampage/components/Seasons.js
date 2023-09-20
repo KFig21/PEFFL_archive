@@ -634,7 +634,7 @@ export default function Seasons({ team, j_Division }) {
                               title={`vs ${week.opp} - ${week.pa}`}
                             >
                               <SC.textOnBgColor>
-                                {week.pts !== null ? week.pts : "-"}
+                                {(week.pts !== null && !isNaN(week.pts)) ? week.pts : "-"}
                               </SC.textOnBgColor>
                             </SC.seasonsTableWeekCell>
                           </SC.tableSortableCol>
