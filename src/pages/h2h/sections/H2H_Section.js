@@ -18,6 +18,7 @@ export default function H2H_Section({
   helmetStyle,
   helmetView,
 }) {
+  console.log('team1data', team1data)
   return (
     <div className="h2h-all-stats-section">
       {team1data && team2data && winsRank_h2h ? (
@@ -51,7 +52,7 @@ export default function H2H_Section({
                   <SC.primaryColorFont
                     className="category-leader-icon left"
                     style={
-                      parseFloat(team1data.W_h2h) > parseFloat(team2data.W_h2h)
+                      parseFloat(team1data.h2h.w) > parseFloat(team2data.h2h.w)
                         ? { display: "block" }
                         : { display: "none" }
                     }
@@ -61,7 +62,7 @@ export default function H2H_Section({
                   <SC.primaryColorFont
                     className="category-leader-icon right"
                     style={
-                      parseFloat(team2data.W_h2h) > parseFloat(team1data.W_h2h)
+                      parseFloat(team2data.h2h.w) > parseFloat(team1data.h2h.w)
                         ? { display: "block" }
                         : { display: "none" }
                     }
@@ -77,8 +78,8 @@ export default function H2H_Section({
                   <SC.primaryColorFont
                     className="category-leader-icon left"
                     style={
-                      parseFloat(team1data.PPG_h2h) >
-                      parseFloat(team2data.PPG_h2h)
+                      parseFloat(team1data.h2h.ppg) >
+                      parseFloat(team2data.h2h.ppg)
                         ? { display: "block" }
                         : { display: "none" }
                     }
@@ -88,8 +89,8 @@ export default function H2H_Section({
                   <SC.primaryColorFont
                     className="category-leader-icon right"
                     style={
-                      parseFloat(team2data.PPG_h2h) >
-                      parseFloat(team1data.PPG_h2h)
+                      parseFloat(team2data.h2h.ppg) >
+                      parseFloat(team1data.h2h.ppg)
                         ? { display: "block" }
                         : { display: "none" }
                     }
@@ -105,8 +106,8 @@ export default function H2H_Section({
                   <SC.primaryColorFont
                     className="category-leader-icon left"
                     style={
-                      parseFloat(team1data.PF_h2h) >
-                      parseFloat(team2data.PF_h2h)
+                      parseFloat(team1data.h2h.pf) >
+                      parseFloat(team2data.h2h.pf)
                         ? { display: "block" }
                         : { display: "none" }
                     }
@@ -116,8 +117,8 @@ export default function H2H_Section({
                   <SC.primaryColorFont
                     className="category-leader-icon right"
                     style={
-                      parseFloat(team2data.PF_h2h) >
-                      parseFloat(team1data.PF_h2h)
+                      parseFloat(team2data.h2h.pf) >
+                      parseFloat(team1data.h2h.pf)
                         ? { display: "block" }
                         : { display: "none" }
                     }
@@ -134,8 +135,8 @@ export default function H2H_Section({
                   <SC.primaryColorFont
                     className="category-leader-icon left"
                     style={
-                      parseFloat(team1data.DIFPG_h2h) >
-                      parseFloat(team2data.DIFPG_h2h)
+                      parseFloat(team1data.h2h.difpg) >
+                      parseFloat(team2data.h2h.difpg)
                         ? { display: "block" }
                         : { display: "none" }
                     }
@@ -145,8 +146,8 @@ export default function H2H_Section({
                   <SC.primaryColorFont
                     className="category-leader-icon right"
                     style={
-                      parseFloat(team2data.DIFPG_h2h) >
-                      parseFloat(team1data.DIFPG_h2h)
+                      parseFloat(team2data.h2h.difpg) >
+                      parseFloat(team1data.h2h.difpg)
                         ? { display: "block" }
                         : { display: "none" }
                     }
@@ -163,8 +164,8 @@ export default function H2H_Section({
                   <SC.primaryColorFont
                     className="category-leader-icon left"
                     style={
-                      parseFloat(team1data.DIF_h2h) >
-                      parseFloat(team2data.DIF_h2h)
+                      parseFloat(team1data.h2h.dif) >
+                      parseFloat(team2data.h2h.dif)
                         ? { display: "block" }
                         : { display: "none" }
                     }
@@ -174,8 +175,8 @@ export default function H2H_Section({
                   <SC.primaryColorFont
                     className="category-leader-icon right"
                     style={
-                      parseFloat(team2data.DIF_h2h) >
-                      parseFloat(team1data.DIF_h2h)
+                      parseFloat(team2data.h2h.dif) >
+                      parseFloat(team1data.h2h.dif)
                         ? { display: "block" }
                         : { display: "none" }
                     }

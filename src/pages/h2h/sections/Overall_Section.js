@@ -43,7 +43,7 @@ export default function Overall_Section({
               <SC.primaryColorFont
                 className="category-leader-icon left"
                 style={
-                  team1data.W_at > team2data.W_at
+                  team1data.overall.w > team2data.overall.w
                     ? { display: "block" }
                     : { display: "none" }
                 }
@@ -53,7 +53,7 @@ export default function Overall_Section({
               <SC.primaryColorFont
                 className="category-leader-icon right"
                 style={
-                  team2data.W_at > team1data.W_at
+                  team2data.overall.w > team1data.overall.w
                     ? { display: "block" }
                     : { display: "none" }
                 }
@@ -69,8 +69,8 @@ export default function Overall_Section({
               <SC.primaryColorFont
                 className="category-leader-icon left"
                 style={
-                  team1data.W_at / team1data.G_at >
-                  team2data.W_at / team2data.G_at
+                  team1data.overall.w / team1data.overall.g >
+                  team2data.overall.w / team2data.overall.g
                     ? { display: "block" }
                     : { display: "none" }
                 }
@@ -80,8 +80,8 @@ export default function Overall_Section({
               <SC.primaryColorFont
                 className="category-leader-icon right"
                 style={
-                  team2data.W_at / team2data.G_at >
-                  team1data.W_at / team1data.G_at
+                  team2data.overall.w / team2data.overall.g >
+                  team1data.overall.w / team1data.overall.g
                     ? { display: "block" }
                     : { display: "none" }
                 }
@@ -97,7 +97,7 @@ export default function Overall_Section({
               <SC.primaryColorFont
                 className="category-leader-icon left"
                 style={
-                  team1data.PPG_at > team2data.PPG_at
+                  team1data.overall.ppg > team2data.overall.ppg
                     ? { display: "block" }
                     : { display: "none" }
                 }
@@ -107,7 +107,7 @@ export default function Overall_Section({
               <SC.primaryColorFont
                 className="category-leader-icon right"
                 style={
-                  team2data.PPG_at > team1data.PPG_at
+                  team2data.overall.ppg > team1data.overall.ppg
                     ? { display: "block" }
                     : { display: "none" }
                 }
@@ -123,7 +123,7 @@ export default function Overall_Section({
               <SC.primaryColorFont
                 className="category-leader-icon left"
                 style={
-                  team1data.PAPG_at > team2data.PAPG_at
+                  team1data.overall.papg > team2data.overall.papg
                     ? { display: "block" }
                     : { display: "none" }
                 }
@@ -133,7 +133,7 @@ export default function Overall_Section({
               <SC.primaryColorFont
                 className="category-leader-icon right"
                 style={
-                  team2data.PAPG_at > team1data.PAPG_at
+                  team2data.overall.papg > team1data.overall.papg
                     ? { display: "block" }
                     : { display: "none" }
                 }
@@ -149,7 +149,7 @@ export default function Overall_Section({
               <SC.primaryColorFont
                 className="category-leader-icon left"
                 style={
-                  team1data.DIFPG_at > team2data.DIFPG_at
+                  team1data.overall.difpg > team2data.overall.difpg
                     ? { display: "block" }
                     : { display: "none" }
                 }
@@ -159,7 +159,7 @@ export default function Overall_Section({
               <SC.primaryColorFont
                 className="category-leader-icon right"
                 style={
-                  team2data.DIFPG_at > team1data.DIFPG_at
+                  team2data.overall.difpg > team1data.overall.difpg
                     ? { display: "block" }
                     : { display: "none" }
                 }
@@ -175,7 +175,7 @@ export default function Overall_Section({
               <SC.primaryColorFont
                 className="category-leader-icon left"
                 style={
-                  team1data.PF_at > team2data.PF_at
+                  team1data.overall.pf > team2data.overall.pf
                     ? { display: "block" }
                     : { display: "none" }
                 }
@@ -185,7 +185,7 @@ export default function Overall_Section({
               <SC.primaryColorFont
                 className="category-leader-icon right"
                 style={
-                  team2data.PF_at > team1data.PF_at
+                  team2data.overall.pf > team1data.overall.pf
                     ? { display: "block" }
                     : { display: "none" }
                 }
@@ -201,7 +201,7 @@ export default function Overall_Section({
               <SC.primaryColorFont
                 className="category-leader-icon left"
                 style={
-                  team1data.PA_at > team2data.PA_at
+                  team1data.overall.pa > team2data.overall.pa
                     ? { display: "block" }
                     : { display: "none" }
                 }
@@ -211,7 +211,7 @@ export default function Overall_Section({
               <SC.primaryColorFont
                 className="category-leader-icon right"
                 style={
-                  team2data.PA_at > team1data.PA_at
+                  team2data.overall.pa > team1data.overall.pa
                     ? { display: "block" }
                     : { display: "none" }
                 }
@@ -227,7 +227,7 @@ export default function Overall_Section({
               <SC.primaryColorFont
                 className="category-leader-icon left"
                 style={
-                  team1data.DIF_at > team2data.DIF_at
+                  team1data.overall.dif > team2data.overall.dif
                     ? { display: "block" }
                     : { display: "none" }
                 }
@@ -237,7 +237,7 @@ export default function Overall_Section({
               <SC.primaryColorFont
                 className="category-leader-icon right"
                 style={
-                  team2data.DIF_at > team1data.DIF_at
+                  team2data.overall.dif > team1data.overall.dif
                     ? { display: "block" }
                     : { display: "none" }
                 }
