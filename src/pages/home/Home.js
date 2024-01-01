@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import SC from "../../themes/styledComponents";
 import "./Home.scss";
 import { SportsFootball } from "@material-ui/icons";
-import keeperList from "../../assets/2023_keeperList.png";
+import keeperList from "../../assets/2024_keeperList.png";
 import Countdown from "../../components/countdown/Countdown";
 
 export default function Home({ setCurrentPage }) {
@@ -20,28 +20,12 @@ export default function Home({ setCurrentPage }) {
         <SC.textOnBgColor className="home-container">
           {/* STRUCTURE */}
           {/* <Countdown year={2023} month={8} day={12} title={"2023 Draft Day Countdown"} message={"It's Draft Day!"}/> */}
-          <Countdown year={2023} month={9} day={7} title={"Week 1 Countdown"} message={"It's Week 1!"}/>
+          <Countdown year={2024} month={9} day={7} title={"Week 1 Countdown"} message={"It's Week 1!"}/>
           <div className="home-section">
             <SC.primaryColorUnderline className="home-section-header-container">
               <div className="home-section-header"> News & Updates</div>
             </SC.primaryColorUnderline>
-            {/* 2022 */}
-            <div className="home-section-item">
-              <div className="home-section-item-title">
-                <SC.primaryColorFont className="home-ball-container">
-                  <SportsFootball />
-                </SC.primaryColorFont>
-                2022
-              </div>
-              <div className="home-section-item-detail">
-                <SC.primaryColorFont className="item-arrow">
-                  &gt;
-                </SC.primaryColorFont>
-                Congratulations to The Boo for winning the 2022 DenR Cup over Frankie
-                by a score of 151 - 145!
-              </div>
-            </div>
-            {/* 2022 */}
+            {/* 2023 */}
             <div className="home-section-item">
               <div className="home-section-item-title">
                 <SC.primaryColorFont className="home-ball-container">
@@ -53,7 +37,23 @@ export default function Home({ setCurrentPage }) {
                 <SC.primaryColorFont className="item-arrow">
                   &gt;
                 </SC.primaryColorFont>
-                Draft day is Saturday August 12th at 7pm.
+                Congratulations to Fig for winning the 2023 DenR Cup over DenR
+                by a score of 143 - 140!
+              </div>
+            </div>
+            {/* 2024 */}
+            <div className="home-section-item">
+              <div className="home-section-item-title">
+                <SC.primaryColorFont className="home-ball-container">
+                  <SportsFootball />
+                </SC.primaryColorFont>
+                2024
+              </div>
+              <div className="home-section-item-detail">
+                <SC.primaryColorFont className="item-arrow">
+                  &gt;
+                </SC.primaryColorFont>
+                2024 draft date has not yet been set.
               </div>
               <div className="home-section-item-detail">
                 <SC.primaryColorFont className="item-arrow">
@@ -74,7 +74,7 @@ export default function Home({ setCurrentPage }) {
                 <SC.primaryColorFont className="home-ball-container">
                   <SportsFootball />
                 </SC.primaryColorFont>
-                2023 Keeper List
+                2024 Keeper List
               </div>
               <a href={keeperList} rel="noreferrer" target="_blank">
                 <img src={keeperList} alt="" />
