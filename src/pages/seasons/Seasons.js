@@ -95,9 +95,9 @@ export default function Seasons({
 
   useEffect(() => {
     setCurrentPage("seasons");
-    (parseInt(yearInput) === currentYear) ? setSeasonInProgress(true) : setSeasonInProgress(false)
+    (parseInt(yearInput) === currentYear) && (champion === "") ? setSeasonInProgress(true) : setSeasonInProgress(false)
     handleGetSeasonTableInfo(yearInput, "W", "DESC", "RS");
-  }, []);
+  }, [champion]);
 
   const handleChangeYear = (e) => {
     (parseInt(e.target.value) === currentYear) ? setSeasonInProgress(true) : setSeasonInProgress(false)
@@ -694,7 +694,6 @@ export default function Seasons({
                             {/* WEEKS */}
                             {schedule !== "playoffs" &&
                               weeks.map((week, i) => {
-                                console.log('week.outcome', week.outcome)
                                 let minMax = handleCheckWeeklyMinMax(i, week.pts);
                                 let outcomeInt = parseInt(week.outcome)
                                 let outcome = outcomeInt === 1 ? "win" : outcomeInt === 0 ? "loss" : "na";
