@@ -62,7 +62,7 @@ export default function H2H({
   const [winStreak, setWinStreak] = useState(0);
   const [winner, setWinner] = useState("");
 
-  const getH2H = async (_team1 = "Frankie", _team2 = "The Boo", table) => {
+  const getH2H = async (_team1 = "DenR", _team2 = "Fig", table) => {
     setLoaded(false)
     const teamdata = await getH2Hteams(_team1, _team2, table);
     let floats = ['winp', 'totpg', 'ppg', 'papg', 'difpg']
