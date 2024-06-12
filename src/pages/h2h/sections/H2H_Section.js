@@ -18,7 +18,6 @@ export default function H2H_Section({
   helmetStyle,
   helmetView,
 }) {
-  console.log('team1data', team1data)
   return (
     <div className="h2h-all-stats-section">
       {team1data && team2data && winsRank_h2h ? (
