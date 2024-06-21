@@ -1,7 +1,7 @@
 @import "../../global.scss";
 
 .sidebar-container {
-  flex: 2;
+  // flex: 2;
   z-index: 12;
   min-height: 100vh;
   max-height: 100vh;
@@ -279,7 +279,7 @@
             min-width: 0px;
 
             .sidebar-link {
-              margin-left: 10px;
+              margin-left: 14px;
               padding: 8px 14px;
 
               .sidebar-link-text {
@@ -294,7 +294,7 @@
 
               &.active-nav-link {
                 margin-left: 0px;
-                padding: 8px 14px 8px 10px;
+                padding: 8px 14px 8px 14px;
 
                 .sidebar-icon,
                 .sidebar-team {

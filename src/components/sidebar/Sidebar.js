@@ -18,13 +18,9 @@ import {
   People,
   GpsFixedOutlined,
   GpsNotFixedOutlined,
-  Face,
-  FaceOutlined,
 } from "@material-ui/icons";
 import StadiumIcon from "@mui/icons-material/Stadium";
 import StadiumOutlinedIcon from "@mui/icons-material/StadiumOutlined";
-import LanIcon from "@mui/icons-material/Lan";
-import LanOutlinedIcon from "@mui/icons-material/LanOutlined";
 import CalendarMonthOutlinedIcon from "@mui/icons-material/CalendarMonthOutlined";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import SC from "../../themes/styledComponents";

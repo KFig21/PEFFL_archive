@@ -203,7 +203,7 @@ const SC = {
     align-items: center;
     justify-content: center;
     font-size: 22px;
-    margin: 2px 0px;
+    margin: 2px 6px 2px 10px;
     padding: 8px 20px;
     border-radius: 100px;
     transition: background-color 0.25s ease;
@@ -217,8 +217,9 @@ const SC = {
       border-left: solid 4px ${(props) => props.theme.colors.primaryColor};
       border-top-right-radius: 100px;
       border-bottom-right-radius: 100px;
+      margin-left: 0px;
       overflow: visible;
-      padding: 8px 20px 8px 16px;
+      padding: 8px 26px 8px 26px;
     }
   `,
 
