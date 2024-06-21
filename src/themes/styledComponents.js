@@ -584,6 +584,18 @@ const SC = {
   // ---------- MISC ----------
   Loader: styled.div`
     color: ${(props) => props.theme.colors.primaryColor} !important;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100vw;
+
+    .message{
+        position: absolute;
+        display: flex;
+        transform: translate(0%, -50%);
+        margin-top: 140px;
+        color: ${(props) => props.theme.colors.subtextOnBgColor} !important;
+    }
   `,
 
   primaryColorUnderline: styled.div`
