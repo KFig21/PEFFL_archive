@@ -16,7 +16,6 @@
   <li>Redux</li>
   <li>Styled Components</li>
   <li>JWT Authentication</li>
-  <li>AWS RDS</li>
   <li>SQL</li>
   <li>Heroku hosting</li>   
   <li>SASS</li>
