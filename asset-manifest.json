@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/PEFFL_archive/static/css/main.9d14d568.css",
-    "main.js": "/PEFFL_archive/static/js/main.295fad41.js",
+    "main.js": "/PEFFL_archive/static/js/main.c176c1dd.js",
     "static/media/2024_keeperList.png": "/PEFFL_archive/static/media/2024_keeperList.de4cc2a0f491ef3bfa0f.png",
     "static/media/denrCup.png": "/PEFFL_archive/static/media/denrCup.d5cce07220bf03d93476.png",
     "static/media/ruTrophy.png": "/PEFFL_archive/static/media/ruTrophy.9643875b61385f85cafa.png",
@@ -17,10 +17,10 @@
     "static/media/jdivBannerEmpty.png": "/PEFFL_archive/static/media/jdivBannerEmpty.3e319bd912626278e368.png",
     "index.html": "/PEFFL_archive/index.html",
     "main.9d14d568.css.map": "/PEFFL_archive/static/css/main.9d14d568.css.map",
-    "main.295fad41.js.map": "/PEFFL_archive/static/js/main.295fad41.js.map"
+    "main.c176c1dd.js.map": "/PEFFL_archive/static/js/main.c176c1dd.js.map"
   },
   "entrypoints": [
     "static/css/main.9d14d568.css",
-    "static/js/main.295fad41.js"
+    "static/js/main.c176c1dd.js"
   ]
 }
