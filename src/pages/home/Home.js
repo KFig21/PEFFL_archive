@@ -19,7 +19,7 @@ export default function Home({ setCurrentPage }) {
       <SC.PageWrapper className="home-page">
         <SC.textOnBgColor className="home-container">
           {/* STRUCTURE */}
-          {/* <Countdown year={2023} month={8} day={12} title={"2023 Draft Day Countdown"} message={"It's Draft Day!"}/> */}
+          <Countdown year={2024} month={8} day={9} title={"2023 Draft Day Countdown"} message={"It's Draft Day!"}/>
           <Countdown year={2024} month={9} day={7} title={"Week 1 Countdown"} message={"It's Week 1!"}/>
           <div className="home-section">
             <SC.primaryColorUnderline className="home-section-header-container">
@@ -53,7 +53,7 @@ export default function Home({ setCurrentPage }) {
                 <SC.primaryColorFont className="item-arrow">
                   &gt;
                 </SC.primaryColorFont>
-                2024 draft date has not yet been set.
+                Draft Day is Friday, August 9th.
               </div>
               <div className="home-section-item-detail">
                 <SC.primaryColorFont className="item-arrow">
