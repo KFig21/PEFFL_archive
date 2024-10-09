@@ -1,57 +1,56 @@
 @import "../../global.scss";
 
-  .page-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    max-width: 100%;
-    min-width: 100%;
-    height: fit-content;
-    padding: 15px 0px;
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  min-width: 100%;
+  height: fit-content;
+  padding: 15px 0px;
   position: absolute;
-    top: 0px;
-    right: 0px;
-    backdrop-filter: blur(12px);
-    z-index: 10;
-    transition: all ease 0.35s;
+  top: 0px;
+  right: 0px;
+  backdrop-filter: blur(12px);
+  z-index: 10;
+  transition: all ease 0.35s;
 
-    .teampage-section-header {
-      font-size: 30px;
-      font-weight: 700;
-      text-align: left;
-      position: relative;
-      width: fit-content;
-      display: flex;
-      align-items: baseline;
-      justify-content: center;
+  .teampage-section-header {
+    font-size: 30px;
+    font-weight: 700;
+    text-align: left;
+    position: relative;
+    width: fit-content;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
 
-      .section-header-subtext {
-        font-weight: 300;
-        font-size: 20px;
-        margin-left: 10px;
-      }
+    .section-header-subtext {
+      font-weight: 300;
+      font-size: 20px;
+      margin-left: 10px;
+    }
 
-      button {
-        position: absolute;
-        right: -72px;
-        top: 0px;
-        transform: translateY(35%);
-        min-width: 60px;
-        font-size: 15px;
-        font-weight: 600;
-        border: none;
-        border-radius: 5px;
-        padding: 4px 10px;
-        cursor: pointer;
-        transition: all ease 0.25s;
+    button {
+      position: absolute;
+      right: -72px;
+      top: 0px;
+      transform: translateY(35%);
+      min-width: 60px;
+      font-size: 15px;
+      font-weight: 600;
+      border: none;
+      border-radius: 5px;
+      padding: 4px 10px;
+      cursor: pointer;
+      transition: all ease 0.25s;
 
-        &:active {
-          transform: scale(0.9) translateY(35%);
-        }
+      &:active {
+        transform: scale(0.9) translateY(35%);
       }
     }
   }
+}
 
 .allmatchups-container {
   display: flex;
@@ -85,6 +84,7 @@
       &.desktop {
         display: none;
       }
+
       &.mobile {
         display: flex;
       }
@@ -132,6 +132,7 @@
         align-items: flex-start;
         justify-content: flex-start;
       }
+
       @include smallDesktop {
         align-items: flex-start;
         justify-content: flex-start;
@@ -142,11 +143,13 @@
           border-bottom: solid 2px gray;
           cursor: pointer;
           background-color: rgb(226, 226, 226);
+
           .column-header {
             padding: 6px 0px;
             align-items: center;
             justify-content: center;
             position: relative;
+
             .sort-icon {
               position: absolute;
               right: 0px;
@@ -156,12 +159,15 @@
               background-color: $activeColColorHeader;
             }
           }
+
           .WL-header {
             min-width: 20px;
           }
+
           .dash-header {
             max-width: 15px;
           }
+
           .app-header,
           .trophy-header {
             .sort-icon {
@@ -171,6 +177,7 @@
           }
         }
       }
+
       .allmatchups-team-row {
         font-family: Arial, Helvetica, sans-serif;
         border-top: 1px solid lightgray;
@@ -217,6 +224,7 @@
               font-size: 18px;
             }
           }
+
           .team-name-with-subtext {
             position: relative;
             display: flex;
@@ -240,6 +248,7 @@
               bottom: 0px;
             }
           }
+
           .allmatchups-j_Division,
           .allmatchups-f_Division {
             margin-left: 10px;
@@ -252,10 +261,12 @@
             color: white;
             position: relative;
           }
+
           .allmatchups-j_Division {
             background-color: $j_DivisionDivColor;
             opacity: 0.7;
           }
+
           .allmatchups-j_Division::before {
             position: absolute;
             top: 50%;
@@ -263,10 +274,12 @@
             transform: translate(-50%, -50%);
             content: "J";
           }
+
           .allmatchups-f_Division {
             background-color: $f_DivisionDivColor;
             opacity: 0.7;
           }
+
           .allmatchups-f_Division::before {
             position: absolute;
             top: 50%;
@@ -275,6 +288,7 @@
             content: "F";
           }
         }
+
         .allmatchups-team-home {
           padding: 4px 10px;
           display: flex;
@@ -341,10 +355,12 @@
             color: white;
             position: relative;
           }
+
           .allmatchups-j_Division {
             background-color: $j_DivisionDivColor;
             opacity: 0.7;
           }
+
           .allmatchups-j_Division::before {
             position: absolute;
             top: 50%;
@@ -352,10 +368,12 @@
             transform: translate(-50%, -50%);
             content: "J";
           }
+
           .allmatchups-f_Division {
             background-color: $f_DivisionDivColor;
             opacity: 0.7;
           }
+
           .allmatchups-f_Division::before {
             position: absolute;
             top: 50%;
@@ -364,6 +382,7 @@
             content: "F";
           }
         }
+
         .standings-rank {
           font-size: 22px;
           font-weight: 700;
@@ -372,6 +391,7 @@
           border-radius: 50%;
           position: relative;
         }
+
         .rank-col {
           min-width: 60px;
 
@@ -385,6 +405,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+
             @include mobile {
               min-width: 40px;
               font-size: 18px;
@@ -396,11 +417,13 @@
             font-size: 18px;
           }
         }
+
         .record-col {
           font-size: 20px;
           min-width: 25px;
           text-align: center;
         }
+
         .year-col {
           font-family: poppins, sans-serif;
           font-size: 25px;
@@ -408,20 +431,25 @@
           text-align: left;
           padding: 5px 10px;
         }
+
         .dash-col {
           min-width: 12px;
         }
+
         .gb-col {
           color: rgb(154, 154, 154);
           min-width: 30px;
           white-space: nowrap;
         }
+
         .table-border-col {
           padding: 0px 8px 0px 0px;
           border-right: solid grey 1px;
         }
+
         .points-col {
           min-width: 80px;
+
           @include mobile {
             min-width: 70px;
           }
@@ -430,16 +458,19 @@
             background-color: $activeColColor;
             // font-weight: 600;
           }
+
           .standings-points {
             display: flex;
             align-items: center;
             justify-content: center;
             flex-direction: column;
+
             .standings-ppg {
               width: fit-content;
               font-size: 18px;
               position: relative;
             }
+
             .standings-total-points {
               font-size: 13px;
               color: rgb(154, 154, 154);
@@ -447,19 +478,21 @@
             }
           }
         }
+
         .titles-col {
           min-width: 45px;
         }
 
         .h2h-link-col {
           padding-top: 4px;
+
           span {
             max-height: 20px;
             max-width: 20px;
           }
         }
-        td {
-        }
+
+        td {}
       }
     }
   }
