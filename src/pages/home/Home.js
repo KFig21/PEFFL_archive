@@ -19,8 +19,10 @@ export default function Home({ setCurrentPage }) {
       <SC.PageWrapper className="home-page">
         <SC.textOnBgColor className="home-container">
           {/* STRUCTURE */}
+          {/*
           <Countdown year={2024} month={8} day={9} title={"2023 Draft Day Countdown"} message={"It's Draft Day!"}/>
           <Countdown year={2024} month={9} day={7} title={"Week 1 Countdown"} message={"It's Week 1!"}/>
+          */}
           <div className="home-section">
             <SC.primaryColorUnderline className="home-section-header-container">
               <div className="home-section-header"> News & Updates</div>
