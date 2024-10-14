@@ -589,19 +589,19 @@ export default function Rules({ setCurrentPage }) {
                 <SC.primaryColorFont className="item-arrow">
                   &gt;
                 </SC.primaryColorFont>
-                5 pt / 0 points allowed
+                10 pt / 0 points allowed
               </div>
               <div className="rules-section-item-detail">
                 <SC.primaryColorFont className="item-arrow">
                   &gt;
                 </SC.primaryColorFont>
-                4 pt / 1-6 points allowed
+                7 pt / 1-6 points allowed
               </div>
               <div className="rules-section-item-detail">
                 <SC.primaryColorFont className="item-arrow">
                   &gt;
                 </SC.primaryColorFont>
-                3 pt / 7-13 points allowed
+                4 pt / 7-13 points allowed
               </div>
               <div className="rules-section-item-detail">
                 <SC.primaryColorFont className="item-arrow">
@@ -613,61 +613,25 @@ export default function Rules({ setCurrentPage }) {
                 <SC.primaryColorFont className="item-arrow">
                   &gt;
                 </SC.primaryColorFont>
-                -1 pt / 28-34 points allowed
+                -1 pt / 22-27 points allowed
               </div>
               <div className="rules-section-item-detail">
                 <SC.primaryColorFont className="item-arrow">
                   &gt;
                 </SC.primaryColorFont>
-                -5 pt / 46+ points allowed
+                -4 pt / 28-34 points allowed
               </div>
               <div className="rules-section-item-detail">
                 <SC.primaryColorFont className="item-arrow">
                   &gt;
                 </SC.primaryColorFont>
-                5 pt / {"<"} 100 yards allowed
+                -7 pt / 35-45 points allowed
               </div>
               <div className="rules-section-item-detail">
                 <SC.primaryColorFont className="item-arrow">
                   &gt;
                 </SC.primaryColorFont>
-                3 pt / 100-199 yards allowed
-              </div>
-              <div className="rules-section-item-detail">
-                <SC.primaryColorFont className="item-arrow">
-                  &gt;
-                </SC.primaryColorFont>
-                2 pt / 200-299 yards allowed
-              </div>
-              <div className="rules-section-item-detail">
-                <SC.primaryColorFont className="item-arrow">
-                  &gt;
-                </SC.primaryColorFont>
-                -1 pt / 350-399 yards allowed
-              </div>
-              <div className="rules-section-item-detail">
-                <SC.primaryColorFont className="item-arrow">
-                  &gt;
-                </SC.primaryColorFont>
-                -3 pt / 400-449 yards allowed
-              </div>
-              <div className="rules-section-item-detail">
-                <SC.primaryColorFont className="item-arrow">
-                  &gt;
-                </SC.primaryColorFont>
-                -5 pt / 450-499 yards allowed
-              </div>
-              <div className="rules-section-item-detail">
-                <SC.primaryColorFont className="item-arrow">
-                  &gt;
-                </SC.primaryColorFont>
-                -6 pt / 500-549 yards allowed
-              </div>
-              <div className="rules-section-item-detail">
-                <SC.primaryColorFont className="item-arrow">
-                  &gt;
-                </SC.primaryColorFont>
-                -7 pt / 550+ yards allowed
+                -10 pt / 46+ points allowed
               </div>
             </div>
           </div>
